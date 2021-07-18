@@ -35,15 +35,17 @@ import 'package:insta_ui_only/myColors.dart';
 import 'package:insta_ui_only/myFonts.dart';
 import 'package:insta_ui_only/mySpaces.dart';
 import 'package:insta_ui_only/sizeConfig.dart';
-import 'package:instagram_ui_clone/providers/DUMMY_DATA.dart';
+import 'package:insta_ui_only/providers/DUMMY_DATA.dart';
 
-class Search extends StatelessWidget {
+class SearchPage extends StatelessWidget {
   final data = DummyData();
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-          color: appbarColor,
+          color: MediaQuery.of(context).platformBrightness == Brightness.light
+              ? kBlack
+              : kWhite,
           child: Column(
             children: [
               SingleChildScrollView(

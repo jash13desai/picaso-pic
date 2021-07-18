@@ -8,23 +8,25 @@
 //     return Container();
 //   }
 // }
-
+import 'package:insta_ui_only/widgets/stories_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:insta_ui_only/models/story.dart';
+import 'package:insta_ui_only/models/user.dart';
 import 'package:insta_ui_only/myColors.dart';
 import 'package:insta_ui_only/myFonts.dart';
 import 'package:insta_ui_only/mySpaces.dart';
+import 'package:insta_ui_only/providers/DUMMY_DATA.dart';
 import 'package:insta_ui_only/sizeConfig.dart';
-// import 'package:insta_ui_only/story.dart';
-// import 'package:insta_ui_only/models/user.dart';
-// import 'package:insta_ui_only/providers/DUMMY_DATA.dart';
 
-class ProfilePage extends StatelessWidget {
+class AccountPage extends StatelessWidget {
   final User data = DummyData().currentUser;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        color: appbarColor,
+        color: MediaQuery.of(context).platformBrightness == Brightness.light
+            ? kBlack
+            : kWhite,
         child: Column(
           children: [
             Padding(
@@ -35,9 +37,9 @@ class ProfilePage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Story(
-                        imageUrl: data.imageUrl,
-                        radii: SizeConfig.horizontalBlockSize * 12,
+                      StoryWidget(
+                        storyImage: AssetImage("assets/images/labyrinth.jpg"),
+                        storyName: 'Your Story',
                       ),
                       // Container(
                       //   padding: const EdgeInsets.all(5),
@@ -144,19 +146,19 @@ class ProfilePage extends StatelessWidget {
                           ),
                         ),
                         MySpaces.hGapInBetween,
-                        Story(
-                          imageUrl: data.imageUrl,
-                          radii: SizeConfig.horizontalBlockSize * 8,
+                        StoryWidget(
+                          storyImage: AssetImage("assets/images/labyrinth.jpg"),
+                          storyName: 'Your Story',
                         ),
                         MySpaces.hGapInBetween,
-                        Story(
-                          imageUrl: data.imageUrl,
-                          radii: SizeConfig.horizontalBlockSize * 8,
+                        StoryWidget(
+                          storyImage: AssetImage("assets/images/labyrinth.jpg"),
+                          storyName: 'Your Story',
                         ),
                         MySpaces.hGapInBetween,
-                        Story(
-                          imageUrl: data.imageUrl,
-                          radii: SizeConfig.horizontalBlockSize * 8,
+                        StoryWidget(
+                          storyImage: AssetImage("assets/images/labyrinth.jpg"),
+                          storyName: 'Your Story',
                         ),
                       ],
                     ),

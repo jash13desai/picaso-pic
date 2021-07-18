@@ -7,3 +7,4 @@ const Color kWhite = Colors.white;
 const Color kBlack = Colors.black;
 const Color kBlue = Color.fromRGBO(61, 130, 255, 1);
 const Color darkBlue = Color.fromRGBO(70, 70, 235, 1);
+const Color storyColor = Color.fromRGBO(72, 72, 74, 1);

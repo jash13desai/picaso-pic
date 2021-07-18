@@ -22,7 +22,7 @@ class SearchPage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.fromLTRB(
                     0,
-                    50,
+                    80,
                     0,
                     50,
                   ),
@@ -35,6 +35,10 @@ class SearchPage extends StatelessWidget {
                       ...["IGTV", "Shop", "Style", "Sports", "Auto", "Random"]
                           .map((text) {
                         return Container(
+                          color: MediaQuery.of(context).platformBrightness ==
+                                  Brightness.light
+                              ? kWhite
+                              : kBlack,
                           margin:
                               EdgeInsets.symmetric(horizontal: 9, vertical: 3),
                           child: TextButton(
@@ -43,8 +47,8 @@ class SearchPage extends StatelessWidget {
                                 backgroundColor:
                                     MediaQuery.of(context).platformBrightness ==
                                             Brightness.light
-                                        ? kBlack
-                                        : kWhite,
+                                        ? kWhite
+                                        : kBlack,
                                 shape: RoundedRectangleBorder(
                                   side: BorderSide(
                                       color: kGrey.withOpacity(0.5), width: 1),

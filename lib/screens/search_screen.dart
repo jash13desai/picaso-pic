@@ -1,34 +1,3 @@
-// import 'package:flutter/material.dart';
-// import 'package:insta_ui_only/widgets/searchbar_widget.dart';
-
-// class SearchPage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Column(
-//         children: [
-//           Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceAround,
-//             crossAxisAlignment: CrossAxisAlignment.center,
-//             children: [
-//               Padding(
-//                 padding: EdgeInsets.fromLTRB(
-//                   0,
-//                   50,
-//                   0,
-//                   0,
-//                 ),
-//                 child: SearchBar(),
-//               ),
-
-//             ],
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:insta_ui_only/myColors.dart';
@@ -36,6 +5,7 @@ import 'package:insta_ui_only/myFonts.dart';
 import 'package:insta_ui_only/mySpaces.dart';
 import 'package:insta_ui_only/sizeConfig.dart';
 import 'package:insta_ui_only/providers/DUMMY_DATA.dart';
+import 'package:insta_ui_only/widgets/searchbar_widget.dart';
 
 class SearchPage extends StatelessWidget {
   final data = DummyData();
@@ -48,6 +18,15 @@ class SearchPage extends StatelessWidget {
               : kWhite,
           child: Column(
             children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(
+                  0,
+                  50,
+                  0,
+                  0,
+                ),
+                child: SearchBar(),
+              ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(

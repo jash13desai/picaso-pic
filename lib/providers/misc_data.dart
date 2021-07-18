@@ -29,20 +29,10 @@ class DummyData {
   final List<Story> stories = [
     Story(
       userName: "Your Story",
-      imageUrl: "assets/images/img.png",
+      imageUrl: "assets/images/labyrinth.jpg",
     ),
   ];
 
   final List<String> searchImages =
-      List.generate(100, (index) => "assets/images/img.png");
-
-  final List<Widget> chatWidgets = [
-    ChatBox(
-      chatImage: AssetImage("assets/images/labyrinth.jpg"),
-      chatName: "Person 1",
-      chatDetail: "This is a test chamt",
-      time: "now",
-      ringEnabled: true,
-    ),
-  ];
+      List.generate(100, (index) => "assets/images/labyrinth.jpg");
 }

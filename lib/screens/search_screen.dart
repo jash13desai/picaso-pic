@@ -24,7 +24,7 @@ class SearchPage extends StatelessWidget {
                     0,
                     50,
                     0,
-                    0,
+                    50,
                   ),
                   child: SearchBar(),
                 ),
@@ -43,8 +43,8 @@ class SearchPage extends StatelessWidget {
                                 backgroundColor:
                                     MediaQuery.of(context).platformBrightness ==
                                             Brightness.light
-                                        ? kWhite
-                                        : kBlack,
+                                        ? kBlack
+                                        : kWhite,
                                 shape: RoundedRectangleBorder(
                                   side: BorderSide(
                                       color: kGrey.withOpacity(0.5), width: 1),

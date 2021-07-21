@@ -3,6 +3,7 @@ import 'package:insta_ui_only/mySpaces.dart';
 import 'package:insta_ui_only/myColors.dart';
 
 class ActivityWidget extends StatefulWidget {
+  final double widgetHeight;
   final bool isLikeOrComment;
   final double whichOne;
   final AssetImage accountImage;
@@ -11,6 +12,7 @@ class ActivityWidget extends StatefulWidget {
   final String time;
 
   ActivityWidget({
+    required this.widgetHeight,
     required this.whichOne,
     required this.isLikeOrComment,
     required this.accountImage,
@@ -28,6 +30,8 @@ class ActivityWidget extends StatefulWidget {
 class _ActivityWidgetState extends State<ActivityWidget> {
   Widget build(BuildContext context) {
     return Container(
+      height: widget.widgetHeight,
+      width: MediaQuery.of(context).size.width,
       child: widget.whichOne == 0
           ? Row(
               children: [
@@ -90,7 +94,7 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                     ),
                     MySpaces.hGapInBetween,
                     Text(widget.accountName),
-                    Text(" started following\you."),
+                    Text(" started following\ you. "),
                     Text(
                       widget.time,
                       style: TextStyle(
@@ -118,16 +122,16 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                                         : kBlack,
                                 borderRadius: BorderRadius.circular(5),
                                 border: Border.all(
-                                  color: Colors.grey.shade200,
-                                  width: 1.6,
+                                  color: Colors.grey.shade700,
+                                  width: 1,
                                 ),
                               ),
                               child: InkWell(
-                                splashColor: Colors.blue,
+                                splashColor: Colors.grey,
                                 borderRadius: BorderRadius.circular(10),
                                 child: Container(
-                                  height: 20,
-                                  width: 50,
+                                  height: 30,
+                                  width: 100,
                                   child: Center(
                                     child: Text(
                                       'Message',
@@ -155,20 +159,20 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                             },
                             child: Ink(
                               decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: Colors.blue,
                                 borderRadius: BorderRadius.circular(5),
                                 border: Border.fromBorderSide(BorderSide.none),
                               ),
                               child: InkWell(
                                 borderRadius: BorderRadius.circular(10),
                                 child: Container(
-                                  height: 20,
-                                  width: 50,
+                                  height: 30,
+                                  width: 100,
                                   child: Center(
                                     child: Text(
                                       'Follow',
                                       style: TextStyle(
-                                        color: Colors.black,
+                                        color: Colors.white,
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12.0,
                                       ),

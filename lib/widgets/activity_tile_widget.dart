@@ -139,7 +139,7 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                                 borderRadius: BorderRadius.circular(10),
                                 child: Container(
                                   height: 30,
-                                  width: 80,
+                                  width: 90,
                                   child: Center(
                                     child: Text(
                                       'Following',
@@ -182,7 +182,7 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                                 borderRadius: BorderRadius.circular(10),
                                 child: Container(
                                   height: 30,
-                                  width: 80,
+                                  width: 60,
                                   child: Center(
                                     child: Text(
                                       'Follow',

@@ -17,3 +17,6 @@ class Insta extends StatelessWidget {
 }
 
 //  insta pe ab authorization h orr baaki ke features add krne h -- week3 k tasks!
+
+//renamed the main folder of the project for Week03-Tasks -- just to check whether things go smooth on 
+// renaming both the project from both the ends! :)

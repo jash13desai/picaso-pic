@@ -241,7 +241,9 @@ class AccountPage extends StatelessWidget {
                     ? Colors.grey.shade700
                     : Colors.grey.shade700,
                 icon: Icon(
-                  Icons.home,
+                  MediaQuery.of(context).platformBrightness == Brightness.dark
+                      ? Icons.home
+                      : Icons.home_outlined,
                 ),
                 onPressed: () {
                   Navigator.push(

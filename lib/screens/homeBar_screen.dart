@@ -127,7 +127,9 @@ class InstaHome extends StatelessWidget {
                     ? Colors.grey.shade700
                     : Colors.grey.shade700,
                 icon: Icon(
-                  Icons.account_box,
+                  MediaQuery.of(context).platformBrightness == Brightness.dark
+                      ? Icons.account_box
+                      : Icons.account_box_outlined,
                 ),
                 onPressed: () {
                   Navigator.push(

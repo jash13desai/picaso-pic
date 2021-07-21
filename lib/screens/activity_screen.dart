@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_ui_only/screens/search_screen.dart';
-import 'package:insta_ui_only/widgets/activity_tile_widget.dart';
 import 'package:insta_ui_only/widgets/activity_widget1.dart';
 import 'package:insta_ui_only/widgets/activity_widget2.dart';
 import 'account_screen.dart';
@@ -55,7 +54,9 @@ class ActivityPage extends StatelessWidget {
                     ? Colors.grey.shade700
                     : Colors.grey.shade700,
                 icon: Icon(
-                  Icons.home,
+                  MediaQuery.of(context).platformBrightness == Brightness.dark
+                      ? Icons.home
+                      : Icons.home_outlined,
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -105,7 +106,9 @@ class ActivityPage extends StatelessWidget {
                     ? Colors.grey.shade700
                     : Colors.grey.shade700,
                 icon: Icon(
-                  Icons.account_box,
+                  MediaQuery.of(context).platformBrightness == Brightness.dark
+                      ? Icons.account_box
+                      : Icons.account_box_outlined,
                 ),
                 onPressed: () {
                   Navigator.push(

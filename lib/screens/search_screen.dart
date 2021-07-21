@@ -95,7 +95,9 @@ class SearchPage extends StatelessWidget {
                     ? Colors.grey.shade700
                     : Colors.grey.shade700,
                 icon: Icon(
-                  Icons.home,
+                  MediaQuery.of(context).platformBrightness == Brightness.dark
+                      ? Icons.home
+                      : Icons.home_outlined,
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -145,7 +147,9 @@ class SearchPage extends StatelessWidget {
                     ? Colors.grey.shade700
                     : Colors.grey.shade700,
                 icon: Icon(
-                  Icons.account_box,
+                  MediaQuery.of(context).platformBrightness == Brightness.dark
+                      ? Icons.account_box
+                      : Icons.account_box_outlined,
                 ),
                 onPressed: () {
                   Navigator.push(

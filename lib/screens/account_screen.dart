@@ -121,10 +121,11 @@ class AccountPage extends StatelessWidget {
                         Expanded(
                           child: DefaultTextStyle(
                             style: MyFonts.medium.size(18).setColor(
-                                MediaQuery.of(context).platformBrightness ==
-                                        Brightness.dark
-                                    ? kWhite
-                                    : kBlack),
+                                  MediaQuery.of(context).platformBrightness ==
+                                          Brightness.dark
+                                      ? kWhite
+                                      : kBlack,
+                                ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -237,7 +238,7 @@ class AccountPage extends StatelessWidget {
               IconButton(
                 color: MediaQuery.of(context).platformBrightness ==
                         Brightness.light
-                    ? Colors.black
+                    ? Colors.grey.shade700
                     : Colors.grey.shade700,
                 icon: Icon(
                   Icons.home,
@@ -252,7 +253,7 @@ class AccountPage extends StatelessWidget {
               IconButton(
                 color: MediaQuery.of(context).platformBrightness ==
                         Brightness.light
-                    ? Colors.black
+                    ? Colors.grey.shade700
                     : Colors.grey.shade700,
                 icon: Icon(
                   Icons.search,
@@ -273,7 +274,7 @@ class AccountPage extends StatelessWidget {
               IconButton(
                 color: MediaQuery.of(context).platformBrightness ==
                         Brightness.light
-                    ? Colors.black
+                    ? Colors.grey.shade700
                     : Colors.grey.shade700,
                 icon: Icon(FontAwesomeIcons.heart),
                 iconSize: 20,

@@ -12,7 +12,12 @@ Future createAlertDialog(BuildContext context) {
     context: context,
     builder: (context) {
       return AlertDialog(
-        title: Text('Forgot Password?'),
+        title: Text(
+          'Forgot Password?',
+          style: TextStyle(
+            color: Colors.pink,
+          ),
+        ),
         content: Text('Only FrontEnd work done.\ Sorry no BackEnd!'),
         actions: <Widget>[
           ElevatedButton(

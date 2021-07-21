@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/screens/login_screen.dart';
 import 'package:insta_ui_only/screens/signup_screen.dart';
-
-import 'package:insta_ui_only/globals.dart';
-
 import '../myColors.dart';
 
 class Intro extends StatelessWidget {
@@ -67,7 +64,7 @@ class Intro extends StatelessWidget {
                                   child: Text(
                                     'Log In',
                                     style: TextStyle(
-                                      color: Global.white,
+                                      color: Colors.white,
                                       fontWeight: FontWeight.w600,
                                       fontSize: 16.0,
                                     ),

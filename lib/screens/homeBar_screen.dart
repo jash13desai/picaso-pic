@@ -12,17 +12,6 @@ class InstaHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:
-            MediaQuery.of(context).platformBrightness == Brightness.light
-                ? Colors.white
-                : Colors.black,
-        actionsIconTheme: IconThemeData(
-          color: MediaQuery.of(context).platformBrightness == Brightness.light
-              ? kBlack
-              : kWhite,
-        ),
-        centerTitle: true,
-        elevation: 1.0,
         leading: IconButton(
           onPressed: () {},
           icon: Icon(

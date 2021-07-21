@@ -9,12 +9,6 @@ class DMPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:
-            MediaQuery.of(context).platformBrightness == Brightness.light
-                ? Colors.white
-                : Colors.black,
-        centerTitle: true,
-        elevation: 1.0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
           iconSize: 25,
@@ -86,9 +80,15 @@ class DMPage extends StatelessWidget {
       ),
       body: DMScrollList(),
       bottomNavigationBar: Container(
+        color: MediaQuery.of(context).platformBrightness == Brightness.light
+            ? Colors.white
+            : Colors.black,
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 0.05,
+        height: MediaQuery.of(context).size.height * 0.055,
         child: BottomAppBar(
+          color: MediaQuery.of(context).platformBrightness == Brightness.light
+              ? Colors.white
+              : Colors.black,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

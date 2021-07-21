@@ -89,7 +89,7 @@ class InstaHome extends StatelessWidget {
               IconButton(
                 color: MediaQuery.of(context).platformBrightness ==
                         Brightness.light
-                    ? Colors.black
+                    ? Colors.grey.shade700
                     : Colors.grey.shade700,
                 icon: Icon(
                   Icons.search,
@@ -110,7 +110,7 @@ class InstaHome extends StatelessWidget {
               IconButton(
                 color: MediaQuery.of(context).platformBrightness ==
                         Brightness.light
-                    ? Colors.black
+                    ? Colors.grey.shade700
                     : Colors.grey.shade700,
                 icon: Icon(FontAwesomeIcons.heart),
                 iconSize: 20,
@@ -124,7 +124,7 @@ class InstaHome extends StatelessWidget {
               IconButton(
                 color: MediaQuery.of(context).platformBrightness ==
                         Brightness.light
-                    ? Colors.black
+                    ? Colors.grey.shade700
                     : Colors.grey.shade700,
                 icon: Icon(
                   Icons.account_box,

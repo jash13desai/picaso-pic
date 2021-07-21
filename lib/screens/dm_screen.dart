@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/myColors.dart';
 import 'package:insta_ui_only/screens/account_screen.dart';
 import 'dm_list_screen.dart';
 import 'homeBar_screen.dart';

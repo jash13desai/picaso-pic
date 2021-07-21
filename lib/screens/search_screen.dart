@@ -92,7 +92,7 @@ class SearchPage extends StatelessWidget {
               IconButton(
                 color: MediaQuery.of(context).platformBrightness ==
                         Brightness.light
-                    ? Colors.black
+                    ? Colors.grey.shade700
                     : Colors.grey.shade700,
                 icon: Icon(
                   Icons.home,
@@ -128,7 +128,7 @@ class SearchPage extends StatelessWidget {
               IconButton(
                 color: MediaQuery.of(context).platformBrightness ==
                         Brightness.light
-                    ? Colors.black
+                    ? Colors.grey.shade700
                     : Colors.grey.shade700,
                 icon: Icon(FontAwesomeIcons.heart),
                 iconSize: 20,
@@ -142,7 +142,7 @@ class SearchPage extends StatelessWidget {
               IconButton(
                 color: MediaQuery.of(context).platformBrightness ==
                         Brightness.light
-                    ? Colors.black
+                    ? Colors.grey.shade700
                     : Colors.grey.shade700,
                 icon: Icon(
                   Icons.account_box,
@@ -159,86 +159,5 @@ class SearchPage extends StatelessWidget {
         ),
       ),
     );
-//     return Material(
-//       child: SingleChildScrollView(
-//         child: Container(
-//             color: MediaQuery.of(context).platformBrightness == Brightness.light
-//                 ? kWhite
-//                 : kBlack,
-//             child: Column(
-//               children: [
-//                 Padding(
-//                   padding: EdgeInsets.fromLTRB(
-//                     0,
-//                     80,
-//                     0,
-//                     50,
-//                   ),
-//                   child: SearchBar(),
-//                 ),
-//                 SingleChildScrollView(
-//                   scrollDirection: Axis.horizontal,
-//                   child: Row(
-//                     children: [
-//                       ...["IGTV", "Shop", "Style", "Sports", "Auto", "Random"]
-//                           .map((text) {
-//                         return Container(
-//                           color: MediaQuery.of(context).platformBrightness ==
-//                                   Brightness.light
-//                               ? kWhite
-//                               : kBlack,
-//                           margin:
-//                               EdgeInsets.symmetric(horizontal: 9, vertical: 3),
-//                           child: TextButton(
-//                               style: TextButton.styleFrom(
-//                                 padding: EdgeInsets.symmetric(vertical: 8),
-//                                 backgroundColor:
-//                                     MediaQuery.of(context).platformBrightness ==
-//                                             Brightness.light
-//                                         ? kWhite
-//                                         : kBlack,
-//                                 shape: RoundedRectangleBorder(
-//                                   side: BorderSide(
-//                                       color: kGrey.withOpacity(0.5), width: 1),
-//                                   borderRadius: BorderRadius.all(
-//                                     Radius.circular(8),
-//                                   ),
-//                                 ),
-//                               ),
-//                               onPressed: () {},
-//                               child: Text(
-//                                 text,
-//                                 style: MyFonts.medium
-//                                     .setColor(
-//                                       MediaQuery.of(context)
-//                                                   .platformBrightness ==
-//                                               Brightness.light
-//                                           ? kBlack
-//                                           : kWhite,
-//                                     )
-//                                     .size(SizeConfig.horizontalBlockSize * 4),
-//                               )),
-//                         );
-//                       }).toList()
-//                     ],
-//                   ),
-//                 ),
-//                 MySpaces.vGapInBetween,
-//                 StaggeredGridView.countBuilder(
-//                   shrinkWrap: true,
-//                   physics: NeverScrollableScrollPhysics(),
-//                   crossAxisCount: 3,
-//                   itemCount: data.searchImages.length,
-//                   itemBuilder: (context, index) =>
-//                       Image.asset(data.searchImages[index]),
-//                   staggeredTileBuilder: (index) => StaggeredTile.count(
-//                       (index % 10 == 0) ? 2 : 1, (index % 10 == 0) ? 2 : 1),
-//                   mainAxisSpacing: 8.0,
-//                   crossAxisSpacing: 8.0,
-//                 )
-//               ],
-//             )),
-//       ),
-//     );
   }
 }

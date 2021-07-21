@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/mySpaces.dart';
 import 'package:insta_ui_only/myColors.dart';
+import 'package:insta_ui_only/screens/login_screen.dart';
 
 class ActivityWidget extends StatefulWidget {
   final double widgetHeight;
@@ -8,7 +9,7 @@ class ActivityWidget extends StatefulWidget {
   final double whichOne;
   final AssetImage accountImage;
   final String accountName;
-  final Image sideImage;
+  final AssetImage sideImage;
   final String time;
 
   ActivityWidget({
@@ -66,11 +67,15 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                   ],
                 ),
                 Container(
-                  height: 35,
-                  width: 35,
-                  child: Flexible(
-                    fit: FlexFit.tight,
-                    child: widget.sideImage,
+                  padding: const EdgeInsets.only(left: 8.0),
+                  height: 20,
+                  width: 20,
+                  decoration: new BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: widget.sideImage,
+                    ),
                   ),
                 ),
               ],
@@ -112,6 +117,17 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                               //   context,
                               //   MaterialPageRoute(builder: (context) => LogIn()),
                               // );
+                              createAlertDialog(context).then(
+                                (onValue) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Sorry for the feature-less UI :(',
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
                             },
                             child: Ink(
                               decoration: BoxDecoration(
@@ -154,8 +170,21 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                             onTap: () {
                               // Navigator.push(
                               //   context,
-                              //   MaterialPageRoute(builder: (context) => LogIn()),
+                              //   MaterialPageRoute(
+                              //       builder: (context) => LogIn()),
                               // );
+
+                              createAlertDialog(context).then(
+                                (onValue) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Sorry for the feature-less UI :(',
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
                             },
                             child: Ink(
                               decoration: BoxDecoration(

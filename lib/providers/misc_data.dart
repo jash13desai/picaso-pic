@@ -72,11 +72,11 @@ class MyUserData {
       displayname: "Jash Desai",
       imageUrl: "assets/images/labyrinth.jpg",
       userName: "_jade13._",
-      postNum: 22,
+      postNum: 40,
       followers: 369,
       following: 410,
       bio: "Sentiment is a chemical defect found the losing side..!!",
-      userPosts: List.generate(22, (index) => "${photos[index]}"),
+      userPosts: List.generate(40, (index) => "${photos[index]}"),
     );
   }
 }

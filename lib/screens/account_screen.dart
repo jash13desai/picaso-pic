@@ -44,7 +44,7 @@ class AccountPage extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              MySpaces.hMediumGapInBetween,
+              MySpaces.hLargeGapInBetween,
               IconButton(
                 onPressed: () {
                   // Navigator.pop(

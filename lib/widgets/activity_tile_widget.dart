@@ -40,8 +40,8 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      height: 40,
-                      width: 40,
+                      height: 35,
+                      width: 35,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
@@ -53,21 +53,19 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                     MySpaces.hGapInBetween,
                     Text(widget.accountName),
                     Text(
-                      widget.isLikeOrComment
-                          ? " liked your photo. "
-                          : " commented on your photo. ",
-                    ),
+                        widget.isLikeOrComment
+                            ? " liked your photo. "
+                            : " commented on a photo. ",
+                        style: TextStyle(fontSize: 13)),
                     Text(
                       widget.time,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
+                      style: TextStyle(color: Colors.grey, fontSize: 13),
                     ),
                   ],
                 ),
                 Container(
-                  height: 40,
-                  width: 40,
+                  height: 35,
+                  width: 35,
                   decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
                     image: DecorationImage(
@@ -79,13 +77,13 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
               ],
             )
           : Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      height: 40,
-                      width: 40,
+                      height: 35,
+                      width: 35,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
@@ -96,7 +94,8 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                     ),
                     MySpaces.hGapInBetween,
                     Text(widget.accountName),
-                    Text(" started following\ you. "),
+                    Text(" started following you. ",
+                        style: TextStyle(fontSize: 13)),
                     Text(
                       widget.time,
                       style: TextStyle(
@@ -140,7 +139,7 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                                 borderRadius: BorderRadius.circular(10),
                                 child: Container(
                                   height: 30,
-                                  width: 100,
+                                  width: 80,
                                   child: Center(
                                     child: Text(
                                       'Following',
@@ -183,7 +182,7 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                                 borderRadius: BorderRadius.circular(10),
                                 child: Container(
                                   height: 30,
-                                  width: 100,
+                                  width: 80,
                                   child: Center(
                                     child: Text(
                                       'Follow',

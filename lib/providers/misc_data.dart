@@ -1,38 +1,60 @@
-import 'package:insta_ui_only/models/user.dart';
-import 'package:flutter/material.dart';
-import 'package:insta_ui_only/widgets/dm_widget.dart';
-// import 'package:instagram_ui_clone/screens/search.dart';
+class User {
+  final String userName;
+  final String imageUrl;
+  final String displayname;
+  final int postNum;
+  final int followers;
+  final int following;
+  final String bio;
+  final List userPosts;
 
-import '../models/post.dart';
-import '../models/story.dart';
+  User({
+    required this.userName,
+    required this.imageUrl,
+    required this.displayname,
+    required this.followers,
+    required this.following,
+    required this.postNum,
+    required this.bio,
+    required this.userPosts,
+  });
+}
 
-class DummyData {
-  final tab = TabBar(tabs: <Tab>[
-    new Tab(icon: new Icon(Icons.arrow_forward)),
-    new Tab(icon: new Icon(Icons.arrow_downward)),
-    new Tab(icon: new Icon(Icons.arrow_back)),
-  ]);
-
+class MyUserData {
+  final List photos = [
+    ('assets/images/tony_stark.jpg'),
+    ('assets/images/pet_par.jpg'),
+    ('assets/images/steve_rogers.jpg'),
+    ('assets/images/steph_strange.jpg'),
+    ('assets/images/black_panther.jpg'),
+    ('assets/images/loki_post.jpg'),
+    ('assets/images/mich_jon.jpg'),
+    ('assets/images/nat_rom.jpg'),
+    ('assets/images/nat_rom_post.jpg'),
+    ('assets/images/nat_rom_post1.jpg'),
+    ('assets/images/miles_morales.jpg'),
+    ('assets/images/ned_leeds.jpg'),
+    ('assets/images/spidy.jpg'),
+    ('assets/images/scott_lang.jpg'),
+    ('assets/images/thor.jpg'),
+    ('assets/images/pet_par1.jpg'),
+    ('assets/images/steve_rogers.jpg'),
+    ('assets/images/wade_wilson.jpg'),
+    ('assets/images/ned_post.jpg'),
+    ('assets/images/flerken.jpg'),
+    ('assets/images/tony_stark_post1.jpg'),
+    ('assets/images/pet_par_post.jpg'),
+  ];
   User get currentUser {
     return User(
-      displayname: "User Name",
+      displayname: "Jash Desai",
       imageUrl: "assets/images/labyrinth.jpg",
       userName: "_jade13._",
-      postNum: 5,
-      followers: 1024,
-      following: 102,
-      bio: "Bio line 1 \nBio Line 2",
-      userPosts: List.generate(10, (index) => "assets/images/labyrinth.jpg"),
+      postNum: 22,
+      followers: 369,
+      following: 410,
+      bio: "Sentiment is a chemical defect found the losing side..!!",
+      userPosts: List.generate(22, (index) => "${photos[index]}"),
     );
   }
-
-  final List<Story> stories = [
-    Story(
-      userName: "Your Story",
-      imageUrl: "assets/images/labyrinth.jpg",
-    ),
-  ];
-
-  final List<String> searchImages =
-      List.generate(100, (index) => "assets/images/labyrinth.jpg");
 }

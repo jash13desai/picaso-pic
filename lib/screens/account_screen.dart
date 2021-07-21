@@ -1,33 +1,109 @@
-// import 'package:flutter/material.dart';
-
-// class AccountPage extends StatelessWidget {
-//   const AccountPage({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:insta_ui_only/screens/search_screen.dart';
 import 'package:insta_ui_only/widgets/stories_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/models/story.dart';
-import 'package:insta_ui_only/models/user.dart';
 import 'package:insta_ui_only/myColors.dart';
 import 'package:insta_ui_only/myFonts.dart';
 import 'package:insta_ui_only/mySpaces.dart';
 import 'package:insta_ui_only/providers/misc_data.dart';
-import 'package:insta_ui_only/sizeConfig.dart';
+
+import 'activity_screen.dart';
+import 'homeBar_screen.dart';
 
 class AccountPage extends StatelessWidget {
-  final User data = DummyData().currentUser;
+  final User data = MyUserData().currentUser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor:
+            MediaQuery.of(context).platformBrightness == Brightness.light
+                ? Colors.white
+                : Colors.black,
+        actionsIconTheme: IconThemeData(
+          color: MediaQuery.of(context).platformBrightness == Brightness.light
+              ? kBlack
+              : kWhite,
+        ),
+        centerTitle: false,
+        elevation: 1.0,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => InstaHome()));
+          },
+          icon: Icon(
+            Icons.arrow_back_ios_new,
+            color: MediaQuery.of(context).platformBrightness == Brightness.light
+                ? kBlack
+                : kWhite,
+          ),
+        ),
+        title: SizedBox(
+          height: 35.0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              MySpaces.hMediumGapInBetween,
+              IconButton(
+                onPressed: () {
+                  // Navigator.pop(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => AccountPage()),
+                  // );
+                },
+                icon: Icon(
+                  Icons.lock_rounded,
+                  color: MediaQuery.of(context).platformBrightness ==
+                          Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+                ),
+                iconSize: 20,
+              ),
+              IconButton(
+                onPressed: () {
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => AccountPage()),
+                  // );
+                },
+                icon: Container(
+                  // height: MediaQuery.of(context).size.height * 0.3,
+                  child: Text(
+                    '_jade13._',
+                    style: TextStyle(
+                      color: MediaQuery.of(context).platformBrightness ==
+                              Brightness.light
+                          ? Colors.black
+                          : Colors.white,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+                iconSize: 77,
+              ),
+              IconButton(
+                onPressed: () {
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => AccountPage()),
+                  // );
+                },
+                icon: Icon(
+                  Icons.keyboard_arrow_down,
+                  color: MediaQuery.of(context).platformBrightness ==
+                          Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Container(
-          color: MediaQuery.of(context).platformBrightness == Brightness.light
-              ? kWhite
-              : kBlack,
           child: Column(
             children: [
               Padding(
@@ -40,25 +116,15 @@ class AccountPage extends StatelessWidget {
                       children: [
                         StoryWidget(
                           storyImage: AssetImage("assets/images/labyrinth.jpg"),
-                          storyName: '',
+                          storyName: "",
                         ),
-                        // Container(
-                        //   padding: const EdgeInsets.all(5),
-                        //   decoration: BoxDecoration(
-                        //       shape: BoxShape.circle,
-                        //       border: Border.all(
-                        //         width: 1,
-                        //         color: storyColor,
-                        //       )),
-                        //   child: CircleAvatar(
-                        //     backgroundImage: AssetImage(data.imageUrl),
-                        //     radius: SizeConfig.horizontalBlockSize * 12,
-                        //   ),
-                        // ),
-                        MySpaces.hGapInBetween,
                         Expanded(
                           child: DefaultTextStyle(
-                            style: MyFonts.medium.size(18),
+                            style: MyFonts.medium.size(18).setColor(
+                                MediaQuery.of(context).platformBrightness ==
+                                        Brightness.dark
+                                    ? kWhite
+                                    : kBlack),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -102,11 +168,20 @@ class AccountPage extends StatelessWidget {
                         onPressed: () {},
                         child: Text(
                           "Edit Profile",
-                          style: MyFonts.light.setColor(kWhite).size(17),
+                          style: MyFonts.light
+                              .setColor(
+                                  MediaQuery.of(context).platformBrightness ==
+                                          Brightness.dark
+                                      ? kWhite
+                                      : kBlack)
+                              .size(17),
                         ),
                         style: TextButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(vertical: 7),
-                          backgroundColor: kBlack,
+                          backgroundColor:
+                              MediaQuery.of(context).platformBrightness ==
+                                      Brightness.light
+                                  ? kWhite
+                                  : Colors.grey.shade900,
                           shape: RoundedRectangleBorder(
                             side: BorderSide(
                               color:
@@ -123,59 +198,9 @@ class AccountPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    MySpaces.vSmallestGapInBetween,
-                    Container(
-                      // color: Colors.green,
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      height: SizeConfig.verticalBlockSize * 14,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  width: 1,
-                                  color: storyColor,
-                                )),
-                            child: CircleAvatar(
-                              child: Icon(
-                                Icons.add,
-                                size: SizeConfig.horizontalBlockSize * 8,
-                              ),
-                              radius: SizeConfig.horizontalBlockSize * 8,
-                            ),
-                          ),
-                          MySpaces.hGapInBetween,
-                          StoryWidget(
-                            storyImage:
-                                AssetImage("assets/images/labyrinth.jpg"),
-                            storyName: 'Your Story',
-                          ),
-                          MySpaces.hGapInBetween,
-                          StoryWidget(
-                            storyImage:
-                                AssetImage("assets/images/labyrinth.jpg"),
-                            storyName: 'Your Story',
-                          ),
-                          MySpaces.hGapInBetween,
-                          StoryWidget(
-                            storyImage:
-                                AssetImage("assets/images/labyrinth.jpg"),
-                            storyName: 'Your Story',
-                          ),
-                        ],
-                      ),
-                    ),
                   ],
                 ),
               ),
-              Divider(
-                color: kWhite.withOpacity(0.2),
-                height: 0.5,
-              ),
-              MySpaces.vGapInBetween,
               GridView.builder(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
@@ -186,9 +211,94 @@ class AccountPage extends StatelessWidget {
                 ),
                 itemCount: data.userPosts.length,
                 itemBuilder: (ctx, index) {
-                  return Image.asset(data.userPosts[index]);
+                  return Image.asset(
+                    data.userPosts[index],
+                    fit: BoxFit.cover,
+                  );
                 },
               )
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        color: MediaQuery.of(context).platformBrightness == Brightness.light
+            ? Colors.white
+            : Colors.black,
+        height: 50.0,
+        alignment: Alignment.center,
+        child: BottomAppBar(
+          color: MediaQuery.of(context).platformBrightness == Brightness.light
+              ? Colors.white
+              : Colors.black,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IconButton(
+                color: MediaQuery.of(context).platformBrightness ==
+                        Brightness.light
+                    ? Colors.black
+                    : Colors.grey.shade700,
+                icon: Icon(
+                  Icons.home,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => InstaHome()),
+                  );
+                },
+              ),
+              IconButton(
+                color: MediaQuery.of(context).platformBrightness ==
+                        Brightness.light
+                    ? Colors.black
+                    : Colors.grey.shade700,
+                icon: Icon(
+                  Icons.search,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SearchPage()),
+                  );
+                },
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.add_box,
+                ),
+                onPressed: null,
+              ),
+              IconButton(
+                color: MediaQuery.of(context).platformBrightness ==
+                        Brightness.light
+                    ? Colors.black
+                    : Colors.grey.shade700,
+                icon: Icon(FontAwesomeIcons.heart),
+                iconSize: 20,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ActivityPage()),
+                  );
+                },
+              ),
+              IconButton(
+                color: MediaQuery.of(context).platformBrightness ==
+                        Brightness.light
+                    ? Colors.black
+                    : Colors.white,
+                icon: Icon(
+                  Icons.account_box,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AccountPage()),
+                  );
+                },
+              ),
             ],
           ),
         ),

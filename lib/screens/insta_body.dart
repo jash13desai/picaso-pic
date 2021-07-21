@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'instaList_screen.dart';
+import 'postList_screen.dart';
 
 class InstaBody extends StatelessWidget {
   @override

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/widgets/searchbar_widget.dart';
 import 'package:insta_ui_only/widgets/dm_widget.dart';
-import 'package:insta_ui_only/widgets/textfield_widget.dart';
 
 class DMScrollList extends StatelessWidget {
   @override

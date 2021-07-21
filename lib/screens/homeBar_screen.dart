@@ -6,7 +6,6 @@ import 'account_screen.dart';
 import 'activity_screen.dart';
 import 'dm_screen.dart';
 import 'insta_body.dart';
-// import 'login_screen.dart';
 
 class InstaHome extends StatelessWidget {
   @override

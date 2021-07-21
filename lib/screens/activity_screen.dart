@@ -16,6 +16,7 @@ class ActivityPage extends StatelessWidget {
           'Activity',
           style: TextStyle(
             fontWeight: FontWeight.w100,
+            color: Theme.of(context).colorScheme.onBackground,
           ),
         ),
         bottom: PreferredSize(

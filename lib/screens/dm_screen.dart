@@ -98,7 +98,7 @@ class DMPage extends StatelessWidget {
                 ),
               ),
               Text(
-                "Camera",
+                "  Camera",
                 style: TextStyle(
                   color: Colors.blue.shade300,
                   fontWeight: FontWeight.bold,

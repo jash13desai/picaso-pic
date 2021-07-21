@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_ui_only/screens/search_screen.dart';
-import 'package:insta_ui_only/widgets/activity_widget.dart';
-
+import 'package:insta_ui_only/widgets/activity_tile_widget.dart';
 import 'account_screen.dart';
 import 'homeBar_screen.dart';
 
@@ -28,7 +27,7 @@ class ActivityPage extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(height: 200),
-          ActivityWidget(
+          ActivityTileWidget(
             widgetHeight: 50,
             whichOne: 1.2,
             accountImage: AssetImage("assets/image/labyrinth.jpg"),
@@ -37,7 +36,7 @@ class ActivityPage extends StatelessWidget {
             sideImage: AssetImage("assets/image/spidy.jpg"),
             time: "3m",
           ),
-          ActivityWidget(
+          ActivityTileWidget(
             widgetHeight: 50,
             whichOne: 1.1,
             accountImage: AssetImage("assets/image/labyrinth.jpg"),
@@ -46,7 +45,7 @@ class ActivityPage extends StatelessWidget {
             sideImage: AssetImage("assets/image/spidy.jpg"),
             time: "3m",
           ),
-          ActivityWidget(
+          ActivityTileWidget(
             widgetHeight: 50,
             whichOne: 0,
             accountImage: AssetImage("assets/image/labyrinth.jpg"),

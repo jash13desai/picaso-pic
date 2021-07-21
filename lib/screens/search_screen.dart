@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_ui_only/myColors.dart';
+import 'package:insta_ui_only/providers/misc_data.dart';
 import 'package:insta_ui_only/screens/search_index0.dart';
 import 'account_screen.dart';
 import 'activity_screen.dart';
 import 'homeBar_screen.dart';
 
 class SearchPage extends StatelessWidget {
+  final User data = MyUserData().currentUser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,8 +64,8 @@ class SearchPage extends StatelessWidget {
                 shrinkWrap: true,
                 crossAxisCount: 3,
                 itemCount: 40,
-                itemBuilder: (context, index) => Image.asset(
-                  "assets/images/miles_morales.jpg",
+                itemBuilder: (ctx, index) => Image.asset(
+                  data.userPosts[index],
                   fit: BoxFit.cover,
                 ),
                 staggeredTileBuilder: (index) => StaggeredTile.count(

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_ui_only/myColors.dart';
+import 'package:insta_ui_only/screens/postList_screen.dart';
 import 'package:insta_ui_only/screens/search_screen.dart';
 import 'account_screen.dart';
 import 'activity_screen.dart';
 import 'dm_screen.dart';
-import 'insta_body.dart';
 
 class InstaHome extends StatelessWidget {
   @override
@@ -61,7 +61,14 @@ class InstaHome extends StatelessWidget {
           ),
         ],
       ),
-      body: InstaBody(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Flexible(
+            child: InstaList(),
+          ),
+        ],
+      ),
       bottomNavigationBar: Container(
         color: MediaQuery.of(context).platformBrightness == Brightness.light
             ? Colors.white

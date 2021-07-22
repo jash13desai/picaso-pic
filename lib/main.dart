@@ -39,6 +39,11 @@ class Insta extends StatelessWidget {
   }
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 87ea1bf86706462197de2298845825f313bd57a0
 //renamed the main folder of the project for Week03-Tasks -- just to check whether things go smooth on
 // renaming both the project from both the ends! :)
 

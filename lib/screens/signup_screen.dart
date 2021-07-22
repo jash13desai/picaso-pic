@@ -15,7 +15,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  String _username, _password, _email;
+  String _username, _email, _password, _finalPassword;
   final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
@@ -64,59 +64,59 @@ class _SignUpState extends State<SignUp> {
               child: Column(
                 children: [
                   TextFieldWidget(
-                    onChanged: (value) {
-                      setState(() {
-                        _email = value.trim();
-                      });
-                    },
                     isEmailAddress: true,
                     height: MediaQuery.of(context).size.height * 0.05,
                     width: MediaQuery.of(context).size.width * 0.9,
                     hintText: 'Email',
                     obscureText: false,
                     prefixIconData: Icons.mail_outline,
+                    onChanged: (value) {
+                      setState(() {
+                        _email = value.trim();
+                      });
+                    },
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.0120),
                   TextFieldWidget(
-                    onChanged: (value) {
-                      setState(() {
-                        _username = value.trim();
-                      });
-                    },
                     isEmailAddress: false,
                     height: MediaQuery.of(context).size.height * 0.05,
                     width: MediaQuery.of(context).size.width * 0.9,
                     obscureText: false,
                     hintText: 'Username',
                     prefixIconData: Icons.verified_user,
+                    onChanged: (value) {
+                      setState(() {
+                        _username = value.trim();
+                      });
+                    },
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.0120),
                   TextFieldWidget(
-                    onChanged: (value) {
-                      setState(() {
-                        _password = value.trim();
-                      });
-                    },
                     isEmailAddress: false,
                     height: MediaQuery.of(context).size.height * 0.05,
                     width: MediaQuery.of(context).size.width * 0.9,
                     obscureText: true,
                     hintText: 'Password',
                     prefixIconData: Icons.lock_outline,
-                  ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.0120),
-                  TextFieldWidget(
                     onChanged: (value) {
                       setState(() {
                         _password = value.trim();
                       });
                     },
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.0120),
+                  TextFieldWidget(
                     isEmailAddress: false,
                     height: MediaQuery.of(context).size.height * 0.05,
                     width: MediaQuery.of(context).size.width * 0.9,
                     obscureText: true,
                     hintText: 'Confirm Password',
                     prefixIconData: Icons.lock_outline,
+                    onChanged: (value) {
+                      setState(() {
+                        _finalPassword = value;
+                      });
+                    },
                   ),
                 ],
               ),
@@ -125,7 +125,7 @@ class _SignUpState extends State<SignUp> {
               builder: (context) => Center(
                 child: GestureDetector(
                   onTap: () async {
-                    await Firebase.initializeApp();
+                    // await Firebase.initializeApp();
                     auth.createUserWithEmailAndPassword(
                         email: _email, password: _password);
                     Navigator.of(context).pushReplacement(
@@ -135,7 +135,6 @@ class _SignUpState extends State<SignUp> {
                     //   context,
                     //   MaterialPageRoute(builder: (context) => InstaHome()),
                     // );
-                    // Navigator.of(context).pushReplacementNamed(InstaHome.routeName);
                   },
                   child: Ink(
                     decoration: BoxDecoration(

@@ -40,10 +40,6 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
-  // Stream<FirebaseUser> get user {
-  // return _auth.onAuthStateChanged;
-  // }
-
   String _username, _password;
   final auth = FirebaseAuth.instance;
   @override
@@ -69,7 +65,7 @@ class _LogInState extends State<LogIn> {
                           MaterialPageRoute(builder: (context) => Insta()));
                     },
                   ),
-                )
+                ),
               ],
             ),
             Container(
@@ -98,9 +94,7 @@ class _LogInState extends State<LogIn> {
                     hintText: 'Username',
                     prefixIconData: Icons.mail_outline,
                     onChanged: (value) {
-                      setState(() {
-                        _username = value.trim();
-                      });
+                      _username = value.trim();
                     },
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.015),
@@ -112,9 +106,7 @@ class _LogInState extends State<LogIn> {
                     hintText: 'Password',
                     prefixIconData: Icons.lock_outline,
                     onChanged: (value) {
-                      setState(() {
-                        _password = value.trim();
-                      });
+                      _password = value.trim();
                     },
                   ),
                 ],
@@ -159,7 +151,7 @@ class _LogInState extends State<LogIn> {
               builder: (context) => Center(
                 child: GestureDetector(
                   onTap: () async {
-                    await Firebase.initializeApp();
+                    // await Firebase.initializeApp();
                     auth.signInWithEmailAndPassword(
                         email: _username, password: _password);
                     Navigator.push(

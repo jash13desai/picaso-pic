@@ -65,6 +65,7 @@ class TextFieldWidget extends StatelessWidget {
             color: kGrey,
           ),
         ),
+        onChanged: onChanged,
       ),
     );
   }

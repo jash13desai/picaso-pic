@@ -5,7 +5,7 @@ import 'package:insta_ui_only/theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+  await Firebase.initializeApp();
   runApp(Insta());
 }
 

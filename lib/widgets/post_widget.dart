@@ -12,14 +12,14 @@ class PostWidget extends StatefulWidget {
   final String time;
 
   PostWidget({
-    required this.accountImage,
-    required this.accountName,
-    required this.mainPostImage,
-    required this.likedImage,
-    required this.twoNames,
-    required this.likes,
-    required this.caption,
-    required this.time,
+    this.accountImage,
+    this.accountName,
+    this.mainPostImage,
+    this.likedImage,
+    this.twoNames,
+    this.likes,
+    this.caption,
+    this.time,
   });
 
   @override

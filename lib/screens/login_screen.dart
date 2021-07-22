@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/screens/signup_screen.dart';
@@ -32,7 +34,18 @@ Future createAlertDialog(BuildContext context) {
   );
 }
 
-class LogIn extends StatelessWidget {
+class LogIn extends StatefulWidget {
+  @override
+  _LogInState createState() => _LogInState();
+}
+
+class _LogInState extends State<LogIn> {
+  // Stream<FirebaseUser> get user {
+  // return _auth.onAuthStateChanged;
+  // }
+
+  String _username, _password;
+  final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,10 +65,8 @@ class LogIn extends StatelessWidget {
                     icon: Icon(Icons.arrow_back_ios),
                     iconSize: 25,
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Insta()),
-                      );
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Insta()));
                     },
                   ),
                 )
@@ -80,19 +91,31 @@ class LogIn extends StatelessWidget {
               child: Column(
                 children: [
                   TextFieldWidget(
+                    isEmailAddress: false,
                     height: MediaQuery.of(context).size.height * 0.058,
                     width: MediaQuery.of(context).size.width * 0.9,
                     obscureText: false,
                     hintText: 'Username',
                     prefixIconData: Icons.mail_outline,
+                    onChanged: (value) {
+                      setState(() {
+                        _username = value.trim();
+                      });
+                    },
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.015),
                   TextFieldWidget(
+                    isEmailAddress: false,
                     height: MediaQuery.of(context).size.height * 0.058,
                     width: MediaQuery.of(context).size.width * 0.9,
                     obscureText: true,
                     hintText: 'Password',
                     prefixIconData: Icons.lock_outline,
+                    onChanged: (value) {
+                      setState(() {
+                        _password = value.trim();
+                      });
+                    },
                   ),
                 ],
               ),
@@ -135,7 +158,10 @@ class LogIn extends StatelessWidget {
             Builder(
               builder: (context) => Center(
                 child: GestureDetector(
-                  onTap: () {
+                  onTap: () async {
+                    // await Firebase.initializeApp();
+                    auth.signInWithEmailAndPassword(
+                        email: _username, password: _password);
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => InstaHome()),

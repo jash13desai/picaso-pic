@@ -114,7 +114,7 @@ class DMPage extends StatelessWidget {
 }
 
 class RadiantGradientMask extends StatelessWidget {
-  RadiantGradientMask({required this.child});
+  RadiantGradientMask({this.child});
   final Widget child;
 
   @override

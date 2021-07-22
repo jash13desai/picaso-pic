@@ -12,6 +12,8 @@ class SearchBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextFieldWidget(
+            onChanged: () {},
+            isEmailAddress: false,
             hintText: 'Search',
             obscureText: false,
             height: MediaQuery.of(context).size.height * 0.05,

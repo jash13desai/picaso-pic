@@ -6,8 +6,8 @@ class ButtonWidget extends StatelessWidget {
   final bool hasBorder;
 
   ButtonWidget({
-    required this.title,
-    required this.hasBorder,
+    this.title,
+    this.hasBorder,
   });
 
   @override

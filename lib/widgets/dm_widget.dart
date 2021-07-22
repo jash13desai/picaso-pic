@@ -10,11 +10,11 @@ class ChatBox extends StatelessWidget {
   final bool ringEnabled;
 
   ChatBox({
-    required this.chatImage,
-    required this.chatName,
-    required this.chatDetail,
-    required this.time,
-    required this.ringEnabled,
+    this.chatImage,
+    this.chatName,
+    this.chatDetail,
+    this.time,
+    this.ringEnabled,
   });
 
   @override

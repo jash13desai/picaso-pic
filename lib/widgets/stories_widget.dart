@@ -6,8 +6,8 @@ class StoryWidget extends StatelessWidget {
   final String storyName;
 
   StoryWidget({
-    required this.storyImage,
-    required this.storyName,
+    this.storyImage,
+    this.storyName,
   });
   @override
   Widget build(BuildContext context) {

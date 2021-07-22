@@ -13,13 +13,13 @@ class ActivityTileWidget extends StatefulWidget {
   final String time;
 
   ActivityTileWidget({
-    required this.widgetHeight,
-    required this.whichOne,
-    required this.isLikeOrComment,
-    required this.accountImage,
-    required this.accountName,
-    required this.sideImage,
-    required this.time,
+    this.widgetHeight,
+    this.whichOne,
+    this.isLikeOrComment,
+    this.accountImage,
+    this.accountName,
+    this.sideImage,
+    this.time,
   });
   @override
   _ActivityTileWidgetState createState() => _ActivityTileWidgetState();

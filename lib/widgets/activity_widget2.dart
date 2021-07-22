@@ -4,7 +4,7 @@ import 'activity_tile_widget.dart';
 
 class ActivityWidget2 extends StatelessWidget {
   final String widgetTitle;
-  ActivityWidget2({required this.widgetTitle});
+  ActivityWidget2({this.widgetTitle});
 
   @override
   Widget build(BuildContext context) {

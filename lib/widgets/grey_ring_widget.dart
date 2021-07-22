@@ -4,11 +4,10 @@ import 'package:flutter/material.dart';
 
 class GreyRing extends StatelessWidget {
   const GreyRing({
-    Key? key,
     this.width = 1.0,
     this.padding = 2.5,
-    required this.child,
-  }) : super(key: key);
+    this.child,
+  });
 
   @override
   Widget build(BuildContext context) {

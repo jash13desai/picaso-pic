@@ -4,11 +4,10 @@ import 'package:flutter/material.dart';
 
 class WGradientRing extends StatelessWidget {
   const WGradientRing({
-    Key? key,
     this.width = 2.0,
     this.padding = 0.0,
-    required this.child,
-  }) : super(key: key);
+    this.child,
+  });
 
   @override
   Widget build(BuildContext context) {

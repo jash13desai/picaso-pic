@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/widgets/textfield_widget.dart';
@@ -7,7 +8,14 @@ import '../myColors.dart';
 import 'homeBar_screen.dart';
 import 'login_screen.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
+  @override
+  _SignUpState createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  String _username = '', _password = "", _email = "";
+  final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,6 +63,12 @@ class SignUp extends StatelessWidget {
               child: Column(
                 children: [
                   TextFieldWidget(
+                    onChanged: (value) {
+                      setState(() {
+                        _email = value.trim();
+                      });
+                    },
+                    isEmailAddress: true,
                     height: MediaQuery.of(context).size.height * 0.05,
                     width: MediaQuery.of(context).size.width * 0.9,
                     hintText: 'Email',
@@ -63,6 +77,12 @@ class SignUp extends StatelessWidget {
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.0120),
                   TextFieldWidget(
+                    onChanged: (value) {
+                      setState(() {
+                        _username = value.trim();
+                      });
+                    },
+                    isEmailAddress: false,
                     height: MediaQuery.of(context).size.height * 0.05,
                     width: MediaQuery.of(context).size.width * 0.9,
                     obscureText: false,
@@ -71,6 +91,12 @@ class SignUp extends StatelessWidget {
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.0120),
                   TextFieldWidget(
+                    onChanged: (value) {
+                      setState(() {
+                        _password = value.trim();
+                      });
+                    },
+                    isEmailAddress: false,
                     height: MediaQuery.of(context).size.height * 0.05,
                     width: MediaQuery.of(context).size.width * 0.9,
                     obscureText: true,
@@ -79,6 +105,12 @@ class SignUp extends StatelessWidget {
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.0120),
                   TextFieldWidget(
+                    onChanged: (value) {
+                      setState(() {
+                        _password = value.trim();
+                      });
+                    },
+                    isEmailAddress: false,
                     height: MediaQuery.of(context).size.height * 0.05,
                     width: MediaQuery.of(context).size.width * 0.9,
                     obscureText: true,
@@ -92,10 +124,16 @@ class SignUp extends StatelessWidget {
               builder: (context) => Center(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
+                    auth.createUserWithEmailAndPassword(
+                        email: _email, password: _password);
+                    Navigator.of(context).pushReplacement(
                       MaterialPageRoute(builder: (context) => InstaHome()),
                     );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => InstaHome()),
+                    // );
+                    // Navigator.of(context).pushReplacementNamed(InstaHome.routeName);
                   },
                   child: Ink(
                     decoration: BoxDecoration(

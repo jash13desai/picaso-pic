@@ -7,15 +7,19 @@ class TextFieldWidget extends StatelessWidget {
   final IconData prefixIconData;
   final double height;
   final double width;
+  final bool isEmailAddress;
+  final Function onChanged;
   // final IconData suffinIconData;
   // final IconData prefixIconData;
 
   TextFieldWidget({
-    required this.hintText,
-    required this.obscureText,
-    required this.prefixIconData,
-    required this.height,
-    required this.width,
+    this.hintText,
+    this.obscureText,
+    this.prefixIconData,
+    this.height,
+    this.width,
+    this.isEmailAddress,
+    this.onChanged,
     // required this.suffinIconData,
     // required this.prefixIconData,
   });
@@ -26,6 +30,7 @@ class TextFieldWidget extends StatelessWidget {
       height: height,
       width: width,
       child: TextField(
+        keyboardType: isEmailAddress ? TextInputType.emailAddress : null,
         obscureText: obscureText,
         cursorColor: Colors.grey[400],
         cursorWidth: 2,

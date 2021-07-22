@@ -9,14 +9,14 @@ class User {
   final List userPosts;
 
   User({
-    required this.userName,
-    required this.imageUrl,
-    required this.displayname,
-    required this.followers,
-    required this.following,
-    required this.postNum,
-    required this.bio,
-    required this.userPosts,
+    this.userName,
+    this.imageUrl,
+    this.displayname,
+    this.followers,
+    this.following,
+    this.postNum,
+    this.bio,
+    this.userPosts,
   });
 }
 

@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/widgets/textfield_widget.dart';
@@ -14,7 +15,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  String _username = '', _password = "", _email = "";
+  String _username, _password, _email;
   final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
@@ -123,7 +124,8 @@ class _SignUpState extends State<SignUp> {
             Builder(
               builder: (context) => Center(
                 child: GestureDetector(
-                  onTap: () {
+                  onTap: () async {
+                    await Firebase.initializeApp();
                     auth.createUserWithEmailAndPassword(
                         email: _email, password: _password);
                     Navigator.of(context).pushReplacement(

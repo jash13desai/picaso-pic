@@ -159,7 +159,7 @@ class _LogInState extends State<LogIn> {
               builder: (context) => Center(
                 child: GestureDetector(
                   onTap: () async {
-                    // await Firebase.initializeApp();
+                    await Firebase.initializeApp();
                     auth.signInWithEmailAndPassword(
                         email: _username, password: _password);
                     Navigator.push(

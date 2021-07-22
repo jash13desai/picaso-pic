@@ -28,7 +28,9 @@ class Insta extends StatelessWidget {
             return Intro();
           } else {
             return Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                color: Colors.pink,
+              ),
             );
           }
         },

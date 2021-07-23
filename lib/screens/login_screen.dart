@@ -4,9 +4,9 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/screens/signup_screen.dart';
 import 'package:insta_ui_only/widgets/textfield_widget.dart';
-import 'package:insta_ui_only/globals.dart';
+import 'package:insta_ui_only/globals/globals.dart';
 import 'package:insta_ui_only/main.dart';
-import 'package:insta_ui_only/myColors.dart';
+import 'package:insta_ui_only/globals/myColors.dart';
 import 'homeBar_screen.dart';
 
 Future createAlertDialog(BuildContext context) {

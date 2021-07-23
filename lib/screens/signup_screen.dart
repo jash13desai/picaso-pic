@@ -3,9 +3,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/widgets/textfield_widget.dart';
-import 'package:insta_ui_only/globals.dart';
+import 'package:insta_ui_only/globals/globals.dart';
 import '../main.dart';
-import '../myColors.dart';
+import '../globals/myColors.dart';
 import 'homeBar_screen.dart';
 import 'login_screen.dart';
 

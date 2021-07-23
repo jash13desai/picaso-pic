@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/globals.dart';
+import 'package:insta_ui_only/globals/globals.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String title;

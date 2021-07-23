@@ -2,9 +2,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_ui_only/screens/search_screen.dart';
 import 'package:insta_ui_only/widgets/stories_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/myColors.dart';
-import 'package:insta_ui_only/myFonts.dart';
-import 'package:insta_ui_only/mySpaces.dart';
+import 'package:insta_ui_only/globals/myColors.dart';
+import 'package:insta_ui_only/globals/myFonts.dart';
+import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/providers/misc_data.dart';
 
 import 'activity_screen.dart';

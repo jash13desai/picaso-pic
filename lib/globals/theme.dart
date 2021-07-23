@@ -1,4 +1,4 @@
-import 'package:insta_ui_only/constants.dart';
+import 'package:insta_ui_only/globals/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'myColors.dart';

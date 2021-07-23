@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/myColors.dart';
+import 'package:insta_ui_only/globals/myColors.dart';
 
 class TextFieldWidget extends StatelessWidget {
   final String hintText;

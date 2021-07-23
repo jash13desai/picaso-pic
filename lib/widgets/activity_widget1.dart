@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/mySpaces.dart';
+import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'activity_tile_widget.dart';
 
 class ActivityWidget1 extends StatelessWidget {

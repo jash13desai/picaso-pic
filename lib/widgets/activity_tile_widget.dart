@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/mySpaces.dart';
-import 'package:insta_ui_only/myColors.dart';
+import 'package:insta_ui_only/globals/mySpaces.dart';
+import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/screens/login_screen.dart';
 
 class ActivityTileWidget extends StatefulWidget {

@@ -42,10 +42,7 @@ class InstaHome extends StatelessWidget {
               icon: Icon(FontAwesomeIcons.paperPlane),
               iconSize: 25,
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => DMPage()),
-                );
+                Navigator.of(context).pushReplacementNamed(DMPage.route);
               },
             ),
           ),
@@ -81,10 +78,7 @@ class InstaHome extends StatelessWidget {
                   Icons.home,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => InstaHome()),
-                  );
+                  Navigator.of(context).pushReplacementNamed(InstaHome.route);
                 },
               ),
               IconButton(
@@ -96,17 +90,18 @@ class InstaHome extends StatelessWidget {
                   Icons.search,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SearchPage()),
-                  );
+                  Navigator.of(context).pushReplacementNamed(SearchPage.route);
                 },
               ),
               IconButton(
+                color: MediaQuery.of(context).platformBrightness ==
+                        Brightness.light
+                    ? Colors.black
+                    : Colors.white,
                 icon: Icon(
                   Icons.add_box,
                 ),
-                onPressed: null,
+                onPressed: () {},
               ),
               IconButton(
                 color: MediaQuery.of(context).platformBrightness ==
@@ -116,10 +111,8 @@ class InstaHome extends StatelessWidget {
                 icon: Icon(FontAwesomeIcons.heart),
                 iconSize: 20,
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ActivityPage()),
-                  );
+                  Navigator.of(context)
+                      .pushReplacementNamed(ActivityPage.route);
                 },
               ),
               IconButton(
@@ -133,10 +126,7 @@ class InstaHome extends StatelessWidget {
                       : Icons.account_box_outlined,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => AccountPage()),
-                  );
+                  Navigator.of(context).pushReplacementNamed(AccountPage.route);
                 },
               ),
             ],

@@ -12,7 +12,7 @@ class SearchBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextFieldWidget(
-            onChanged: () {},
+            // onChanged: () => null,
             isEmailAddress: false,
             hintText: 'Search',
             obscureText: false,

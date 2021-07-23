@@ -29,10 +29,7 @@ class DMPage extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => AccountPage()),
-                  );
+                  Navigator.of(context).pushReplacementNamed(AccountPage.route);
                 },
                 icon: Container(
                   // height: MediaQuery.of(context).size.height * 0.3,
@@ -51,10 +48,7 @@ class DMPage extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => AccountPage()),
-                  );
+                  Navigator.of(context).pushReplacementNamed(AccountPage.route);
                 },
                 icon: Icon(
                   Icons.keyboard_arrow_down,

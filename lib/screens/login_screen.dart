@@ -8,6 +8,7 @@ import 'package:insta_ui_only/globals/globals.dart';
 import 'package:insta_ui_only/main.dart';
 import 'package:insta_ui_only/globals/myColors.dart';
 import 'homeBar_screen.dart';
+import 'intro_screen.dart';
 
 Future createAlertDialog(BuildContext context) {
   return showDialog(
@@ -62,8 +63,8 @@ class _LogInState extends State<LogIn> {
                     icon: Icon(Icons.arrow_back_ios),
                     iconSize: 25,
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Insta()));
+                      Navigator.of(context)
+                          .pushReplacementNamed(IntroPage.route);
                     },
                   ),
                 ),

@@ -3,6 +3,7 @@ import 'package:insta_ui_only/widgets/searchbar_widget.dart';
 import 'package:insta_ui_only/widgets/dm_widget.dart';
 
 class DMScrollList extends StatelessWidget {
+  static const route = '/dm_list_screen';
   @override
   Widget build(BuildContext context) {
     var deviceSize = MediaQuery.of(context).size;

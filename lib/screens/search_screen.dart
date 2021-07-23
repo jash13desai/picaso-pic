@@ -9,6 +9,7 @@ import 'activity_screen.dart';
 import 'homeBar_screen.dart';
 
 class SearchPage extends StatelessWidget {
+  static const route = '/search_screen';
   final User data = MyUserData().currentUser;
   @override
   Widget build(BuildContext context) {

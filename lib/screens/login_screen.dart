@@ -35,6 +35,7 @@ Future createAlertDialog(BuildContext context) {
 }
 
 class LogIn extends StatefulWidget {
+  static const route = '/login_screen';
   @override
   _LogInState createState() => _LogInState();
 }

@@ -3,6 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:insta_ui_only/screens/intro_screen.dart';
 import 'package:insta_ui_only/globals/theme.dart';
 
+import 'screens/account_screen.dart';
+import 'screens/activity_screen.dart';
+import 'screens/dm_list_screen.dart';
+import 'screens/dm_screen.dart';
+import 'screens/homeBar_screen.dart';
+import 'screens/login_screen.dart';
+import 'screens/postList_screen.dart';
+import 'screens/search_screen.dart';
+import 'screens/signup_screen.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -25,7 +35,7 @@ class Insta extends StatelessWidget {
             print('You have an error! ${snapshot.error.toString()}');
             return Text('Something went wrong!');
           } else if (snapshot.hasData) {
-            return Intro();
+            return IntroPage();
           } else {
             return Center(
               child: CircularProgressIndicator(
@@ -35,6 +45,18 @@ class Insta extends StatelessWidget {
           }
         },
       ),
+      routes: {
+        IntroPage.route: (context) => IntroPage(),
+        LogIn.route: (ctx) => LogIn(),
+        SignUp.route: (ctx) => SignUp(),
+        AccountPage.route: (ctx) => AccountPage(),
+        ActivityPage.route: (context) => ActivityPage(),
+        DMScrollList.route: (ctx) => DMScrollList(),
+        DMPage.route: (ctx) => DMPage(),
+        InstaHome.route: (ctx) => InstaHome(),
+        InstaList.route: (ctx) => InstaList(),
+        SearchPage.route: (ctx) => SearchPage(),
+      },
     );
   }
 }

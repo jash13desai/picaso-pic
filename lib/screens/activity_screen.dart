@@ -7,6 +7,7 @@ import 'account_screen.dart';
 import 'homeBar_screen.dart';
 
 class ActivityPage extends StatelessWidget {
+  static const route = '/activity_screen';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -4,6 +4,7 @@ import 'dm_list_screen.dart';
 import 'homeBar_screen.dart';
 
 class DMPage extends StatelessWidget {
+  static const route = '/dm_screen';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

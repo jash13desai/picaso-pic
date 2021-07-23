@@ -10,6 +10,7 @@ import 'homeBar_screen.dart';
 import 'login_screen.dart';
 
 class SignUp extends StatefulWidget {
+  static const route = '/signup_screen';
   @override
   _SignUpState createState() => _SignUpState();
 }

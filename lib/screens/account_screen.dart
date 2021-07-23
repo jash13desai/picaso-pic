@@ -11,6 +11,7 @@ import 'activity_screen.dart';
 import 'homeBar_screen.dart';
 
 class AccountPage extends StatelessWidget {
+  static const route = '/account_screen';
   final User data = MyUserData().currentUser;
   @override
   Widget build(BuildContext context) {

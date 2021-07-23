@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/screens/login_screen.dart';
 import 'package:insta_ui_only/screens/signup_screen.dart';
-import '../myColors.dart';
+import '../globals/myColors.dart';
 
-class Intro extends StatelessWidget {
+class IntroPage extends StatelessWidget {
+  static const route = '/intro_screen';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:insta_ui_only/myColors.dart';
+import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/screens/postList_screen.dart';
 import 'package:insta_ui_only/screens/search_screen.dart';
 import 'account_screen.dart';
@@ -8,6 +8,7 @@ import 'activity_screen.dart';
 import 'dm_screen.dart';
 
 class InstaHome extends StatelessWidget {
+  static const route = '/homeBar_screen';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

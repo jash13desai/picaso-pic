@@ -3,6 +3,7 @@ import 'package:insta_ui_only/widgets/post_widget.dart';
 import 'stories_screen.dart';
 
 class InstaList extends StatefulWidget {
+  static const route = '/postList_screen';
   @override
   _InstaListState createState() => _InstaListState();
 }

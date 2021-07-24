@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/widgets/textfield_widget.dart';
@@ -7,6 +7,7 @@ import 'package:insta_ui_only/globals/globals.dart';
 import '../main.dart';
 import '../globals/myColors.dart';
 import 'homeBar_screen.dart';
+import 'intro_screen.dart';
 import 'login_screen.dart';
 
 class SignUp extends StatefulWidget {
@@ -36,10 +37,8 @@ class _SignUpState extends State<SignUp> {
                   child: IconButton(
                     icon: Icon(Icons.arrow_back_ios),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Insta()),
-                      );
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          IntroPage.route, (route) => true);
                     },
                   ),
                 )

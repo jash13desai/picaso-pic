@@ -60,10 +60,8 @@ class ActivityPage extends StatelessWidget {
                       : Icons.home_outlined,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => InstaHome()),
-                  );
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      InstaHome.route, (route) => true);
                 },
               ),
               IconButton(
@@ -75,10 +73,8 @@ class ActivityPage extends StatelessWidget {
                   Icons.search,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SearchPage()),
-                  );
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      SearchPage.route, (route) => true);
                 },
               ),
               IconButton(
@@ -95,10 +91,8 @@ class ActivityPage extends StatelessWidget {
                 icon: Icon(FontAwesomeIcons.solidHeart),
                 iconSize: 20,
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ActivityPage()),
-                  );
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      ActivityPage.route, (route) => true);
                 },
               ),
               IconButton(
@@ -112,10 +106,8 @@ class ActivityPage extends StatelessWidget {
                       : Icons.account_box_outlined,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => AccountPage()),
-                  );
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      AccountPage.route, (route) => true);
                 },
               ),
             ],

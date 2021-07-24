@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:insta_ui_only/globals/myColors.dart';
 
 class TextFieldWidget extends StatelessWidget {
@@ -9,6 +10,7 @@ class TextFieldWidget extends StatelessWidget {
   final double width;
   final bool isEmailAddress;
   final Function onChanged;
+  final Function validator;
   // final IconData suffinIconData;
   // final IconData prefixIconData;
 
@@ -20,6 +22,7 @@ class TextFieldWidget extends StatelessWidget {
     this.width,
     this.isEmailAddress,
     this.onChanged,
+    this.validator,
     // required this.suffinIconData,
     // required this.prefixIconData,
   });
@@ -29,7 +32,7 @@ class TextFieldWidget extends StatelessWidget {
     return Container(
       height: height,
       width: width,
-      child: TextField(
+      child: TextFormField(
         keyboardType: isEmailAddress ? TextInputType.emailAddress : null,
         obscureText: obscureText,
         cursorColor: Colors.grey[400],
@@ -66,6 +69,8 @@ class TextFieldWidget extends StatelessWidget {
           ),
         ),
         onChanged: onChanged,
+        validator: validator,
+        textInputAction: TextInputAction.next,
       ),
     );
   }

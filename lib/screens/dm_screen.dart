@@ -16,10 +16,7 @@ class DMPage extends StatelessWidget {
               ? Colors.black
               : Colors.white,
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => InstaHome()),
-            );
+            Navigator.of(context).pushReplacementNamed(InstaHome.route);
           },
         ),
         title: SizedBox(

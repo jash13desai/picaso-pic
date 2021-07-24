@@ -44,10 +44,8 @@ class IntroPage extends StatelessWidget {
                       builder: (context) => Center(
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => LogIn()),
-                            );
+                            Navigator.of(context).pushNamedAndRemoveUntil(
+                                LogIn.route, (route) => true);
                           },
                           child: Ink(
                             decoration: BoxDecoration(
@@ -83,10 +81,8 @@ class IntroPage extends StatelessWidget {
                       builder: (context) => Center(
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => SignUp()),
-                            );
+                            Navigator.of(context).pushNamedAndRemoveUntil(
+                                SignUp.route, (route) => true);
                           },
                           child: Ink(
                             decoration: BoxDecoration(

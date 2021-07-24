@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/screens/signup_screen.dart';
 import 'package:insta_ui_only/widgets/textfield_widget.dart';
 import 'package:insta_ui_only/globals/globals.dart';
-import 'package:insta_ui_only/main.dart';
+// import 'package:insta_ui_only/main.dart';
 import 'package:insta_ui_only/globals/myColors.dart';
 import 'homeBar_screen.dart';
 import 'intro_screen.dart';
@@ -63,8 +63,8 @@ class _LogInState extends State<LogIn> {
                     icon: Icon(Icons.arrow_back_ios),
                     iconSize: 25,
                     onPressed: () {
-                      Navigator.of(context)
-                          .pushReplacementNamed(IntroPage.route);
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          IntroPage.route, (route) => true);
                     },
                   ),
                 ),
@@ -98,6 +98,15 @@ class _LogInState extends State<LogIn> {
                     onChanged: (value) {
                       _username = value.trim();
                     },
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return "Please enter your email!";
+                      }
+                      if (!value.contains("@") || !value.contains(".")) {
+                        return "Please enter a valid email address";
+                      }
+                      return null;
+                    },
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.015),
                   TextFieldWidget(
@@ -109,6 +118,12 @@ class _LogInState extends State<LogIn> {
                     prefixIconData: Icons.lock_outline,
                     onChanged: (value) {
                       _password = value.trim();
+                    },
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return "Please enter your password!";
+                      }
+                      return null;
                     },
                   ),
                 ],
@@ -156,10 +171,8 @@ class _LogInState extends State<LogIn> {
                     // await Firebase.initializeApp();
                     auth.signInWithEmailAndPassword(
                         email: _username, password: _password);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => InstaHome()),
-                    );
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        InstaHome.route, (route) => true);
                   },
                   child: Ink(
                     decoration: BoxDecoration(
@@ -260,10 +273,8 @@ class _LogInState extends State<LogIn> {
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => SignUp()),
-                          );
+                          Navigator.of(context).pushNamedAndRemoveUntil(
+                              SignUp.route, (route) => true);
                         },
                     )
                   ],

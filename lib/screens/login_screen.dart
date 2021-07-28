@@ -137,6 +137,7 @@ class _LogInState extends State<LogIn> {
                             prefixIconData: Icons.mail_outline,
                             onChanged: (value) {
                               _username = value;
+                              _email = _username;
                             },
                             validator: (value) {
                               if (value.isEmpty) {

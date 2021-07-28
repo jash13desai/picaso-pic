@@ -66,7 +66,7 @@ class AccountPage extends StatelessWidget {
                 onPressed: () {},
                 icon: Container(
                   child: Text(
-                    '_jade13._',
+                    '',
                     style: TextStyle(
                       color: MediaQuery.of(context).platformBrightness ==
                               Brightness.light
@@ -105,10 +105,10 @@ class AccountPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ProfilePicture(),
-                        // StoryWidget(
-                        //   storyImage: AssetImage("assets/images/labyrinth.jpg"),
-                        //   storyName: "",
-                        // ),
+                        //
+                        //
+                        //
+                        MySpaces.hGapInBetween,
                         Expanded(
                           child: DefaultTextStyle(
                             style: MyFonts.medium.size(18).setColor(

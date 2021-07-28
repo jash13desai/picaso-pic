@@ -26,7 +26,7 @@ class Insta extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (ctx) => Authentication(),
+      create: (context) => Authentication(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: lightThemeData(context),

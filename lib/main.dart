@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/screens/intro_screen.dart';
 import 'package:insta_ui_only/globals/theme.dart';
+import 'package:provider/provider.dart';
+import 'package:insta_ui_only/providers/authentication.dart';
 
 import 'screens/account_screen.dart';
 import 'screens/activity_screen.dart';
@@ -23,40 +25,43 @@ class Insta extends StatelessWidget {
   final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: lightThemeData(context),
-      darkTheme: darkThemeData(context),
-      // home: Intro(),
-      home: FutureBuilder(
-        future: _fbApp,
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            print('You have an error! ${snapshot.error.toString()}');
-            return Text('Something went wrong!');
-          } else if (snapshot.hasData) {
-            return IntroPage();
-          } else {
-            return Center(
-              child: CircularProgressIndicator(
-                color: Colors.pink,
-              ),
-            );
-          }
+    return ChangeNotifierProvider(
+      create: (ctx) => Authentication(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: lightThemeData(context),
+        darkTheme: darkThemeData(context),
+        // home: Intro(),
+        home: FutureBuilder(
+          future: _fbApp,
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              print('You have an error! ${snapshot.error.toString()}');
+              return Text('Something went wrong!');
+            } else if (snapshot.hasData) {
+              return IntroPage();
+            } else {
+              return Center(
+                child: CircularProgressIndicator(
+                  color: Colors.pink,
+                ),
+              );
+            }
+          },
+        ),
+        routes: {
+          IntroPage.route: (context) => IntroPage(),
+          LogIn.route: (ctx) => LogIn(),
+          SignUp.route: (ctx) => SignUp(),
+          AccountPage.route: (ctx) => AccountPage(),
+          ActivityPage.route: (context) => ActivityPage(),
+          DMScrollList.route: (ctx) => DMScrollList(),
+          DMPage.route: (ctx) => DMPage(),
+          InstaHome.route: (ctx) => InstaHome(),
+          InstaList.route: (ctx) => InstaList(),
+          SearchPage.route: (ctx) => SearchPage(),
         },
       ),
-      routes: {
-        IntroPage.route: (context) => IntroPage(),
-        LogIn.route: (ctx) => LogIn(),
-        SignUp.route: (ctx) => SignUp(),
-        AccountPage.route: (ctx) => AccountPage(),
-        ActivityPage.route: (context) => ActivityPage(),
-        DMScrollList.route: (ctx) => DMScrollList(),
-        DMPage.route: (ctx) => DMPage(),
-        InstaHome.route: (ctx) => InstaHome(),
-        InstaList.route: (ctx) => InstaList(),
-        SearchPage.route: (ctx) => SearchPage(),
-      },
     );
   }
 }

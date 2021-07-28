@@ -1,12 +1,17 @@
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:insta_ui_only/screens/search_screen.dart';
-import 'package:insta_ui_only/widgets/stories_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:insta_ui_only/globals/sizeConfig.dart';
+import 'package:insta_ui_only/models/story.dart';
+
+import 'package:insta_ui_only/widgets/profilePicture_widget.dart';
+// import 'package:insta_ui_only/widgets/stories_widget.dart';
 import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/providers/misc_data.dart';
+import 'package:insta_ui_only/widgets/stories_widget.dart';
 
+import 'search_screen.dart';
 import 'activity_screen.dart';
 import 'homeBar_screen.dart';
 
@@ -47,12 +52,7 @@ class AccountPage extends StatelessWidget {
             children: [
               MySpaces.hLargeGapInBetween,
               IconButton(
-                onPressed: () {
-                  // Navigator.pop(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => AccountPage()),
-                  // );
-                },
+                onPressed: () {},
                 icon: Icon(
                   Icons.lock_rounded,
                   color: MediaQuery.of(context).platformBrightness ==
@@ -63,14 +63,8 @@ class AccountPage extends StatelessWidget {
                 iconSize: 20,
               ),
               IconButton(
-                onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => AccountPage()),
-                  // );
-                },
+                onPressed: () {},
                 icon: Container(
-                  // height: MediaQuery.of(context).size.height * 0.3,
                   child: Text(
                     '_jade13._',
                     style: TextStyle(
@@ -85,12 +79,7 @@ class AccountPage extends StatelessWidget {
                 iconSize: 77,
               ),
               IconButton(
-                onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => AccountPage()),
-                  // );
-                },
+                onPressed: () {},
                 icon: Icon(
                   Icons.keyboard_arrow_down,
                   color: MediaQuery.of(context).platformBrightness ==
@@ -115,10 +104,11 @@ class AccountPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        StoryWidget(
-                          storyImage: AssetImage("assets/images/labyrinth.jpg"),
-                          storyName: "",
-                        ),
+                        ProfilePicture(),
+                        // StoryWidget(
+                        //   storyImage: AssetImage("assets/images/labyrinth.jpg"),
+                        //   storyName: "",
+                        // ),
                         Expanded(
                           child: DefaultTextStyle(
                             style: MyFonts.medium.size(18).setColor(
@@ -200,9 +190,56 @@ class AccountPage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    MySpaces.vSmallestGapInBetween,
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      height: SizeConfig.verticalBlockSize * 14,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                width: 1,
+                                color: storyColor,
+                              ),
+                            ),
+                            child: CircleAvatar(
+                              child: Icon(
+                                Icons.add,
+                                size: SizeConfig.horizontalBlockSize * 8,
+                              ),
+                              radius: SizeConfig.horizontalBlockSize * 8,
+                            ),
+                          ),
+                          MySpaces.hGapInBetween,
+                          StoryWidget(
+                            storyImage: AssetImage(data.imageUrl),
+                            storyName: "",
+                          ),
+                          MySpaces.hGapInBetween,
+                          StoryWidget(
+                            storyImage: AssetImage(data.imageUrl),
+                            storyName: "",
+                          ),
+                          MySpaces.hGapInBetween,
+                          StoryWidget(
+                            storyImage: AssetImage(data.imageUrl),
+                            storyName: "",
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
+              Divider(
+                color: kWhite.withOpacity(0.2),
+                height: 0.5,
+              ),
+              MySpaces.vGapInBetween,
               GridView.builder(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,

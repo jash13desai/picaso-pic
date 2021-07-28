@@ -1,14 +1,59 @@
+import 'dart:io';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:insta_ui_only/globals/myColors.dart';
-import 'package:insta_ui_only/screens/postList_screen.dart';
-import 'package:insta_ui_only/screens/search_screen.dart';
+
+import 'postList_screen.dart';
+import 'search_screen.dart';
 import 'account_screen.dart';
 import 'activity_screen.dart';
 import 'dm_screen.dart';
 
-class InstaHome extends StatelessWidget {
+class InstaHome extends StatefulWidget {
   static const route = '/homeBar_screen';
+  final _auth = FirebaseAuth.instance;
+
+  @override
+  _InstaHomeState createState() => _InstaHomeState();
+}
+
+class _InstaHomeState extends State<InstaHome> {
+  File _imageFile;
+  final picker = ImagePicker();
+
+  Future pickImage() async {
+    // Open gallery to select the image
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    // run the build method again to show a loading spinner at the place of this widget
+    setState(() {
+      _imageFile = File(pickedFile.path);
+    });
+
+    // Upload the image to firebase storage with the name as UserId
+    final firebaseStorageRef = FirebaseStorage.instance
+        .ref()
+        .child('images/${widget._auth.currentUser.uid}');
+    final uploadTask = firebaseStorageRef.putFile(_imageFile);
+
+    // the response that firebase returns us in uploadTask is the URL of the image which we can show in our app
+    uploadTask.then((taskSnapshot) {
+      taskSnapshot.ref.getDownloadURL().then((value) async {
+        try {
+          await widget._auth.currentUser.updatePhotoURL(value);
+        } catch (error) {
+          print(error);
+        }
+        // Stop the loading once fetching and setting it done
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

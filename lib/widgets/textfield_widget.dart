@@ -11,6 +11,8 @@ class TextFieldWidget extends StatelessWidget {
   final bool isEmailAddress;
   final Function onChanged;
   final Function validator;
+  final Function onFieldSubmitted;
+  final TextEditingController controller;
   // final IconData suffinIconData;
   // final IconData prefixIconData;
 
@@ -23,8 +25,8 @@ class TextFieldWidget extends StatelessWidget {
     this.isEmailAddress,
     this.onChanged,
     this.validator,
-    // required this.suffinIconData,
-    // required this.prefixIconData,
+    this.controller,
+    this.onFieldSubmitted,
   });
 
   @override
@@ -70,6 +72,8 @@ class TextFieldWidget extends StatelessWidget {
         ),
         onChanged: onChanged,
         validator: validator,
+        controller: controller,
+        onFieldSubmitted: onFieldSubmitted,
         textInputAction: TextInputAction.next,
       ),
     );

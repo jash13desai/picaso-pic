@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:insta_ui_only/functions/upload_image.dart';
+import 'package:insta_ui_only/providers/posts.dart';
 import 'package:insta_ui_only/widgets/searchbar_widget.dart';
 import 'package:insta_ui_only/widgets/dm_widget.dart';
+import 'package:provider/provider.dart';
 
-class DMScrollList extends StatelessWidget {
+class DMScrollList extends StatefulWidget {
   static const route = '/dm_list_screen';
+
   @override
+  _DMScrollListState createState() => _DMScrollListState();
+}
+
+class _DMScrollListState extends State<DMScrollList> {
+  @override
+  void initState() {
+    Provider.of<Posts>(context, listen: false).fetchAndSetPosts();
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     var deviceSize = MediaQuery.of(context).size;
     return ListView.builder(

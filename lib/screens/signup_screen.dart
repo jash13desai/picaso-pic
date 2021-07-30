@@ -6,7 +6,7 @@ import 'package:insta_ui_only/globals/globals.dart';
 import 'package:provider/provider.dart';
 import '../globals/myColors.dart';
 import 'homeBar_screen.dart';
-import 'intro_screen.dart';
+// import 'intro_screen.dart';
 import 'login_screen.dart';
 
 class SignUp extends StatefulWidget {

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:insta_ui_only/providers/misc_data.dart';
 import 'package:insta_ui_only/screens/account_screen.dart';
 import 'dm_list_screen.dart';
 import 'homeBar_screen.dart';
+import 'package:insta_ui_only/functions/upload_image.dart' as imageUpload;
 
 class DMPage extends StatelessWidget {
   static const route = '/dm_screen';
+  final User data = MyUserData().currentUser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +33,8 @@ class DMPage extends StatelessWidget {
                   Navigator.of(context).pushReplacementNamed(AccountPage.route);
                 },
                 icon: Container(
-                  // height: MediaQuery.of(context).size.height * 0.3,
                   child: Text(
-                    '_jade13._',
+                    '${data.userName}',
                     style: TextStyle(
                       color: MediaQuery.of(context).platformBrightness ==
                               Brightness.light
@@ -83,19 +86,27 @@ class DMPage extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              RadiantGradientMask(
-                child: Icon(
-                  Icons.camera_alt_rounded,
-                  size: 35,
-                ),
-              ),
-              Text(
-                "  Camera",
-                style: TextStyle(
-                  color: Colors.blue.shade300,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
+              Row(
+                children: [
+                  RadiantGradientMask(
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.camera_alt_rounded,
+                        size: 35,
+                      ),
+                      onPressed: () =>
+                          imageUpload.pickImage(ImageSource.camera),
+                    ),
+                  ),
+                  Text(
+                    "  Camera",
+                    style: TextStyle(
+                      color: Colors.blue.shade300,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

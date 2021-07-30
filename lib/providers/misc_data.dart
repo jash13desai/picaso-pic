@@ -20,9 +20,6 @@ class User {
   });
 }
 
-// class UserActivity {
-//   final
-// }
 class MyUserData {
   final List photos = [
     ('assets/images/tony_stark.jpg'),

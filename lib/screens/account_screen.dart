@@ -1,7 +1,8 @@
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_ui_only/globals/sizeConfig.dart';
-import 'package:insta_ui_only/models/story.dart';
+// import 'package:insta_ui_only/models/story.dart';
 
 import 'package:insta_ui_only/widgets/profilePicture_widget.dart';
 // import 'package:insta_ui_only/widgets/stories_widget.dart';
@@ -35,8 +36,7 @@ class AccountPage extends StatelessWidget {
         elevation: 1.0,
         leading: IconButton(
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => InstaHome()));
+            Navigator.of(context).popAndPushNamed(InstaHome.route);
           },
           icon: Icon(
             Icons.arrow_back_ios_new,
@@ -66,7 +66,7 @@ class AccountPage extends StatelessWidget {
                 onPressed: () {},
                 icon: Container(
                   child: Text(
-                    '',
+                    '${data.userName}',
                     style: TextStyle(
                       color: MediaQuery.of(context).platformBrightness ==
                               Brightness.light

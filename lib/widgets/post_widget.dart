@@ -9,6 +9,7 @@ import '../models/post.dart';
 
 class PostWidget extends StatefulWidget {
   final Post post;
+
   PostWidget(this.post);
 
   // final AssetImage accountImage;

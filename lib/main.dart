@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:insta_ui_only/providers/posts.dart';
 import 'package:insta_ui_only/screens/intro_screen.dart';
 import 'package:insta_ui_only/globals/theme.dart';
 import 'package:provider/provider.dart';
@@ -26,8 +27,15 @@ class Insta extends StatelessWidget {
   final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => Authentication(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (ctx) => Authentication(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => Posts(),
+        ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: lightThemeData(context),

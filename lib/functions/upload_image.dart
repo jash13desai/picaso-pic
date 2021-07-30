@@ -19,6 +19,7 @@ void init(BuildContext ctx) {
 
 Future pickImage(ImageSource uploadMethod) async {
   final pickedFile = await picker.pickImage(source: uploadMethod);
+
   _imageFile = File(pickedFile.path);
 
   final firebaseStorageRef =

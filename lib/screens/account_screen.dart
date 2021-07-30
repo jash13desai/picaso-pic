@@ -61,7 +61,7 @@ class AccountPage extends StatelessWidget {
                 onPressed: () {},
                 icon: Container(
                   child: Text(
-                    '${data.userName}',
+                    data.displayname,
                     style: TextStyle(
                       color: MediaQuery.of(context).platformBrightness ==
                               Brightness.light

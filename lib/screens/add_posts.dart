@@ -5,7 +5,7 @@ import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AddPosts extends StatefulWidget {
-  static const route = 'add_post';
+  static const route = '/add_post';
 
   @override
   _AddPostsState createState() => _AddPostsState();

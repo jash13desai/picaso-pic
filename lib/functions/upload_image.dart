@@ -25,17 +25,13 @@ Future pickImage(ImageSource uploadMethod) async {
       FirebaseStorage.instance.ref().child('images/${_auth.currentUser.uid}/');
   final uploadTask = firebaseStorageRef.putFile(_imageFile);
 
-  uploadTask.then(
-    (taskSnapshot) {
-      taskSnapshot.ref.getDownloadURL().then(
-        (value) async {
-          try {
-            Navigator.of(context).pushNamed(AddPosts.route, arguments: value);
-          } catch (error) {
-            print(error);
-          }
-        },
-      );
-    },
-  );
+  uploadTask.then((taskSnapshot) {
+    taskSnapshot.ref.getDownloadURL().then((value) async {
+      try {
+        Navigator.of(context).pushNamed(AddPosts.route, arguments: value);
+      } catch (error) {
+        print(error);
+      }
+    });
+  });
 }

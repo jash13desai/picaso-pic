@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/functions/upload_image.dart' as imageUpload;
+import 'package:insta_ui_only/globals/sizeConfig.dart';
 import 'package:insta_ui_only/providers/posts.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +30,10 @@ class _InstaHomeState extends State<InstaHome> {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+    imageUpload.init(context);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(

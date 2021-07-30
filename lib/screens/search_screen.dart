@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/providers/misc_data.dart';
 import 'package:insta_ui_only/screens/search_index0.dart';
 import 'account_screen.dart';
 import 'activity_screen.dart';
 import 'homeBar_screen.dart';
+import 'package:insta_ui_only/functions/upload_image.dart' as imageUpload;
 
 class SearchPage extends StatelessWidget {
   static const route = '/search_screen';
+
   final User data = MyUserData().currentUser;
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,7 @@ class SearchPage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () => {},
+            onPressed: () => imageUpload.pickImage(ImageSource.camera),
             icon: MediaQuery.of(context).platformBrightness == Brightness.light
                 ? Image.asset("assets/icons/scan_light.jpg")
                 : Image.asset("assets/icons/scan_dark.jpg"),

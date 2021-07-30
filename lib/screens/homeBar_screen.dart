@@ -113,7 +113,7 @@ class _InstaHomeState extends State<InstaHome> {
                 icon: Icon(
                   Icons.add_box,
                 ),
-                onPressed: () {},
+                onPressed: () => imageUpload.pickImage(ImageSource.camera),
               ),
               IconButton(
                 color: MediaQuery.of(context).platformBrightness ==

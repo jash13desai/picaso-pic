@@ -5,6 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/functions/upload_image.dart' as imageUpload;
+import 'package:insta_ui_only/providers/posts.dart';
+import 'package:provider/provider.dart';
 
 import 'postList_screen.dart';
 import 'search_screen.dart';
@@ -22,6 +24,11 @@ class InstaHome extends StatefulWidget {
 
 class _InstaHomeState extends State<InstaHome> {
   @override
+  void initState() {
+    Provider.of<Posts>(context, listen: false).fetchAndSetPosts();
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

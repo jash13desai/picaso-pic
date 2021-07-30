@@ -4,3 +4,5 @@
 </h1>
 
 **A Basic and Simple Instagram Clone App which is still under construction.**
+
+<img align="center" src="https://github.com/jash-desai/insta-clone/blob/main/insta-clone.png"/>

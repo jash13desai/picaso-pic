@@ -18,10 +18,7 @@ void init(BuildContext ctx) {
 }
 
 Future pickImage(ImageSource uploadMethod) async {
-  // Open gallery to select the image
   final pickedFile = await picker.pickImage(source: uploadMethod);
-
-  // run the build method again to show a loading spinner at the place of this widget
   _imageFile = File(pickedFile.path);
 
   final firebaseStorageRef =
@@ -34,10 +31,9 @@ Future pickImage(ImageSource uploadMethod) async {
         (value) async {
           try {
             Navigator.of(context).pushNamed(AddPosts.route, arguments: value);
-          } catch (e) {
-            print(e);
+          } catch (error) {
+            print(error);
           }
-          // Stop the loading once fetching and setting it done
         },
       );
     },

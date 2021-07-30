@@ -1,6 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:insta_ui_only/providers/misc_data.dart';
 import 'package:insta_ui_only/screens/account_screen.dart';
 import 'dm_list_screen.dart';
 import 'homeBar_screen.dart';
@@ -8,7 +8,6 @@ import 'package:insta_ui_only/functions/upload_image.dart' as imageUpload;
 
 class DMPage extends StatelessWidget {
   static const route = '/dm_screen';
-  final User data = MyUserData().currentUser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +33,7 @@ class DMPage extends StatelessWidget {
                 },
                 icon: Container(
                   child: Text(
-                    '${data.userName}',
+                    FirebaseAuth.instance.currentUser.displayName,
                     style: TextStyle(
                       color: MediaQuery.of(context).platformBrightness ==
                               Brightness.light

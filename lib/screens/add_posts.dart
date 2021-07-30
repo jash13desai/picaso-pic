@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -31,6 +30,9 @@ class _AddPostsState extends State<AddPosts> {
         'imageUrl': imageUrl,
         'caption': _caption,
         'location': _location,
+        'addedBy': FirebaseAuth.instance.currentUser.displayName,
+        'profileUrl': FirebaseAuth.instance.currentUser.photoURL,
+        'timeStamp': DateTime.now(),
       });
     } catch (e) {
       print(e);

@@ -1,26 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:insta_ui_only/globals/myColors.dart';
+import 'package:insta_ui_only/globals/myFonts.dart';
+import 'package:insta_ui_only/globals/mySpaces.dart';
+import 'package:insta_ui_only/globals/sizeConfig.dart';
+import 'package:intl/intl.dart';
+import '../models/post.dart';
 
 class PostWidget extends StatefulWidget {
-  final AssetImage accountImage;
-  final String accountName;
-  final Image mainPostImage;
-  final AssetImage likedImage;
-  final String twoNames;
-  final String likes;
-  final String caption;
-  final String time;
+  final Post post;
+  PostWidget(this.post);
 
-  PostWidget({
-    this.accountImage,
-    this.accountName,
-    this.mainPostImage,
-    this.likedImage,
-    this.twoNames,
-    this.likes,
-    this.caption,
-    this.time,
-  });
+  // final AssetImage accountImage;
+  // final String accountName;
+  // final Image mainPostImage;
+  // final AssetImage likedImage;
+  // final String twoNames;
+  // final String likes;
+  // final String caption;
+  // final String time;
+  // PostWidget({
+  //   this.accountImage,
+  //   this.accountName,
+  //   this.mainPostImage,
+  //   this.likedImage,
+  //   this.twoNames,
+  //   this.likes,
+  //   this.caption,
+  //   this.time,
+  // });
 
   @override
   _PostWidgetState createState() => _PostWidgetState();
@@ -29,6 +37,7 @@ class PostWidget extends StatefulWidget {
 class _PostWidgetState extends State<PostWidget> {
   bool isLikePressed = false;
   bool isBookPressed = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,21 +59,24 @@ class _PostWidgetState extends State<PostWidget> {
                         shape: BoxShape.circle,
                         image: new DecorationImage(
                           fit: BoxFit.cover,
-                          image: widget.accountImage,
+                          // image: widget.accountImage,
+                          // image: widget.accountImage,
+                          image: NetworkImage(widget.post.profileUrl ??
+                              "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
                         ),
                       ),
                     ),
                     SizedBox(width: 10),
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: widget.accountName,
-                            style: Theme.of(context).textTheme.bodyText1,
-                          ),
-                          // ),
-                        ],
-                      ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.post.name,
+                          style: MyFonts.medium.size(16),
+                        ),
+                        MySpaces.vSmallestGapInBetween,
+                        Text(widget.post.location),
+                      ],
                     ),
                   ],
                 ),
@@ -79,7 +91,10 @@ class _PostWidgetState extends State<PostWidget> {
             padding: const EdgeInsets.only(left: 0),
             child: Flexible(
               fit: FlexFit.loose,
-              child: widget.mainPostImage,
+              child: Image.network(
+                widget.post.postUrl,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
           Padding(
@@ -162,54 +177,58 @@ class _PostWidgetState extends State<PostWidget> {
               ],
             ),
           ),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Container(
-                  height: 25.0,
-                  width: 25.0,
-                  decoration: new BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: new DecorationImage(
-                      fit: BoxFit.cover,
-                      image: widget.likedImage,
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: Row(
-                  children: [
-                    Text(
-                      "Liked by ",
-                    ),
-                    Text(
-                      widget.twoNames,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      " and ",
-                    ),
-                    Text(
-                      widget.likes,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      " others",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 10),
-            child: Text(
-              widget.caption,
-              style: TextStyle(fontWeight: FontWeight.w900),
+          // Row(
+          //   children: [
+          //     Padding(
+          //       padding: const EdgeInsets.only(left: 8.0),
+          //       child: Container(
+          //         height: 25.0,
+          //         width: 25.0,
+          //         decoration: new BoxDecoration(
+          //           shape: BoxShape.circle,
+          //           image: new DecorationImage(
+          //             fit: BoxFit.cover,
+          //             image: widget.likedImage,
+          //           ),
+          //         ),
+          //       ),
+          //     ),
+          //     Padding(
+          //       padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          //       child: Row(
+          //         children: [
+          //           Text(
+          //             "Liked by ",
+          //           ),
+          //           Text(
+          //             widget.twoNames,
+          //             style: TextStyle(fontWeight: FontWeight.bold),
+          //           ),
+          //           Text(
+          //             " and ",
+          //           ),
+          //           Text(
+          //             widget.likes,
+          //             style: TextStyle(fontWeight: FontWeight.bold),
+          //           ),
+          //           Text(
+          //             " others",
+          //             style: TextStyle(fontWeight: FontWeight.bold),
+          //           ),
+          //         ],
+          //       ),
+          //     ),
+          //   ],
+          // ),
+          RichText(
+            text: TextSpan(
+              text: widget.post.name + " ",
+              style: MyFonts.medium.size(SizeConfig.textScaleFactor * 17),
+              children: [
+                TextSpan(
+                    text: widget.post.caption,
+                    style: MyFonts.light.size(SizeConfig.textScaleFactor * 15))
+              ],
             ),
           ),
           Padding(
@@ -224,7 +243,8 @@ class _PostWidgetState extends State<PostWidget> {
                     shape: BoxShape.circle,
                     image: new DecorationImage(
                       fit: BoxFit.cover,
-                      image: new AssetImage("assets/images/labyrinth.jpg"),
+                      image: NetworkImage(widget.post.profileUrl ??
+                          "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
                     ),
                   ),
                 ),
@@ -242,15 +262,21 @@ class _PostWidgetState extends State<PostWidget> {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(8, 0, 0, 20),
-            child: Text(
-              widget.time,
-              style: TextStyle(
-                color: Colors.grey,
-              ),
-            ),
+          MySpaces.vGapInBetween,
+          Text(
+            DateFormat('MMMM dd , yy').format(widget.post.date),
+            style: MyFonts.thin.setColor(kGrey),
           ),
+          MySpaces.vGapInBetween,
+          // Padding(
+          //   padding: const EdgeInsets.fromLTRB(8, 0, 0, 20),
+          //   // child: Text(
+          //   //   widget.time,
+          //   //   style: TextStyle(
+          //   //     color: Colors.grey,
+          //   //   ),
+          //   // ),
+          // ),
         ],
       ),
     );

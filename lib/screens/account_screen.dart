@@ -1,17 +1,12 @@
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_ui_only/globals/sizeConfig.dart';
-// import 'package:insta_ui_only/models/story.dart';
-
 import 'package:insta_ui_only/widgets/profilePicture_widget.dart';
-// import 'package:insta_ui_only/widgets/stories_widget.dart';
 import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/providers/misc_data.dart';
 import 'package:insta_ui_only/widgets/stories_widget.dart';
-
 import 'search_screen.dart';
 import 'activity_screen.dart';
 import 'homeBar_screen.dart';
@@ -105,9 +100,6 @@ class AccountPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ProfilePicture(),
-                        //
-                        //
-                        //
                         MySpaces.hGapInBetween,
                         Expanded(
                           child: DefaultTextStyle(

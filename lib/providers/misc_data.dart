@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 class User {
   final String userName;
   final String imageUrl;
@@ -71,7 +73,7 @@ class MyUserData {
     return User(
       displayname: "Jash Desai",
       imageUrl: "assets/images/labyrinth.jpg",
-      userName: "_jade13._",
+      userName: FirebaseAuth.instance.currentUser.email,
       postNum: 40,
       followers: 369,
       following: 410,

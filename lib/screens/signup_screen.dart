@@ -190,10 +190,11 @@ class _SignUpState extends State<SignUp> {
                             //   });
                             // },
                             validator: (value) {
-                              if (value.isEmpty) {
+                              _finalPassword = value;
+                              if (_finalPassword.isEmpty) {
                                 return "Please enter your password again";
                               }
-                              if (value != _passwordController.text) {
+                              if (_finalPassword != _passwordController.text) {
                                 return "Passwords do not match";
                               }
 

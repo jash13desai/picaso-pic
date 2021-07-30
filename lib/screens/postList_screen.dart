@@ -21,28 +21,7 @@ class _InstaListState extends State<InstaList> {
     //           child: InstaStories(),
     //           height: deviceSize.height * 0.15,
     //         )
-    //       : SingleChildScrollView(
-    //           child: Column(
-    //             children: [
-    //               Divider(
-    //                 height: 2,
-    //                 color: Colors.white.withOpacity(0.5),
-    //               ),
-    //               Consumer<Posts>(
-    //                 builder: (ctx, posts, _) {
-    //                   return Column(
-    //                     children: [
-    //                       ...posts.posts
-    //                           .map((post) => PostWidget(post))
-    //                           .toList(),
-    //                     ],
-    //                   );
-    //                 },
-    //               ),
-    //             ],
-    //           ),
-    //         ),
-    // Column(
+    //       : Column(
     //     mainAxisAlignment: MainAxisAlignment.start,
     //     mainAxisSize: MainAxisSize.min,
     //     crossAxisAlignment: CrossAxisAlignment.start,
@@ -212,10 +191,6 @@ class _InstaListState extends State<InstaList> {
           SizedBox(
             child: InstaStories(),
             height: deviceSize.height * 0.15,
-          ),
-          Divider(
-            height: 2,
-            color: Colors.white.withOpacity(0.5),
           ),
           Consumer<Posts>(
             builder: (ctx, posts, _) {

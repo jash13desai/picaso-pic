@@ -18,10 +18,8 @@ class _AddPostsState extends State<AddPosts> {
 
   void save(String imageUrl) async {
     _formKey.currentState.save();
-    final CollectionReference _db = FirebaseFirestore.instance
-        .collection('users')
-        .doc('${FirebaseAuth.instance.currentUser.uid}')
-        .collection('posts');
+    final CollectionReference _db =
+        FirebaseFirestore.instance.collection('posts');
     setState(() {
       isLoading = true;
     });

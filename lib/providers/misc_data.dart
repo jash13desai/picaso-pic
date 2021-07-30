@@ -71,7 +71,7 @@ class MyUserData {
   ];
   User get currentUser {
     return User(
-      displayname: "Jash Desai",
+      displayname: FirebaseAuth.instance.currentUser.email,
       imageUrl: "assets/images/labyrinth.jpg",
       userName: FirebaseAuth.instance.currentUser.email,
       postNum: 40,

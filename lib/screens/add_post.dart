@@ -195,14 +195,11 @@ class _AddPostState extends State<AddPost> {
                           keyboardType: TextInputType.text,
                           textInputAction: TextInputAction.next,
                           onSaved: (value) {
-                            _caption = value;
+                            _location = value;
                           },
                         ),
                       ),
                     ),
-                    // Container(
-                    //   child: Text('$timeStamp'),
-                    // )
                   ],
                 ),
         ),

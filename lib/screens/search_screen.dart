@@ -49,7 +49,7 @@ class SearchPage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () => imageUpload.pickImage(ImageSource.camera),
+            onPressed: () => imageUpload.navigate(),
             icon: MediaQuery.of(context).platformBrightness == Brightness.light
                 ? Image.asset("assets/icons/scan_light.jpg")
                 : Image.asset("assets/icons/scan_dark.jpg"),

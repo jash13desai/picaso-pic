@@ -128,7 +128,7 @@ class ChatBox extends StatelessWidget {
               ],
             ),
             IconButton(
-              onPressed: () => imageUpload.pickImage(ImageSource.camera),
+              onPressed: () => imageUpload.navigate(),
               icon: Icon(
                 FontAwesomeIcons.camera,
                 color: Colors.grey,

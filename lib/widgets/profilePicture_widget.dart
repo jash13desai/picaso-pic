@@ -61,7 +61,7 @@ class _ProfilePictureState extends State<ProfilePicture> {
     return GestureDetector(
       onTap: pickImage,
       child: isLoading
-          ? CircularProgressIndicator()
+          ? CircularProgressIndicator(color: Colors.pink)
           : CircleAvatar(
               radius: SizeConfig.horizontalBlockSize * 11,
               backgroundImage: NetworkImage(

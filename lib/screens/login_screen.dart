@@ -1,16 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/providers/authentication.dart';
 import 'package:insta_ui_only/screens/signup_screen.dart';
 import 'package:insta_ui_only/widgets/textfield_widget.dart';
 import 'package:insta_ui_only/globals/globals.dart';
-// import 'package:insta_ui_only/main.dart';
 import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:provider/provider.dart';
 import 'homeBar_screen.dart';
-// import 'intro_screen.dart';
 
 Future createAlertDialog(BuildContext context) {
   return showDialog(
@@ -84,9 +81,7 @@ class _LogInState extends State<LogIn> {
               : kBlack,
       body: isLoading
           ? Center(
-              // show the progress circle while loading
               child: CircularProgressIndicator(
-                backgroundColor: Colors.pink.shade300,
                 color: Colors.pink.shade300,
               ),
             )

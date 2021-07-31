@@ -6,7 +6,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:insta_ui_only/functions/upload_image.dart';
-
 import 'homeBar_screen.dart';
 
 class AddPost extends StatefulWidget {
@@ -93,6 +92,7 @@ class _AddPostState extends State<AddPost> {
     } catch (error) {
       print(error);
     }
+
     setState(() {
       isLoading = true;
     });
@@ -101,7 +101,8 @@ class _AddPostState extends State<AddPost> {
 
   @override
   Widget build(BuildContext context) {
-    final imageUrl = ModalRoute.of(context).settings.arguments as String;
+    // final imageUrl = ModalRoute.of(context).settings.arguments as String;
+    print(isLoading);
     return Material(
       child: Scaffold(
         appBar: AppBar(

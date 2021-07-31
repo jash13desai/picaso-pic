@@ -1,5 +1,4 @@
-import 'package:flutter/foundation.dart';
-
+// import 'package:flutter/foundation.dart';
 class Post {
   final String postUrl;
   final String location;
@@ -8,12 +7,20 @@ class Post {
   final String name;
   final String profileUrl;
 
+  // Post({
+  //   @required this.postUrl,
+  //   @required this.location,
+  //   @required this.caption,
+  //   @required this.date,
+  //   @required this.name,
+  //   @required this.profileUrl,
+  // });
   Post({
-    @required this.postUrl,
-    @required this.location,
-    @required this.caption,
-    @required this.date,
-    @required this.name,
-    @required this.profileUrl,
+    this.postUrl,
+    this.location,
+    this.caption,
+    this.date,
+    this.name,
+    this.profileUrl,
   });
 }

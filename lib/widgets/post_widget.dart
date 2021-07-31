@@ -87,15 +87,19 @@ class _PostWidgetState extends State<PostWidget> {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 0),
-            child: Flexible(
-              fit: FlexFit.loose,
-              child: Image.network(
-                widget.post.postUrl,
-                fit: BoxFit.contain,
-              ),
-            ),
+          // Padding(
+          //   padding: const EdgeInsets.only(left: 0),
+          //   child: Flexible(
+          //     fit: FlexFit.loose,
+          //     child: Image.network(
+          //       widget.post.postUrl,
+          //       fit: BoxFit.contain,
+          //     ),
+          //   ),
+          // ),
+          Image.network(
+            widget.post.postUrl,
+            fit: BoxFit.contain,
           ),
           Padding(
             padding: const EdgeInsets.all(10.0),
@@ -231,37 +235,37 @@ class _PostWidgetState extends State<PostWidget> {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16.0, 16.0, 0.0, 8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                new Container(
-                  height: 40.0,
-                  width: 40.0,
-                  decoration: new BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: new DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(widget.post.profileUrl ??
-                          "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
-                    ),
-                  ),
-                ),
-                new SizedBox(
-                  width: 10.0,
-                ),
-                Expanded(
-                  child: new TextField(
-                    decoration: new InputDecoration(
-                      border: InputBorder.none,
-                      hintText: "Add a comment...",
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.fromLTRB(16.0, 16.0, 0.0, 8.0),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.start,
+          //     children: <Widget>[
+          //       new Container(
+          //         height: 40.0,
+          //         width: 40.0,
+          //         decoration: new BoxDecoration(
+          //           shape: BoxShape.circle,
+          //           image: new DecorationImage(
+          //             fit: BoxFit.cover,
+          //             image: NetworkImage(widget.post.profileUrl ??
+          //                 "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
+          //           ),
+          //         ),
+          //       ),
+          //       new SizedBox(
+          //         width: 10.0,
+          //       ),
+          //       Expanded(
+          //         child: new TextField(
+          //           decoration: new InputDecoration(
+          //             border: InputBorder.none,
+          //             hintText: "Add a comment...",
+          //           ),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
           MySpaces.vGapInBetween,
           Text(
             DateFormat('MMMM dd , yy').format(widget.post.date),

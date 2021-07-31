@@ -81,9 +81,7 @@ class _LogInState extends State<LogIn> {
               : kBlack,
       body: isLoading
           ? Center(
-              child: CircularProgressIndicator(
-                color: Colors.pink.shade300,
-              ),
+              child: CircularProgressIndicator(color: Colors.pink.shade300),
             )
           : SingleChildScrollView(
               child: Column(
@@ -128,7 +126,7 @@ class _LogInState extends State<LogIn> {
                             height: MediaQuery.of(context).size.height * 0.058,
                             width: MediaQuery.of(context).size.width * 0.9,
                             obscureText: false,
-                            hintText: 'Username',
+                            hintText: 'Email',
                             prefixIconData: Icons.mail_outline,
                             onChanged: (value) {
                               _username = value;

@@ -56,9 +56,7 @@ class _SignUpState extends State<SignUp> {
               : kBlack,
       body: isLoading
           ? Center(
-              child: CircularProgressIndicator(
-                color: Colors.pink.shade300,
-              ),
+              child: CircularProgressIndicator(color: Colors.pink.shade300),
             )
           : SingleChildScrollView(
               child: Column(

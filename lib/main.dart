@@ -8,7 +8,7 @@ import 'package:insta_ui_only/providers/authentication.dart';
 
 import 'screens/account_screen.dart';
 import 'screens/activity_screen.dart';
-import 'screens/add_post.dart';
+// import 'screens/add_post.dart';
 import 'screens/dm_list_screen.dart';
 import 'screens/dm_screen.dart';
 import 'screens/homeBar_screen.dart';

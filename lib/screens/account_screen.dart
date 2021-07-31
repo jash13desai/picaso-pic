@@ -1,7 +1,7 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:insta_ui_only/globals/sizeConfig.dart';
+// import 'package:insta_ui_only/globals/sizeConfig.dart';
 import 'package:insta_ui_only/widgets/profilePicture_widget.dart';
 import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';

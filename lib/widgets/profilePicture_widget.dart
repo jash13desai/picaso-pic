@@ -42,6 +42,7 @@ class _ProfilePictureState extends State<ProfilePicture> {
           (value) async {
             try {
               await _auth.currentUser.updatePhotoURL(value);
+              await _db.update({'imageUrl': value});
             } catch (e) {
               print(e);
             }

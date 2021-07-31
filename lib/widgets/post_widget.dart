@@ -61,7 +61,6 @@ class _PostWidgetState extends State<PostWidget> {
                         image: new DecorationImage(
                           fit: BoxFit.cover,
                           // image: widget.accountImage,
-                          // image: widget.accountImage,
                           image: NetworkImage(widget.post.profileUrl ??
                               "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
                         ),

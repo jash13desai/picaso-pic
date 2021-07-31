@@ -4,13 +4,8 @@ import 'package:insta_ui_only/widgets/post_widget.dart';
 import 'package:provider/provider.dart';
 import 'stories_screen.dart';
 
-class InstaList extends StatefulWidget {
+class InstaList extends StatelessWidget {
   static const route = '/postList_screen';
-  @override
-  _InstaListState createState() => _InstaListState();
-}
-
-class _InstaListState extends State<InstaList> {
   @override
   Widget build(BuildContext context) {
     var deviceSize = MediaQuery.of(context).size;
@@ -185,23 +180,28 @@ class _InstaListState extends State<InstaList> {
     // ],
     // ),
     // );
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          SizedBox(
-            child: InstaStories(),
-            height: deviceSize.height * 0.15,
-          ),
-          Consumer<Posts>(
-            builder: (ctx, posts, _) {
-              return Column(
-                children: [
-                  ...posts.posts.map((post) => PostWidget(post)).toList(),
-                ],
-              );
-            },
-          ),
-        ],
+    return RefreshIndicator(
+      onRefresh: () async {
+        await Provider.of<Posts>(context, listen: false).fetchAndSetPosts();
+      },
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              child: InstaStories(),
+              height: deviceSize.height * 0.15,
+            ),
+            Consumer<Posts>(
+              builder: (ctx, posts, _) {
+                return Column(
+                  children: [
+                    ...posts.posts.map((post) => PostWidget(post)).toList(),
+                  ],
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

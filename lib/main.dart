@@ -8,7 +8,7 @@ import 'package:insta_ui_only/providers/authentication.dart';
 
 import 'screens/account_screen.dart';
 import 'screens/activity_screen.dart';
-import 'screens/add_posts.dart';
+import 'screens/add_post.dart';
 import 'screens/dm_list_screen.dart';
 import 'screens/dm_screen.dart';
 import 'screens/homeBar_screen.dart';
@@ -70,7 +70,7 @@ class Insta extends StatelessWidget {
           InstaHome.route: (ctx) => InstaHome(),
           InstaList.route: (ctx) => InstaList(),
           SearchPage.route: (ctx) => SearchPage(),
-          AddPosts.route: (ctx) => AddPosts(),
+          // AddPost.route: (ctx) => AddPost(),
         },
       ),
     );

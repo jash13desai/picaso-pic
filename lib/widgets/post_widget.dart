@@ -10,7 +10,7 @@ import '../models/post.dart';
 class PostWidget extends StatefulWidget {
   final Post post;
 
-  PostWidget(this.post);
+  const PostWidget(this.post);
 
   // final AssetImage accountImage;
   // final String accountName;
@@ -97,9 +97,12 @@ class _PostWidgetState extends State<PostWidget> {
           //     ),
           //   ),
           // ),
-          Image.network(
-            widget.post.postUrl,
-            fit: BoxFit.contain,
+          Flexible(
+            fit: FlexFit.loose,
+            child: Image.network(
+              widget.post.postUrl,
+              fit: BoxFit.cover,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(10.0),

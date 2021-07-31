@@ -1,21 +1,78 @@
+import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:insta_ui_only/functions/upload_image.dart';
 
 import 'homeBar_screen.dart';
 
-class AddPosts extends StatefulWidget {
+class AddPost extends StatefulWidget {
+  final ImageSource source;
   static const route = '/add_post';
 
+  const AddPost(this.source);
+
   @override
-  _AddPostsState createState() => _AddPostsState();
+  _AddPostState createState() => _AddPostState();
 }
 
-class _AddPostsState extends State<AddPosts> {
+class _AddPostState extends State<AddPost> {
+  File _imageFile;
+  bool isLoading = false;
+  String imageUrl;
+  final picker = ImagePicker();
+
+  Future pickImage() async {
+    // ImageSource source;
+    // print(uploadMethod + ' milind');
+    // if (uploadMethod == 'Gallery') {
+    //   source = ImageSource.gallery;
+    // } else {
+    //   source = ImageSource.camera;
+    // }
+    try {
+      final pickedFile = await picker.pickImage(source: widget.source);
+
+      _imageFile = File(pickedFile.path);
+    } catch (error) {
+      print("ERROR");
+      print(error);
+      Navigator.of(context).pop();
+    }
+
+    setState(() {
+      isLoading = true;
+    });
+
+    final firebaseStorageRef = FirebaseStorage.instance.ref().child(
+        'images/${FirebaseAuth.instance.currentUser.uid}/${DateTime.now().toString()}');
+    firebaseStorageRef.putFile(_imageFile).then((taskSnapshot) {
+      taskSnapshot.ref.getDownloadURL().then((value) {
+        try {
+          imageUrl = value;
+        } catch (error) {
+          print(error);
+        }
+        // Stop the loading once fetching and setting it done
+        setState(() {
+          isLoading = false;
+        });
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    pickImage();
+    super.initState();
+  }
+
   String _caption, _location;
   final _formKey = GlobalKey<FormState>();
-  bool isLoading = false;
+  // bool isLoading = false;
 
   void save(String imageUrl) async {
     _formKey.currentState.save();
@@ -36,7 +93,6 @@ class _AddPostsState extends State<AddPosts> {
     } catch (error) {
       print(error);
     }
-
     setState(() {
       isLoading = true;
     });
@@ -84,7 +140,7 @@ class _AddPostsState extends State<AddPosts> {
         child: isLoading
             ? Center(
                 child: CircularProgressIndicator(
-                  color: Colors.purple,
+                  color: Colors.pink,
                 ),
               )
             : Column(
@@ -100,8 +156,9 @@ class _AddPostsState extends State<AddPosts> {
                         child: Flexible(
                           fit: FlexFit.tight,
                           child: Image.network(
-                            imageUrl,
-                            fit: BoxFit.fill,
+                            imageUrl ??
+                                "https://i.pinimg.com/564x/d7/22/d9/d722d9b3f8f8ae58d2fd3b4cb9dd657c.jpg",
+                            fit: BoxFit.cover,
                           ),
                         ),
                       ),

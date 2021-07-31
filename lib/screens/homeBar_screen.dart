@@ -9,6 +9,7 @@ import 'package:insta_ui_only/globals/sizeConfig.dart';
 import 'package:insta_ui_only/providers/posts.dart';
 import 'package:provider/provider.dart';
 
+import 'add_post.dart';
 import 'postList_screen.dart';
 import 'search_screen.dart';
 import 'account_screen.dart';
@@ -26,7 +27,7 @@ class InstaHome extends StatefulWidget {
 class _InstaHomeState extends State<InstaHome> {
   @override
   void initState() {
-    Provider.of<Posts>(context, listen: false).fetchAndSetPosts();
+    Provider.of<Posts>(context, listen: false).oneTimeFetch();
     super.initState();
   }
 
@@ -37,7 +38,7 @@ class _InstaHomeState extends State<InstaHome> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () => imageUpload.pickImage(ImageSource.camera),
+          onPressed: () => imageUpload.navigate(),
           icon: Icon(
             Icons.camera_alt,
             color: MediaQuery.of(context).platformBrightness == Brightness.light
@@ -124,7 +125,13 @@ class _InstaHomeState extends State<InstaHome> {
                 icon: Icon(
                   Icons.add_box,
                 ),
-                onPressed: () => imageUpload.pickImage(ImageSource.gallery),
+                // onPressed: () => imageUpload.pickImage(ImageSource.gallery),
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddPost(ImageSource.gallery),
+                  ),
+                ),
               ),
               IconButton(
                 color: MediaQuery.of(context).platformBrightness ==

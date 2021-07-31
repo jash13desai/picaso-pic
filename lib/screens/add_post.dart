@@ -155,13 +155,10 @@ class _AddPostState extends State<AddPost> {
                         child: Container(
                           height: 200,
                           width: 300,
-                          child: Flexible(
-                            fit: FlexFit.tight,
-                            child: Image.network(
-                              imageUrl ??
-                                  "https://i.pinimg.com/564x/d7/22/d9/d722d9b3f8f8ae58d2fd3b4cb9dd657c.jpg",
-                              fit: BoxFit.contain,
-                            ),
+                          child: Image.network(
+                            imageUrl ??
+                                "https://i.pinimg.com/564x/d7/22/d9/d722d9b3f8f8ae58d2fd3b4cb9dd657c.jpg",
+                            fit: BoxFit.contain,
                           ),
                         ),
                       ),
@@ -169,35 +166,31 @@ class _AddPostState extends State<AddPost> {
                     Padding(
                       padding: const EdgeInsets.only(
                           top: 0, bottom: 20, right: 20, left: 20),
-                      child: Expanded(
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            labelText: "Add Caption",
-                            prefixIcon: Icon(Icons.text_fields),
-                          ),
-                          keyboardType: TextInputType.text,
-                          textInputAction: TextInputAction.next,
-                          onSaved: (value) {
-                            _caption = value;
-                          },
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Add Caption",
+                          prefixIcon: Icon(Icons.text_fields),
                         ),
+                        keyboardType: TextInputType.text,
+                        textInputAction: TextInputAction.next,
+                        onSaved: (value) {
+                          _caption = value;
+                        },
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
                           top: 0, bottom: 20, right: 20, left: 20),
-                      child: Expanded(
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            labelText: "Add Location",
-                            prefixIcon: Icon(Icons.location_on),
-                          ),
-                          keyboardType: TextInputType.text,
-                          textInputAction: TextInputAction.next,
-                          onSaved: (value) {
-                            _location = value;
-                          },
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          labelText: "Add Location",
+                          prefixIcon: Icon(Icons.location_on),
                         ),
+                        keyboardType: TextInputType.text,
+                        textInputAction: TextInputAction.next,
+                        onSaved: (value) {
+                          _location = value;
+                        },
                       ),
                     ),
                   ],

@@ -35,7 +35,6 @@ class DMPage extends StatelessWidget {
                 },
                 icon: Container(
                   child: Text(
-                    // FirebaseAuth.instance.currentUser.displayName,\
                     data.displayname,
                     style: TextStyle(
                       color: MediaQuery.of(context).platformBrightness ==
@@ -74,7 +73,9 @@ class DMPage extends StatelessWidget {
           ),
         ],
       ),
+      //
       body: DMScrollList(),
+      //
       bottomNavigationBar: Container(
         color: MediaQuery.of(context).platformBrightness == Brightness.light
             ? Colors.white

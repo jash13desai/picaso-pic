@@ -16,6 +16,8 @@ class Post {
     @required this.name,
     @required this.profileUrl,
   });
+}
+
   // Post({
   //   this.postUrl,
   //   this.location,
@@ -24,4 +26,3 @@ class Post {
   //   this.name,
   //   this.profileUrl,
   // });
-}

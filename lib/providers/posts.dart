@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:insta_ui_only/models/post.dart';
 
 class Posts with ChangeNotifier {
-  // bool isInit = true;
   final _auth = FirebaseAuth.instance;
   final List<Post> _posts = [];
   List<Post> get posts {
@@ -33,8 +32,8 @@ class Posts with ChangeNotifier {
           profileUrl: doc['profileUrl'],
         ));
       });
-    } catch (error) {
-      throw error;
+    } catch (e) {
+      throw e;
     }
   }
 

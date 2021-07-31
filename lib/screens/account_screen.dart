@@ -1,3 +1,4 @@
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_ui_only/globals/sizeConfig.dart';
@@ -205,32 +206,32 @@ class AccountPage extends StatelessWidget {
                                     children: [
                                       StoryWidget(
                                         storyImage: AssetImage(
-                                            "assets/images/labyrinth.jpg"),
+                                            "assets/images/user-default-grey.png"),
                                         storyName: 'Foods',
                                       ),
                                       StoryWidget(
                                         storyImage: AssetImage(
-                                            "assets/images/labyrinth.jpg"),
+                                            "assets/images/user-default-grey.png"),
                                         storyName: 'Homies',
                                       ),
                                       StoryWidget(
                                         storyImage: AssetImage(
-                                            "assets/images/labyrinth.jpg"),
+                                            "assets/images/user-default-grey.png"),
                                         storyName: 'Travels',
                                       ),
                                       StoryWidget(
                                         storyImage: AssetImage(
-                                            "assets/images/labyrinth.jpg"),
+                                            "assets/images/user-default-grey.png"),
                                         storyName: 'Parties',
                                       ),
                                       StoryWidget(
                                         storyImage: AssetImage(
-                                            "assets/images/labyrinth.jpg"),
+                                            "assets/images/user-default-grey.png"),
                                         storyName: 'Clubs',
                                       ),
                                       StoryWidget(
                                         storyImage: AssetImage(
-                                            "assets/images/labyrinth.jpg"),
+                                            "assets/images/user-default-grey.png"),
                                         storyName: 'Sports',
                                       ),
                                     ],

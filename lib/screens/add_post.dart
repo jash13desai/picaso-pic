@@ -160,7 +160,7 @@ class _AddPostState extends State<AddPost> {
                             child: Image.network(
                               imageUrl ??
                                   "https://i.pinimg.com/564x/d7/22/d9/d722d9b3f8f8ae58d2fd3b4cb9dd657c.jpg",
-                              fit: BoxFit.cover,
+                              fit: BoxFit.contain,
                             ),
                           ),
                         ),

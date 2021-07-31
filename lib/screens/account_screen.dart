@@ -146,80 +146,98 @@ class AccountPage extends StatelessWidget {
                       style: MyFonts.light.size(15),
                     ),
                     MySpaces.vGapInBetween,
-                    Container(
-                      width: double.infinity,
-                      child: TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "Edit Profile",
-                          style: MyFonts.light
-                              .setColor(
-                                  MediaQuery.of(context).platformBrightness ==
-                                          Brightness.dark
-                                      ? kWhite
-                                      : kBlack)
-                              .size(17),
-                        ),
-                        style: TextButton.styleFrom(
-                          backgroundColor:
-                              MediaQuery.of(context).platformBrightness ==
-                                      Brightness.light
-                                  ? kWhite
-                                  : Colors.grey.shade900,
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                              color:
-                                  MediaQuery.of(context).platformBrightness ==
-                                          Brightness.dark
-                                      ? kWhite.withOpacity(0.5)
-                                      : kBlack.withOpacity(0.5),
-                              width: 0.5,
-                            ),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(8),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Container(
+                        width: double.infinity,
+                        child: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Edit Profile",
+                            style: MyFonts.light
+                                .setColor(
+                                    MediaQuery.of(context).platformBrightness ==
+                                            Brightness.dark
+                                        ? kWhite
+                                        : kBlack)
+                                .size(17),
+                          ),
+                          style: TextButton.styleFrom(
+                            backgroundColor:
+                                MediaQuery.of(context).platformBrightness ==
+                                        Brightness.light
+                                    ? kWhite
+                                    : Colors.grey.shade900,
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                color:
+                                    MediaQuery.of(context).platformBrightness ==
+                                            Brightness.dark
+                                        ? kWhite.withOpacity(0.5)
+                                        : kBlack.withOpacity(0.5),
+                                width: 0.5,
+                              ),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(8),
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
                     MySpaces.vSmallestGapInBetween,
-                    Container(
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      height: SizeConfig.verticalBlockSize * 14,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
+                    new Container(
+                      child: new Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
                           Container(
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                width: 1,
-                                color: storyColor,
+                            height: 100,
+                            width: 1000,
+                            child: new ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: 1,
+                              itemBuilder: (context, index) => Stack(
+                                alignment: Alignment.topLeft,
+                                children: <Widget>[
+                                  Row(
+                                    children: [
+                                      StoryWidget(
+                                        storyImage: AssetImage(
+                                            "assets/images/labyrinth.jpg"),
+                                        storyName: 'Foods',
+                                      ),
+                                      StoryWidget(
+                                        storyImage: AssetImage(
+                                            "assets/images/labyrinth.jpg"),
+                                        storyName: 'Homies',
+                                      ),
+                                      StoryWidget(
+                                        storyImage: AssetImage(
+                                            "assets/images/labyrinth.jpg"),
+                                        storyName: 'Travels',
+                                      ),
+                                      StoryWidget(
+                                        storyImage: AssetImage(
+                                            "assets/images/labyrinth.jpg"),
+                                        storyName: 'Parties',
+                                      ),
+                                      StoryWidget(
+                                        storyImage: AssetImage(
+                                            "assets/images/labyrinth.jpg"),
+                                        storyName: 'Clubs',
+                                      ),
+                                      StoryWidget(
+                                        storyImage: AssetImage(
+                                            "assets/images/labyrinth.jpg"),
+                                        storyName: 'Sports',
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
-                            child: CircleAvatar(
-                              child: Icon(
-                                Icons.add,
-                                size: SizeConfig.horizontalBlockSize * 8,
-                              ),
-                              radius: SizeConfig.horizontalBlockSize * 8,
-                            ),
-                          ),
-                          MySpaces.hGapInBetween,
-                          StoryWidget(
-                            storyImage: AssetImage(data.imageUrl),
-                            storyName: "",
-                          ),
-                          MySpaces.hGapInBetween,
-                          StoryWidget(
-                            storyImage: AssetImage(data.imageUrl),
-                            storyName: "",
-                          ),
-                          MySpaces.hGapInBetween,
-                          StoryWidget(
-                            storyImage: AssetImage(data.imageUrl),
-                            storyName: "",
                           ),
                         ],
                       ),

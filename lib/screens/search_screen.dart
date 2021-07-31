@@ -7,6 +7,7 @@ import 'package:insta_ui_only/providers/misc_data.dart';
 import 'package:insta_ui_only/screens/search_index0.dart';
 import 'account_screen.dart';
 import 'activity_screen.dart';
+import 'add_post.dart';
 import 'homeBar_screen.dart';
 import 'package:insta_ui_only/functions/upload_image.dart' as imageUpload;
 
@@ -123,7 +124,12 @@ class SearchPage extends StatelessWidget {
                 icon: Icon(
                   Icons.add_box,
                 ),
-                onPressed: null,
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddPost(ImageSource.gallery),
+                  ),
+                ),
               ),
               IconButton(
                 color: MediaQuery.of(context).platformBrightness ==

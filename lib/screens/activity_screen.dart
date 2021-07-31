@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:insta_ui_only/screens/search_screen.dart';
 import 'package:insta_ui_only/widgets/activity_widget1.dart';
 import 'package:insta_ui_only/widgets/activity_widget2.dart';
 import 'account_screen.dart';
+import 'add_post.dart';
 import 'homeBar_screen.dart';
 
 class ActivityPage extends StatelessWidget {
@@ -81,7 +83,12 @@ class ActivityPage extends StatelessWidget {
                 icon: Icon(
                   Icons.add_box,
                 ),
-                onPressed: null,
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddPost(ImageSource.gallery),
+                  ),
+                ),
               ),
               IconButton(
                 color: MediaQuery.of(context).platformBrightness ==

@@ -30,9 +30,9 @@ class SearchPage extends StatelessWidget {
         centerTitle: true,
         elevation: 1.0,
         leading: IconButton(
+          // Navigator.of(context).pushReplacementNamed(InstaHome.route);
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => InstaHome()));
+            Navigator.of(context).pushReplacementNamed(InstaHome.route);
           },
           icon: Icon(
             Icons.arrow_back_ios_new,
@@ -104,10 +104,7 @@ class SearchPage extends StatelessWidget {
                       : Icons.home_outlined,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => InstaHome()),
-                  );
+                  Navigator.of(context).pushReplacementNamed(InstaHome.route);
                 },
               ),
               IconButton(
@@ -119,10 +116,7 @@ class SearchPage extends StatelessWidget {
                   Icons.search,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SearchPage()),
-                  );
+                  Navigator.of(context).pushReplacementNamed(SearchPage.route);
                 },
               ),
               IconButton(
@@ -139,10 +133,8 @@ class SearchPage extends StatelessWidget {
                 icon: Icon(FontAwesomeIcons.heart),
                 iconSize: 20,
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ActivityPage()),
-                  );
+                  Navigator.of(context)
+                      .pushReplacementNamed(ActivityPage.route);
                 },
               ),
               IconButton(
@@ -156,10 +148,7 @@ class SearchPage extends StatelessWidget {
                       : Icons.account_box_outlined,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => AccountPage()),
-                  );
+                  Navigator.of(context).pushReplacementNamed(AccountPage.route);
                 },
               ),
             ],

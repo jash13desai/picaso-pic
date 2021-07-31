@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:image_picker/image_picker.dart';
+// import 'package:image_picker/image_picker.dart';
 import 'grey_ring_widget.dart';
 import 'package:insta_ui_only/functions/upload_image.dart' as imageUpload;
 

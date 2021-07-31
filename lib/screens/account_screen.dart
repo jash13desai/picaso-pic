@@ -193,7 +193,7 @@ class AccountPage extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           Container(
-                            height: 100,
+                            height: 89,
                             width: 1000,
                             child: new ListView.builder(
                               scrollDirection: Axis.horizontal,
@@ -245,11 +245,6 @@ class AccountPage extends StatelessWidget {
                   ],
                 ),
               ),
-              Divider(
-                color: kWhite.withOpacity(0.2),
-                height: 0.5,
-              ),
-              MySpaces.vGapInBetween,
               GridView.builder(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,

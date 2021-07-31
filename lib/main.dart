@@ -37,6 +37,7 @@ class Insta extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        title: 'Instagram Clone App!',
         debugShowCheckedModeBanner: false,
         theme: lightThemeData(context),
         darkTheme: darkThemeData(context),
@@ -75,10 +76,3 @@ class Insta extends StatelessWidget {
     );
   }
 }
-
-
-
-//renamed the main folder of the project for Week03-Tasks -- just to check whether things go smooth on
-// renaming both the project from both the ends! :)
-
-// Edit -- Yupp the renaming worked perfectly even the url works fine :)

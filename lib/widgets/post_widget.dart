@@ -97,12 +97,16 @@ class _PostWidgetState extends State<PostWidget> {
           //     ),
           //   ),
           // ),
-          Flexible(
-            fit: FlexFit.loose,
-            child: Image.network(
-              widget.post.postUrl,
-              fit: BoxFit.cover,
-            ),
+          // Flexible(
+          //   fit: FlexFit.loose,
+          //   child: Image.network(
+          //     widget.post.postUrl,
+          //     fit: BoxFit.cover,
+          //   ),
+          // ),
+          Image.network(
+            widget.post.postUrl,
+            fit: BoxFit.cover,
           ),
           Padding(
             padding: const EdgeInsets.all(10.0),

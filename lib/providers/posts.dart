@@ -12,7 +12,7 @@ class Posts with ChangeNotifier {
         return _posts..sort((a, b) => b.date.compareTo(a.date));
       });
     }
-    return _posts..sort((a, b) => a.date.compareTo(b.date));
+    return _posts..sort((a, b) => b.date.compareTo(a.date));
   }
 
   Future<void> fetchPosts() async {

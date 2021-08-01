@@ -11,6 +11,7 @@ class InstaList extends StatelessWidget {
     var deviceSize = MediaQuery.of(context).size;
 
     return RefreshIndicator(
+      color: Colors.pink,
       onRefresh: () async {
         await Provider.of<Posts>(context, listen: false).fetchAndSetPosts();
       },

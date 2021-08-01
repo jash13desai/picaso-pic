@@ -10,4 +10,25 @@
  &nbsp; &nbsp; - Try changing the theme of your phone and restart the app. The app theme will change automatically.
 </p>
 </br>
+
+## ⚙️ Tech-Stack
+The application is built entirely with Flutter. For the backend services, I have made use of Firebase.
+
+## 🏃🏻 Getting Started
+### Prerequisites:
+* Get Flutter up and running. For this purpose visit - [Flutter docs](https://flutter.dev/docs/get-started/install).
+
+### Building from source:
+* If you are using an IDE like [Android Studio](https://developer.android.com/studio), you may use suitable GUI/hotkeys. Here is how you can work things from the terminal.
+    ```
+    git clone https://github.com/jash-desai/insta-clone.git
+    cd insta-clone
+    flutter run
+    ```
+
+## 🤝🏻 Contributions:
+Contribution of all sorts are welcome.!
+
+
+</br>
 <img align="center" src="https://github.com/jash-desai/insta-clone/blob/main/insta-clone.png"/>

@@ -229,15 +229,18 @@ class _PostWidgetState extends State<PostWidget> {
         //     ),
         //   ],
         // ),
-        RichText(
-          text: TextSpan(
-            text: widget.post.name + " ",
-            style: MyFonts.medium.size(SizeConfig.textScaleFactor * 17),
-            children: [
-              TextSpan(
-                  text: widget.post.caption,
-                  style: MyFonts.light.size(SizeConfig.textScaleFactor * 15))
-            ],
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: RichText(
+            text: TextSpan(
+              text: widget.post.name + " ",
+              style: MyFonts.medium.size(SizeConfig.textScaleFactor * 17),
+              children: [
+                TextSpan(
+                    text: widget.post.caption,
+                    style: MyFonts.light.size(SizeConfig.textScaleFactor * 15))
+              ],
+            ),
           ),
         ),
         Padding(

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:insta_ui_only/providers/posts.dart';
 import 'package:insta_ui_only/screens/search_screen.dart';
 import 'package:insta_ui_only/widgets/activity_widget1.dart';
 import 'package:insta_ui_only/widgets/activity_widget2.dart';
+import 'package:provider/provider.dart';
 import 'account_screen.dart';
 import 'add_post.dart';
 import 'homeBar_screen.dart';
@@ -29,13 +31,19 @@ class ActivityPage extends StatelessWidget {
           preferredSize: Size.fromHeight(4.0),
         ),
       ),
-      body: ListView.builder(
-        itemCount: 1,
-        itemBuilder: (context, index) => Column(
-          children: [
-            ActivityWidget1(widgetTitle: "This Week"),
-            ActivityWidget2(widgetTitle: "This Month"),
-          ],
+      body: RefreshIndicator(
+        color: Colors.pink,
+        onRefresh: () async {
+          await Provider.of<Posts>(context, listen: false).fetchAndSetPosts();
+        },
+        child: ListView.builder(
+          itemCount: 1,
+          itemBuilder: (context, index) => Column(
+            children: [
+              ActivityWidget1(widgetTitle: "This Week"),
+              ActivityWidget2(widgetTitle: "This Month"),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Container(

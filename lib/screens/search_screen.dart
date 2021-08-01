@@ -4,7 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/providers/misc_data.dart';
+import 'package:insta_ui_only/providers/posts.dart';
 import 'package:insta_ui_only/screens/search_index0.dart';
+import 'package:provider/provider.dart';
 import 'account_screen.dart';
 import 'activity_screen.dart';
 import 'add_post.dart';
@@ -58,28 +60,34 @@ class SearchPage extends StatelessWidget {
           ),
         ],
       ),
-      body: ListView.builder(
-        itemCount: 2,
-        itemBuilder: (context, index) => index == 0
-            ? SizedBox(
-                child: SearchIndex0(),
-                height: MediaQuery.of(context).size.height * 0.15)
-            : StaggeredGridView.countBuilder(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                crossAxisCount: 3,
-                itemCount: 40,
-                itemBuilder: (ctx, index) => Image.asset(
-                  data.userPosts[index],
-                  fit: BoxFit.cover,
+      body: RefreshIndicator(
+        color: Colors.pink,
+        onRefresh: () async {
+          await Provider.of<Posts>(context, listen: false).fetchAndSetPosts();
+        },
+        child: ListView.builder(
+          itemCount: 2,
+          itemBuilder: (context, index) => index == 0
+              ? SizedBox(
+                  child: SearchIndex0(),
+                  height: MediaQuery.of(context).size.height * 0.15)
+              : StaggeredGridView.countBuilder(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  crossAxisCount: 3,
+                  itemCount: 40,
+                  itemBuilder: (ctx, index) => Image.asset(
+                    data.userPosts[index],
+                    fit: BoxFit.cover,
+                  ),
+                  staggeredTileBuilder: (index) => StaggeredTile.count(
+                    (index % 10 == 0) ? 2 : 1,
+                    (index % 10 == 0) ? 2 : 1,
+                  ),
+                  crossAxisSpacing: 4,
+                  mainAxisSpacing: 4,
                 ),
-                staggeredTileBuilder: (index) => StaggeredTile.count(
-                  (index % 10 == 0) ? 2 : 1,
-                  (index % 10 == 0) ? 2 : 1,
-                ),
-                crossAxisSpacing: 4,
-                mainAxisSpacing: 4,
-              ),
+        ),
       ),
       bottomNavigationBar: Container(
         color: MediaQuery.of(context).platformBrightness == Brightness.light

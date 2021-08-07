@@ -16,13 +16,15 @@ class _IntroPageState extends State<IntroPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration.zero).then((value) {
-      User result = FirebaseAuth.instance.currentUser;
-      if (result != null) {
-        Navigator.of(context)
-            .pushNamedAndRemoveUntil(InstaHome.route, (route) => false);
-      }
-    });
+    Future.delayed(Duration.zero).then(
+      (value) {
+        User result = FirebaseAuth.instance.currentUser;
+        if (result != null) {
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil(InstaHome.route, (route) => false);
+        }
+      },
+    );
   }
 
   @override

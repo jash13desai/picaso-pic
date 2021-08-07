@@ -11,6 +11,7 @@ import 'screens/activity_screen.dart';
 // import 'screens/add_post.dart';
 import 'screens/dm_list_screen.dart';
 import 'screens/dm_screen.dart';
+import 'screens/edit_screen.dart';
 import 'screens/homeBar_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/postList_screen.dart';
@@ -71,6 +72,7 @@ class Insta extends StatelessWidget {
           InstaList.route: (ctx) => InstaList(),
           SearchPage.route: (ctx) => SearchPage(),
           // AddPost.route: (ctx) => AddPost(),
+          EditProfile.route: (ctx) => EditProfile(),
         },
       ),
     );

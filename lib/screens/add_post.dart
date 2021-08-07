@@ -172,11 +172,17 @@ class _AddPostState extends State<AddPost> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
-                          top: 0, bottom: 20, right: 20, left: 20),
+                        top: 0,
+                        bottom: 20,
+                        right: 20,
+                        left: 20,
+                      ),
                       child: TextFormField(
                         decoration: InputDecoration(
                           labelText: "Add Location",
-                          prefixIcon: Icon(Icons.location_on),
+                          prefixIcon: Icon(
+                            Icons.location_on,
+                          ),
                         ),
                         keyboardType: TextInputType.text,
                         textInputAction: TextInputAction.next,

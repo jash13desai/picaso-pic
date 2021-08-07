@@ -64,7 +64,7 @@ class _ProfilePhotoState extends State<ProfilePhoto> {
       child: isLoading
           ? CircularProgressIndicator(color: Colors.pink)
           : CircleAvatar(
-              radius: SizeConfig.horizontalBlockSize * 11,
+              radius: SizeConfig.horizontalBlockSize * 12,
               backgroundImage: NetworkImage(
                 FirebaseAuth.instance.currentUser.photoURL ??
                     "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png",

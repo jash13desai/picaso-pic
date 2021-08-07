@@ -9,6 +9,7 @@ import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/providers/misc_data.dart';
 import 'package:insta_ui_only/widgets/stories_widget.dart';
+import 'edit_screen.dart';
 import 'search_screen.dart';
 import 'activity_screen.dart';
 import 'homeBar_screen.dart';
@@ -154,7 +155,8 @@ class AccountPage extends StatelessWidget {
                       child: Container(
                         width: double.infinity,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () => Navigator.of(context)
+                              .popAndPushNamed(EditProfile.route),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

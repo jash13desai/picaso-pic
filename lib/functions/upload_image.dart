@@ -9,8 +9,8 @@ import 'package:insta_ui_only/screens/add_post.dart';
 // final picker = ImagePicker();
 
 BuildContext context;
-void init(BuildContext ctx) {
-  context = ctx;
+void init(BuildContext cntx) {
+  context = cntx;
 }
 
 void navigate() {

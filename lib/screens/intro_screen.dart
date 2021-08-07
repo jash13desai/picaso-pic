@@ -66,8 +66,7 @@ class _IntroPageState extends State<IntroPage> {
                       builder: (context) => Center(
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.of(context).pushNamedAndRemoveUntil(
-                                LogIn.route, (route) => true);
+                            Navigator.of(context).pushNamed(LogIn.route);
                           },
                           child: Ink(
                             decoration: BoxDecoration(
@@ -103,8 +102,7 @@ class _IntroPageState extends State<IntroPage> {
                       builder: (context) => Center(
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.of(context).pushNamedAndRemoveUntil(
-                                SignUp.route, (route) => true);
+                            Navigator.of(context).pushNamed(SignUp.route);
                           },
                           child: Ink(
                             decoration: BoxDecoration(

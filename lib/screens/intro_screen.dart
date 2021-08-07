@@ -1,10 +1,30 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/screens/login_screen.dart';
 import 'package:insta_ui_only/screens/signup_screen.dart';
 import '../globals/myColors.dart';
+import 'homeBar_screen.dart';
 
-class IntroPage extends StatelessWidget {
+class IntroPage extends StatefulWidget {
   static const route = '/intro_screen';
+
+  @override
+  _IntroPageState createState() => _IntroPageState();
+}
+
+class _IntroPageState extends State<IntroPage> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero).then((value) {
+      User result = FirebaseAuth.instance.currentUser;
+      if (result != null) {
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil(InstaHome.route, (route) => false);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

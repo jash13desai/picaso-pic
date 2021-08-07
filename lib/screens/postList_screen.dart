@@ -38,9 +38,7 @@ class InstaList extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ...posts.posts
-                        .map((post) => PostWidget(post))
-                        .toList(growable: true),
+                    ...posts.posts.map((post) => PostWidget(post)).toList(),
                   ],
                 );
               },

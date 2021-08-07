@@ -33,7 +33,6 @@ class SearchPage extends StatelessWidget {
         centerTitle: true,
         elevation: 1.0,
         leading: IconButton(
-          // Navigator.of(context).pushReplacementNamed(InstaHome.route);
           onPressed: () {
             Navigator.of(context).pushReplacementNamed(InstaHome.route);
           },
@@ -63,7 +62,7 @@ class SearchPage extends StatelessWidget {
       body: RefreshIndicator(
         color: Colors.pink,
         onRefresh: () async {
-          await Provider.of<Posts>(context, listen: false).fetchAndSetPosts();
+          Provider.of<Posts>(context, listen: false);
         },
         child: ListView.builder(
           itemCount: 2,

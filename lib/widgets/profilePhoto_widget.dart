@@ -6,12 +6,12 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ProfilePicture extends StatefulWidget {
+class ProfilePhoto extends StatefulWidget {
   @override
-  _ProfilePictureState createState() => _ProfilePictureState();
+  _ProfilePhotoState createState() => _ProfilePhotoState();
 }
 
-class _ProfilePictureState extends State<ProfilePicture> {
+class _ProfilePhotoState extends State<ProfilePhoto> {
   File _imageFile;
   final _auth = FirebaseAuth.instance;
   var isLoading = false;

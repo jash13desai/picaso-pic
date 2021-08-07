@@ -25,13 +25,6 @@ class _AddPostState extends State<AddPost> {
   final picker = ImagePicker();
 
   Future pickImage() async {
-    // ImageSource source;
-    // print(uploadMethod + ' milind');
-    // if (uploadMethod == 'Gallery') {
-    //   source = ImageSource.gallery;
-    // } else {
-    //   source = ImageSource.camera;
-    // }
     try {
       final pickedFile = await picker.pickImage(source: widget.source);
 
@@ -81,16 +74,20 @@ class _AddPostState extends State<AddPost> {
       isLoading = true;
     });
     try {
-      await _db.add({
-        'imageUrl': imageUrl,
-        'caption': _caption,
-        'location': _location,
-        'addedBy': FirebaseAuth.instance.currentUser.displayName,
-        'profileUrl': FirebaseAuth.instance.currentUser.photoURL,
-        'timeStamp': DateTime.now(),
-      });
-    } catch (error) {
-      print(error);
+      await _db.add(
+        {
+          'imageUrl': imageUrl,
+          'caption': _caption,
+          'location': _location,
+          // 'addedBy': FirebaseAuth.instance.currentUser.displayName,
+          // 'profileUrl': FirebaseAuth.instance.currentUser.photoURL,
+          'timeStamp': DateTime.now(),
+          'addedBy': FirebaseFirestore.instance
+              .doc('/users/${FirebaseAuth.instance.currentUser.uid}'),
+        },
+      );
+    } catch (e) {
+      print(e);
     }
 
     setState(() {

@@ -27,7 +27,7 @@ class InstaHome extends StatefulWidget {
 class _InstaHomeState extends State<InstaHome> {
   @override
   void initState() {
-    Provider.of<Posts>(context, listen: false).oneTimeFetch();
+    Provider.of<Posts>(context, listen: false).fetchAndSetPosts();
     super.initState();
   }
 

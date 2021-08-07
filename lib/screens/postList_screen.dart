@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/providers/posts.dart';
 import 'package:insta_ui_only/widgets/post_widget.dart';
 import 'package:provider/provider.dart';
@@ -28,6 +29,15 @@ class InstaList extends StatelessWidget {
               builder: (ctx, posts, _) {
                 return Column(
                   children: [
+                    if (posts.posts.isEmpty)
+                      Column(
+                        children: [
+                          MySpaces.vMediumGapInBetween,
+                          CircularProgressIndicator(
+                            color: Colors.pink,
+                          ),
+                        ],
+                      ),
                     ...posts.posts
                         .map((post) => PostWidget(post))
                         .toList(growable: true),

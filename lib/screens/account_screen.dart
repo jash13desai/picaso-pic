@@ -1,8 +1,9 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:firebase_auth/firebase_auth.dart' as db;
 // import 'package:insta_ui_only/globals/sizeConfig.dart';
-import 'package:insta_ui_only/widgets/profilePicture_widget.dart';
+import 'package:insta_ui_only/widgets/profilePhoto_widget.dart';
 import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
@@ -11,6 +12,7 @@ import 'package:insta_ui_only/widgets/stories_widget.dart';
 import 'search_screen.dart';
 import 'activity_screen.dart';
 import 'homeBar_screen.dart';
+import 'signup_screen.dart';
 
 class AccountPage extends StatelessWidget {
   static const route = '/account_screen';
@@ -93,14 +95,14 @@ class AccountPage extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 50, horizontal: 15),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ProfilePicture(),
+                        ProfilePhoto(),
                         MySpaces.hGapInBetween,
                         Expanded(
                           child: DefaultTextStyle(
@@ -153,15 +155,90 @@ class AccountPage extends StatelessWidget {
                         width: double.infinity,
                         child: TextButton(
                           onPressed: () {},
-                          child: Text(
-                            "Edit Profile",
-                            style: MyFonts.light
-                                .setColor(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.edit,
+                                color:
                                     MediaQuery.of(context).platformBrightness ==
+                                            Brightness.light
+                                        ? kBlack
+                                        : kWhite,
+                                size: 22,
+                              ),
+                              MySpaces.hGapInBetween,
+                              Text(
+                                "Edit Profile",
+                                style: MyFonts.light
+                                    .setColor(MediaQuery.of(context)
+                                                .platformBrightness ==
                                             Brightness.dark
                                         ? kWhite
                                         : kBlack)
-                                .size(17),
+                                    .size(17),
+                              ),
+                            ],
+                          ),
+                          style: TextButton.styleFrom(
+                            backgroundColor:
+                                MediaQuery.of(context).platformBrightness ==
+                                        Brightness.light
+                                    ? kWhite
+                                    : Colors.grey.shade900,
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                color:
+                                    MediaQuery.of(context).platformBrightness ==
+                                            Brightness.dark
+                                        ? kWhite.withOpacity(0.5)
+                                        : kBlack.withOpacity(0.5),
+                                width: 0.5,
+                              ),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(8),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    MySpaces.hSmallGapInBetween,
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Container(
+                        width: double.infinity,
+                        child: TextButton(
+                          onPressed: () {
+                            db.FirebaseAuth.instance.signOut();
+                            Navigator.of(context).pushNamedAndRemoveUntil(
+                              SignUp.route,
+                              (route) => false,
+                            );
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.logout_outlined,
+                                color:
+                                    MediaQuery.of(context).platformBrightness ==
+                                            Brightness.light
+                                        ? kBlack
+                                        : kWhite,
+                              ),
+                              MySpaces.hGapInBetween,
+                              Text(
+                                "Log Out",
+                                style: MyFonts.light
+                                    .setColor(MediaQuery.of(context)
+                                                .platformBrightness ==
+                                            Brightness.dark
+                                        ? kWhite
+                                        : kBlack)
+                                    .size(17),
+                              ),
+                            ],
                           ),
                           style: TextButton.styleFrom(
                             backgroundColor:

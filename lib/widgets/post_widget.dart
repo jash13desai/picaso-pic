@@ -38,6 +38,22 @@ class PostWidget extends StatefulWidget {
 class _PostWidgetState extends State<PostWidget> {
   bool isLikePressed = false;
   bool isBookPressed = false;
+  String profileUrl;
+  String name;
+  bool isLoading = true;
+  @override
+  void initState() {
+    widget.post.addedBy.get().then((response) {
+      final data = response.data() as Map<String, dynamic>;
+      profileUrl = data['imageUrl'];
+      name = data['user_name'];
+      setState(() {
+        isLoading = false;
+      });
+    });
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +75,7 @@ class _PostWidgetState extends State<PostWidget> {
                       image: new DecorationImage(
                         fit: BoxFit.cover,
                         // image: widget.accountImage,
-                        image: NetworkImage(widget.post.profileUrl ??
+                        image: NetworkImage(profileUrl ??
                             "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
                       ),
                     ),
@@ -69,7 +85,7 @@ class _PostWidgetState extends State<PostWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        widget.post.name,
+                        name,
                         style: MyFonts.medium.size(16),
                       ),
                       MySpaces.vSmallestGapInBetween,
@@ -233,7 +249,7 @@ class _PostWidgetState extends State<PostWidget> {
           padding: const EdgeInsets.all(8.0),
           child: RichText(
             text: TextSpan(
-              text: widget.post.name + " ",
+              text: name + " ",
               style: MyFonts.medium.size(SizeConfig.textScaleFactor * 17),
               children: [
                 TextSpan(
@@ -255,7 +271,8 @@ class _PostWidgetState extends State<PostWidget> {
                   shape: BoxShape.circle,
                   image: new DecorationImage(
                     fit: BoxFit.cover,
-                    image: NetworkImage(widget.post.profileUrl ??
+                    image: NetworkImage(
+                        // profileUrl ??
                         "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
                   ),
                 ),

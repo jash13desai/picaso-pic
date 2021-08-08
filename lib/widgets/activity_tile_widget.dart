@@ -30,11 +30,12 @@ class ActivityTileWidget extends StatefulWidget {
 
 class _ActivityTileWidgetState extends State<ActivityTileWidget> {
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: widget.widgetHeight,
       width: MediaQuery.of(context).size.width,
       child: widget.whichOne == 0
           ? Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,8 +68,10 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                   height: 35,
                   width: 35,
                   decoration: BoxDecoration(
+                    // color: Colors.pink,
                     shape: BoxShape.rectangle,
                     image: DecorationImage(
+                      alignment: Alignment.center,
                       image: widget.sideImage,
                       fit: BoxFit.cover,
                     ),
@@ -85,6 +88,7 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                       height: 35,
                       width: 35,
                       decoration: BoxDecoration(
+                        // color: Colors.pink,
                         shape: BoxShape.circle,
                         image: DecorationImage(
                           image: widget.accountImage,

@@ -21,7 +21,7 @@ class ActivityWidget1 extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(
           20,
           30,
-          19,
+          20,
           0,
         ),
         child: Container(

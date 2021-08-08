@@ -29,11 +29,10 @@ class ActivityPage extends StatelessWidget {
       body: RefreshIndicator(
         color: Colors.pink,
         onRefresh: () async {
-          await Provider.of<Posts>(context, listen: false).fetchAndSetPosts();
+          Provider.of<Posts>(context, listen: false);
         },
-        child: ListView.builder(
-          itemCount: 1,
-          itemBuilder: (context, index) => Column(
+        child: SingleChildScrollView(
+          child: Column(
             children: [
               ActivityWidget1(widgetTitle: "This Week"),
               ActivityWidget2(widgetTitle: "This Month"),

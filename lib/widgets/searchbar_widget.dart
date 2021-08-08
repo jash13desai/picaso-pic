@@ -4,7 +4,6 @@ import 'package:insta_ui_only/widgets/textfield_widget.dart';
 class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // final double widthB = MediaQuery.of(context).size.width * 0.085;
     final double widthA = MediaQuery.of(context).size.width * 0.9;
 
     return Container(
@@ -12,7 +11,6 @@ class SearchBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextFieldWidget(
-            // onChanged: () => null,
             isEmailAddress: false,
             hintText: 'Search',
             obscureText: false,

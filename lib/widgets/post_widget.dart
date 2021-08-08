@@ -121,9 +121,20 @@ class _PostWidgetState extends State<PostWidget> {
               //     fit: BoxFit.cover,
               //   ),
               // ),
-              Image.network(
-                widget.post.postUrl,
-                fit: BoxFit.cover,
+              Container(
+                child: Flexible(
+                  fit: FlexFit.loose,
+                  child: Image.network(
+                    widget.post.postUrl,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                constraints: BoxConstraints(maxWidth: double.infinity),
+                alignment: Alignment.center,
+                color: MediaQuery.of(context).platformBrightness ==
+                        Brightness.light
+                    ? kWhite
+                    : kBlack,
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),

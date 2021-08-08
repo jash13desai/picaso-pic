@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/globals/sizeConfig.dart';
@@ -133,8 +132,8 @@ class _PostWidgetState extends State<PostWidget> {
                 alignment: Alignment.center,
                 color: MediaQuery.of(context).platformBrightness ==
                         Brightness.light
-                    ? kWhite
-                    : kBlack,
+                    ? Colors.white
+                    : Colors.black,
               ),
               Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -311,7 +310,7 @@ class _PostWidgetState extends State<PostWidget> {
               MySpaces.vGapInBetween,
               Text(
                 DateFormat('MMMM dd , yy').format(widget.post.date),
-                style: MyFonts.thin.setColor(kGrey),
+                style: MyFonts.thin.setColor(Colors.grey[700]),
               ),
               MySpaces.vGapInBetween,
               // Padding(

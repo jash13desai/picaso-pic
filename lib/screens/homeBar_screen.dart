@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/functions/upload_image.dart' as imageUpload;
 import 'package:insta_ui_only/globals/sizeConfig.dart';
 import 'package:insta_ui_only/providers/posts.dart';
@@ -36,8 +35,8 @@ class _InstaHomeState extends State<InstaHome> {
               Icons.camera_alt,
               color:
                   MediaQuery.of(context).platformBrightness == Brightness.light
-                      ? kBlack
-                      : kWhite,
+                      ? Colors.black
+                      : Colors.white,
             ),
           ),
           title: SizedBox(

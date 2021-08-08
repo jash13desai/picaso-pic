@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:insta_ui_only/globals/myColors.dart';
 
 class TextFieldWidget extends StatelessWidget {
   final String hintText;
@@ -67,7 +66,7 @@ class TextFieldWidget extends StatelessWidget {
           prefixIcon: Icon(
             prefixIconData,
             size: 18,
-            color: kGrey,
+            color: Colors.grey[700],
           ),
         ),
         onChanged: onChanged,

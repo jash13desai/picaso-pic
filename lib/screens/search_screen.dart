@@ -1,16 +1,13 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:insta_ui_only/globals/myColors.dart';
+import 'package:provider/provider.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
-import 'package:insta_ui_only/globals/sizeConfig.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:insta_ui_only/providers/posts.dart';
 import 'package:insta_ui_only/providers/search_provider.dart';
-import 'package:insta_ui_only/widgets/bottomNavBar_main.dart';
-import 'package:provider/provider.dart';
 import 'homeBar_screen.dart';
-import 'package:insta_ui_only/functions/upload_image.dart' as imageUpload;
+import 'package:insta_ui_only/widgets/bottomNavBar_main.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class SearchPage extends StatefulWidget {
   static const route = '/search_screen';
@@ -23,7 +20,7 @@ class _SearchPageState extends State<SearchPage> {
   var queryResultSet = [];
   var tempSearchStore = [];
 
-  initiateSearch(value) {
+  initiateSearchFunction(value) {
     setState(
       () {
         isSearching = true;
@@ -43,9 +40,7 @@ class _SearchPageState extends State<SearchPage> {
         (QuerySnapshot docs) {
           print(docs.docs);
           for (int i = 0; i < docs.docs.length; ++i) {
-            queryResultSet.add(
-              docs.docs[i].data(),
-            );
+            queryResultSet.add(docs.docs[i].data());
             setState(
               () {
                 tempSearchStore.add(queryResultSet[i]);
@@ -92,8 +87,8 @@ class _SearchPageState extends State<SearchPage> {
                 : Colors.black,
         actionsIconTheme: IconThemeData(
           color: MediaQuery.of(context).platformBrightness == Brightness.light
-              ? kBlack
-              : kWhite,
+              ? Colors.black
+              : Colors.white,
         ),
         centerTitle: true,
         elevation: 1.0,
@@ -104,8 +99,8 @@ class _SearchPageState extends State<SearchPage> {
           icon: Icon(
             Icons.arrow_back_ios_new,
             color: MediaQuery.of(context).platformBrightness == Brightness.light
-                ? kBlack
-                : kWhite,
+                ? Colors.black
+                : Colors.white,
           ),
         ),
         title: SizedBox(
@@ -116,7 +111,7 @@ class _SearchPageState extends State<SearchPage> {
         ),
         actions: [
           IconButton(
-            onPressed: () => imageUpload.navigate(),
+            onPressed: () => {},
             icon: MediaQuery.of(context).platformBrightness == Brightness.light
                 ? Image.asset("assets/icons/scan_light.jpg")
                 : Image.asset("assets/icons/scan_dark.jpg"),
@@ -130,176 +125,196 @@ class _SearchPageState extends State<SearchPage> {
           await Provider.of<Posts>(context, listen: false).fetchAndSetPosts();
         },
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                  child: Container(
-                    height: 50,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(
-                            0,
-                            20,
-                            0,
-                            5,
-                          ),
-                          child: Container(
-                            height: 45,
-                            width: SizeConfig.verticalBlockSize * 80,
-                            child: TextField(
-                              decoration: InputDecoration(
-                                prefixIcon: isSearching
-                                    ? IconButton(
-                                        // color: Colors.white,
-                                        color: Colors.grey.shade100,
-                                        icon: Icon(Icons.arrow_back),
-                                        iconSize: 20.0,
-                                        onPressed: () {
-                                          setState(
-                                            () {
-                                              isSearching = false;
-                                            },
-                                          );
-                                        },
-                                      )
-                                    : IconButton(
-                                        // color: Colors.white,
-                                        color: Colors.grey.shade100,
-                                        icon: Icon(Icons.search),
-                                        iconSize: 20.0,
-                                        onPressed: () {
-                                          setState(
-                                            () {
-                                              isSearching = false;
-                                            },
-                                          );
-                                        },
-                                      ),
-                                hintText: "Search",
-                                hintStyle: MyFonts.light
-                                    .setColor(Colors.grey)
-                                    .size(SizeConfig.horizontalBlockSize * 5),
-                                filled: true,
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 2, horizontal: 15),
-                                fillColor: Colors.grey.shade100,
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                    color: Colors.grey.shade900,
-                                    width: 1,
-                                  ),
+          child: RefreshIndicator(
+            color: Colors.pink,
+            onRefresh: () async {
+              await Provider.of<Posts>(context, listen: false)
+                  .fetchAndSetPosts();
+            },
+            child: Column(
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.08,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 20, 0, 5),
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          child: TextField(
+                            decoration: InputDecoration(
+                              prefixIcon: isSearching
+                                  ? IconButton(
+                                      icon: Icon(Icons.arrow_back),
+                                      iconSize: 20.0,
+                                      // color: kGrey,
+                                      color: Colors.grey[700],
+                                      onPressed: () {
+                                        setState(
+                                          () {
+                                            isSearching = false;
+                                          },
+                                        );
+                                      },
+                                    )
+                                  : IconButton(
+                                      icon: Icon(Icons.search),
+                                      iconSize: 20.0,
+                                      // color: kGrey,
+                                      color: Colors.grey.shade700,
+                                      onPressed: () {
+                                        setState(
+                                          () {
+                                            isSearching = false;
+                                          },
+                                        );
+                                      },
+                                    ),
+                              hintText: "Search",
+                              hintStyle: MyFonts.light
+                                  .setColor(Colors.grey.shade500)
+                                  .size(18),
+                              filled: true,
+                              focusColor: Colors.grey,
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 2, horizontal: 15),
+                              fillColor: Colors.grey.shade100,
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Colors.grey.shade900,
+                                  width: 1,
                                 ),
                               ),
-                              textInputAction: TextInputAction.done,
-                              keyboardType: TextInputType.text,
-                              style: MyFonts.light.setColor(kWhite),
-                              onChanged: (val) {
-                                initiateSearch(val);
-                              },
                             ),
+                            textInputAction: TextInputAction.done,
+                            keyboardType: TextInputType.text,
+                            style: MyFonts.light
+                                .setColor(
+                                  Colors.grey[700],
+                                )
+                                .size(20),
+                            onChanged: (val) {
+                              initiateSearchFunction(val);
+                            },
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  height: MediaQuery.of(context).size.height * 0.08),
-              SingleChildScrollView(
-                child: isSearching
-                    ? SingleChildScrollView(
-                        child: Column(
-                          children: tempSearchStore.map((element) {
-                            return ListTile(
-                              leading: CircleAvatar(
-                                backgroundImage:
-                                    NetworkImage(element['imageUrl']),
-                              ),
-                              title: Text(element['user_name']),
-                            );
-                          }).toList(),
-                        ),
-                      )
-                    : SingleChildScrollView(
-                        child: Container(
-                            // color: appbarColor,
-                            child: Column(
-                          children: [
-                            SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
-                                children: [
-                                  ...[
-                                    "IGTV",
-                                    "Shop",
-                                    "Style",
-                                    "Sports",
-                                    "Auto",
-                                    "Random"
-                                  ].map(
-                                    (text) {
-                                      return Container(
-                                        margin: EdgeInsets.symmetric(
-                                            horizontal: 9, vertical: 3),
-                                        child: TextButton(
-                                          style: TextButton.styleFrom(
-                                            padding: const EdgeInsets.symmetric(
-                                                vertical: 8),
-                                            // backgroundColor: kBlack,
-                                            backgroundColor: MediaQuery.of(
-                                                            context)
-                                                        .platformBrightness ==
-                                                    Brightness.light
-                                                ? kWhite
-                                                : kBlack,
-                                            shape: RoundedRectangleBorder(
-                                              side: BorderSide(
-                                                  color: kGrey.withOpacity(1),
-                                                  width: 1.3),
-                                              borderRadius: BorderRadius.all(
-                                                Radius.circular(8),
-                                              ),
-                                            ),
-                                          ),
-                                          onPressed: () {},
-                                          child: Text(
-                                            text,
-                                            style: TextStyle(
-                                              color: MediaQuery.of(context)
-                                                          .platformBrightness ==
-                                                      Brightness.light
-                                                  ? kBlack
-                                                  : kWhite,
-                                            ),
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ).toList()
-                                ],
+                ),
+                RefreshIndicator(
+                  color: Colors.pink,
+                  onRefresh: () async {
+                    await Provider.of<Posts>(context, listen: false)
+                        .fetchAndSetPosts();
+                  },
+                  child: SingleChildScrollView(
+                    child: isSearching
+                        ? SingleChildScrollView(
+                            child: Padding(
+                              padding: EdgeInsets.fromLTRB(0, 20, 0, 5),
+                              child: Column(
+                                children: tempSearchStore.map(
+                                  (element) {
+                                    return ListTile(
+                                      leading: CircleAvatar(
+                                        backgroundImage:
+                                            NetworkImage(element['imageUrl']),
+                                      ),
+                                      title: Text(
+                                        element['user_name'],
+                                      ),
+                                    );
+                                  },
+                                ).toList(),
                               ),
                             ),
-                            MySpaces.vGapInBetween,
-                            StaggeredGridView.countBuilder(
-                              shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
-                              crossAxisCount: 3,
-                              itemCount: data.length,
-                              itemBuilder: (ctx, index) => Image.network(
-                                data[index].postUrl,
-                                fit: BoxFit.cover,
-                              ),
-                              staggeredTileBuilder: (index) =>
-                                  StaggeredTile.count((index % 10 == 0) ? 2 : 1,
-                                      (index % 10 == 0) ? 2 : 1),
-                              mainAxisSpacing: 4,
-                              crossAxisSpacing: 4,
-                            )
-                          ],
-                        )),
-                      ),
-              ),
-            ],
+                          )
+                        : Container(
+                            child: Column(
+                              children: [
+                                SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    children: [
+                                      ...[
+                                        "IGTV",
+                                        "Shop",
+                                        "Style",
+                                        "Sports",
+                                        "Auto",
+                                        "Random"
+                                      ].map(
+                                        (text) {
+                                          return Container(
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 9, vertical: 3),
+                                            child: TextButton(
+                                              style: TextButton.styleFrom(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        vertical: 8),
+                                                backgroundColor: MediaQuery.of(
+                                                                context)
+                                                            .platformBrightness ==
+                                                        Brightness.light
+                                                    ? Colors.white
+                                                    : Colors.black,
+                                                shape: RoundedRectangleBorder(
+                                                  side: BorderSide(
+                                                      color: Colors.grey[700]
+                                                          .withOpacity(1),
+                                                      width: 1.3),
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                    Radius.circular(8),
+                                                  ),
+                                                ),
+                                              ),
+                                              onPressed: () {},
+                                              child: Text(
+                                                text,
+                                                style: TextStyle(
+                                                  color: MediaQuery.of(context)
+                                                              .platformBrightness ==
+                                                          Brightness.light
+                                                      ? Colors.black
+                                                      : Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ).toList()
+                                    ],
+                                  ),
+                                ),
+                                MySpaces.vGapInBetween,
+                                StaggeredGridView.countBuilder(
+                                  shrinkWrap: true,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  crossAxisCount: 3,
+                                  itemCount: data.length,
+                                  itemBuilder: (ctx, index) => Image.network(
+                                    data[index].postUrl,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  staggeredTileBuilder: (index) =>
+                                      StaggeredTile.count(
+                                          (index % 10 == 0) ? 2 : 1,
+                                          (index % 10 == 0) ? 2 : 1),
+                                  mainAxisSpacing: 4,
+                                  crossAxisSpacing: 4,
+                                )
+                              ],
+                            ),
+                          ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

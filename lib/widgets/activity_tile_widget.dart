@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
-import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/screens/login_screen.dart';
 
 class ActivityTileWidget extends StatefulWidget {
@@ -130,8 +129,8 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                                 color:
                                     MediaQuery.of(context).platformBrightness ==
                                             Brightness.light
-                                        ? kWhite
-                                        : kBlack,
+                                        ? Colors.white
+                                        : Colors.black,
                                 borderRadius: BorderRadius.circular(5),
                                 border: Border.all(
                                   color: Colors.grey.shade700,
@@ -151,8 +150,8 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                                         color: MediaQuery.of(context)
                                                     .platformBrightness ==
                                                 Brightness.dark
-                                            ? kWhite
-                                            : kBlack,
+                                            ? Colors.white
+                                            : Colors.black,
                                         fontWeight: FontWeight.w400,
                                         fontSize: 12.0,
                                       ),

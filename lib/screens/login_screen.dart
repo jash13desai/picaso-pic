@@ -5,7 +5,6 @@ import 'package:insta_ui_only/providers/authentication.dart';
 import 'package:insta_ui_only/screens/signup_screen.dart';
 import 'package:insta_ui_only/widgets/textfield_widget.dart';
 import 'package:insta_ui_only/globals/globals.dart';
-import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:provider/provider.dart';
 import 'homeBar_screen.dart';
 
@@ -77,8 +76,8 @@ class _LogInState extends State<LogIn> {
     return Scaffold(
       backgroundColor:
           MediaQuery.of(context).platformBrightness == Brightness.light
-              ? kWhite
-              : kBlack,
+              ? Colors.white
+              : Colors.black,
       body: isLoading
           ? Center(
               child: CircularProgressIndicator(color: Colors.pink.shade300),
@@ -254,7 +253,7 @@ class _LogInState extends State<LogIn> {
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.40,
                           height: 1,
-                          color: kGrey.withOpacity(0.3),
+                          color: Colors.grey[700].withOpacity(0.3),
                         ),
                       ),
                       Padding(
@@ -267,7 +266,7 @@ class _LogInState extends State<LogIn> {
                         child: Text(
                           "OR",
                           style: TextStyle(
-                            color: kGrey.withOpacity(0.9),
+                            color: Colors.grey[700].withOpacity(0.9),
                             fontSize: 14,
                           ),
                         ),
@@ -282,7 +281,7 @@ class _LogInState extends State<LogIn> {
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.40,
                           height: 1,
-                          color: kGrey.withOpacity(0.3),
+                          color: Colors.grey[700].withOpacity(0.3),
                         ),
                       ),
                     ],
@@ -301,13 +300,14 @@ class _LogInState extends State<LogIn> {
                             text: 'Don\'t have an account? ',
                             style: TextStyle(
                               fontSize: 16,
-                              color: kGrey.withOpacity(0.9),
+                              color: Colors.grey[700].withOpacity(0.9),
                             ),
                           ),
                           TextSpan(
                             text: ' Sign Up.',
                             style: TextStyle(
-                              color: kBlue,
+                              // color: kBlue,
+                              color: Colors.blue[500],
                               fontSize: 16,
                             ),
                             recognizer: TapGestureRecognizer()
@@ -325,7 +325,7 @@ class _LogInState extends State<LogIn> {
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       height: 1,
-                      color: kGrey.withOpacity(0.3),
+                      color: Colors.grey[700].withOpacity(0.3),
                     ),
                   ),
                   Row(
@@ -334,21 +334,21 @@ class _LogInState extends State<LogIn> {
                       Text(
                         'Instagram ',
                         style: TextStyle(
-                          color: kGrey.withOpacity(0.95),
+                          color: Colors.grey[700].withOpacity(0.95),
                           fontSize: 11,
                         ),
                       ),
                       Text(
                         'OT ',
                         style: TextStyle(
-                          color: kGrey.withOpacity(0.95),
+                          color: Colors.grey[700].withOpacity(0.95),
                           fontSize: 9,
                         ),
                       ),
                       Text(
                         'Facebook ',
                         style: TextStyle(
-                          color: kGrey.withOpacity(0.95),
+                          color: Colors.grey[700].withOpacity(0.95),
                           fontSize: 11,
                         ),
                       ),

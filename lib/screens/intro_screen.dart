@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/screens/login_screen.dart';
 import 'package:insta_ui_only/screens/signup_screen.dart';
-import '../globals/myColors.dart';
 import 'homeBar_screen.dart';
 
 class IntroPage extends StatefulWidget {
@@ -32,8 +31,8 @@ class _IntroPageState extends State<IntroPage> {
     return Scaffold(
       backgroundColor:
           MediaQuery.of(context).platformBrightness == Brightness.light
-              ? kWhite
-              : kBlack,
+              ? Colors.white
+              : Colors.black,
       body: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
         child: ConstrainedBox(
@@ -109,8 +108,8 @@ class _IntroPageState extends State<IntroPage> {
                               color:
                                   MediaQuery.of(context).platformBrightness ==
                                           Brightness.light
-                                      ? kWhite
-                                      : kBlack,
+                                      ? Colors.white
+                                      : Colors.black,
                               borderRadius: BorderRadius.circular(5),
                               border: Border.all(
                                 color: Colors.blue,

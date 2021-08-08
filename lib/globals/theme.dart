@@ -1,6 +1,5 @@
 import 'package:insta_ui_only/globals/constants.dart';
 import 'package:flutter/material.dart';
-import 'myColors.dart';
 
 ThemeData lightThemeData(BuildContext context) {
   return ThemeData.light().copyWith(
@@ -53,13 +52,13 @@ final appBarThemeDark = AppBarTheme(
   centerTitle: true,
   elevation: 1,
   backgroundColor: Colors.black,
-  actionsIconTheme: IconThemeData(color: kWhite),
+  actionsIconTheme: IconThemeData(color: Colors.white),
 );
 final appBarThemeLight = AppBarTheme(
   centerTitle: true,
   elevation: 1,
   backgroundColor: Colors.white,
-  actionsIconTheme: IconThemeData(color: kBlack),
+  actionsIconTheme: IconThemeData(color: Colors.black),
 );
 final bottomAppBarThemeLight = BottomNavigationBarThemeData(
   elevation: 1,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/widgets/searchbar_widget.dart';
 
 class SearchIndex0 extends StatelessWidget {
@@ -34,11 +33,11 @@ class SearchIndex0 extends StatelessWidget {
                             backgroundColor:
                                 MediaQuery.of(context).platformBrightness ==
                                         Brightness.light
-                                    ? kWhite
-                                    : kBlack,
+                                    ? Colors.white
+                                    : Colors.black,
                             shape: RoundedRectangleBorder(
                               side: BorderSide(
-                                color: kGrey.withOpacity(1),
+                                color: Colors.grey[700].withOpacity(1),
                                 width: 1.3,
                               ),
                               borderRadius: BorderRadius.all(
@@ -53,8 +52,8 @@ class SearchIndex0 extends StatelessWidget {
                               color:
                                   MediaQuery.of(context).platformBrightness ==
                                           Brightness.light
-                                      ? kBlack
-                                      : kWhite,
+                                      ? Colors.black
+                                      : Colors.white,
                             ),
                           ),
                         ),

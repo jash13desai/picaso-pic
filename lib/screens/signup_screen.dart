@@ -4,7 +4,6 @@ import 'package:insta_ui_only/providers/authentication.dart';
 import 'package:insta_ui_only/widgets/textfield_widget.dart';
 import 'package:insta_ui_only/globals/globals.dart';
 import 'package:provider/provider.dart';
-import '../globals/myColors.dart';
 import 'homeBar_screen.dart';
 // import 'intro_screen.dart';
 import 'login_screen.dart';
@@ -52,8 +51,8 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
       backgroundColor:
           MediaQuery.of(context).platformBrightness == Brightness.light
-              ? kWhite
-              : kBlack,
+              ? Colors.white
+              : Colors.black,
       body: isLoading
           ? Center(
               child: CircularProgressIndicator(color: Colors.pink.shade300),
@@ -249,19 +248,19 @@ class _SignUpState extends State<SignUp> {
                         Container(
                           width: MediaQuery.of(context).size.width * 0.40,
                           height: 1,
-                          color: kGrey.withOpacity(0.3),
+                          color: Colors.grey[700].withOpacity(0.3),
                         ),
                         Text(
                           "OR",
                           style: TextStyle(
-                            color: kGrey.withOpacity(0.9),
+                            color: Colors.grey[700].withOpacity(0.9),
                             fontSize: 10,
                           ),
                         ),
                         Container(
                           width: MediaQuery.of(context).size.width * 0.40,
                           height: 1,
-                          color: kGrey.withOpacity(0.3),
+                          color: Colors.grey[700].withOpacity(0.3),
                         ),
                       ],
                     ),
@@ -272,12 +271,14 @@ class _SignUpState extends State<SignUp> {
                         TextSpan(
                           text: 'Already have account?',
                           style: TextStyle(
-                            color: kGrey.withOpacity(0.9),
+                            color: Colors.grey[700].withOpacity(0.9),
                           ),
                         ),
                         TextSpan(
                           text: ' Log In.',
-                          style: TextStyle(color: kBlue),
+                          style: TextStyle(
+                            color: Colors.blue[500],
+                          ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () => Navigator.of(context)
                                 .popAndPushNamed(LogIn.route),
@@ -289,7 +290,7 @@ class _SignUpState extends State<SignUp> {
                   Container(
                     width: MediaQuery.of(context).size.width,
                     height: 1,
-                    color: kGrey.withOpacity(0.3),
+                    color: Colors.grey[700].withOpacity(0.3),
                   ),
                   Padding(
                     padding: EdgeInsets.all(
@@ -300,21 +301,21 @@ class _SignUpState extends State<SignUp> {
                         Text(
                           'Instagram ',
                           style: TextStyle(
-                            color: kGrey.withOpacity(0.95),
+                            color: Colors.grey[700].withOpacity(0.95),
                             fontSize: 9,
                           ),
                         ),
                         Text(
                           'OT ',
                           style: TextStyle(
-                            color: kGrey.withOpacity(0.95),
+                            color: Colors.grey[700].withOpacity(0.95),
                             fontSize: 7,
                           ),
                         ),
                         Text(
                           'Facebook ',
                           style: TextStyle(
-                            color: kGrey.withOpacity(0.95),
+                            color: Colors.grey[700].withOpacity(0.95),
                             fontSize: 9,
                           ),
                         ),

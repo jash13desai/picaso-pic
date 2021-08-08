@@ -1,13 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
-import 'package:insta_ui_only/widgets/profilePhoto_widget.dart';
 
+import 'package:insta_ui_only/widgets/profilePhoto_widget.dart';
 import 'account_screen.dart';
+
 // import 'homeBar_screen.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:insta_ui_only/globals/myColors.dart';
 
 class EditProfile extends StatefulWidget {
   static const route = '/edit_screen';

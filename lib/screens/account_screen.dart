@@ -1,19 +1,21 @@
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart' as db;
-// import 'package:insta_ui_only/globals/sizeConfig.dart';
-import 'package:insta_ui_only/widgets/profilePhoto_widget.dart';
-import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/providers/misc_data.dart';
+
+import 'package:insta_ui_only/widgets/profilePhoto_widget.dart';
 import 'package:insta_ui_only/widgets/stories_widget.dart';
 import 'edit_screen.dart';
 import 'search_screen.dart';
 import 'activity_screen.dart';
 import 'homeBar_screen.dart';
 import 'signup_screen.dart';
+
+// import 'package:insta_ui_only/globals/sizeConfig.dart';
+// import 'package:insta_ui_only/globals/myColors.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 
 class AccountPage extends StatelessWidget {
   static const route = '/account_screen';
@@ -28,8 +30,8 @@ class AccountPage extends StatelessWidget {
                 : Colors.black,
         actionsIconTheme: IconThemeData(
           color: MediaQuery.of(context).platformBrightness == Brightness.light
-              ? kBlack
-              : kWhite,
+              ? Colors.black
+              : Colors.white,
         ),
         centerTitle: false,
         elevation: 1.0,
@@ -40,8 +42,8 @@ class AccountPage extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back_ios_new,
             color: MediaQuery.of(context).platformBrightness == Brightness.light
-                ? kBlack
-                : kWhite,
+                ? Colors.black
+                : Colors.white,
           ),
         ),
         title: SizedBox(
@@ -110,8 +112,8 @@ class AccountPage extends StatelessWidget {
                             style: MyFonts.medium.size(18).setColor(
                                   MediaQuery.of(context).platformBrightness ==
                                           Brightness.dark
-                                      ? kWhite
-                                      : kBlack,
+                                      ? Colors.white
+                                      : Colors.black,
                                 ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -165,8 +167,8 @@ class AccountPage extends StatelessWidget {
                                 color:
                                     MediaQuery.of(context).platformBrightness ==
                                             Brightness.light
-                                        ? kBlack
-                                        : kWhite,
+                                        ? Colors.black
+                                        : Colors.white,
                                 size: 22,
                               ),
                               MySpaces.hGapInBetween,
@@ -176,8 +178,8 @@ class AccountPage extends StatelessWidget {
                                     .setColor(MediaQuery.of(context)
                                                 .platformBrightness ==
                                             Brightness.dark
-                                        ? kWhite
-                                        : kBlack)
+                                        ? Colors.white
+                                        : Colors.black)
                                     .size(17),
                               ),
                             ],
@@ -186,15 +188,15 @@ class AccountPage extends StatelessWidget {
                             backgroundColor:
                                 MediaQuery.of(context).platformBrightness ==
                                         Brightness.light
-                                    ? kWhite
+                                    ? Colors.white
                                     : Colors.grey.shade900,
                             shape: RoundedRectangleBorder(
                               side: BorderSide(
                                 color:
                                     MediaQuery.of(context).platformBrightness ==
                                             Brightness.dark
-                                        ? kWhite.withOpacity(0.5)
-                                        : kBlack.withOpacity(0.5),
+                                        ? Colors.white.withOpacity(0.5)
+                                        : Colors.black.withOpacity(0.5),
                                 width: 0.5,
                               ),
                               borderRadius: BorderRadius.all(
@@ -226,8 +228,8 @@ class AccountPage extends StatelessWidget {
                                 color:
                                     MediaQuery.of(context).platformBrightness ==
                                             Brightness.light
-                                        ? kBlack
-                                        : kWhite,
+                                        ? Colors.black
+                                        : Colors.white,
                               ),
                               MySpaces.hGapInBetween,
                               Text(
@@ -236,8 +238,8 @@ class AccountPage extends StatelessWidget {
                                     .setColor(MediaQuery.of(context)
                                                 .platformBrightness ==
                                             Brightness.dark
-                                        ? kWhite
-                                        : kBlack)
+                                        ? Colors.white
+                                        : Colors.black)
                                     .size(17),
                               ),
                             ],
@@ -246,15 +248,15 @@ class AccountPage extends StatelessWidget {
                             backgroundColor:
                                 MediaQuery.of(context).platformBrightness ==
                                         Brightness.light
-                                    ? kWhite
+                                    ? Colors.white
                                     : Colors.grey.shade900,
                             shape: RoundedRectangleBorder(
                               side: BorderSide(
                                 color:
                                     MediaQuery.of(context).platformBrightness ==
                                             Brightness.dark
-                                        ? kWhite.withOpacity(0.5)
-                                        : kBlack.withOpacity(0.5),
+                                        ? Colors.white.withOpacity(0.5)
+                                        : Colors.black.withOpacity(0.5),
                                 width: 0.5,
                               ),
                               borderRadius: BorderRadius.all(

@@ -40,8 +40,8 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      height: 35,
-                      width: 35,
+                      height: 40,
+                      width: 40,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
@@ -139,7 +139,7 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                                 borderRadius: BorderRadius.circular(10),
                                 child: Container(
                                   height: 30,
-                                  width: 90,
+                                  width: 80,
                                   child: Center(
                                     child: Text(
                                       'Following',

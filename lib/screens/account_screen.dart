@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart' as db;
-import 'package:image_picker/image_picker.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/providers/misc_data.dart';
-import 'package:insta_ui_only/screens/add_post.dart';
+import 'package:insta_ui_only/widgets/bottomNavBar_main.dart';
 
 import 'package:insta_ui_only/widgets/profilePhoto_widget.dart';
 import 'package:insta_ui_only/widgets/stories_widget.dart';
 import 'edit_screen.dart';
-import 'search_screen.dart';
-import 'activity_screen.dart';
 import 'homeBar_screen.dart';
 import 'signup_screen.dart';
 
@@ -349,96 +345,7 @@ class AccountPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        color: MediaQuery.of(context).platformBrightness == Brightness.light
-            ? Colors.white
-            : Colors.black,
-        height: 50.0,
-        alignment: Alignment.center,
-        child: BottomAppBar(
-          color: MediaQuery.of(context).platformBrightness == Brightness.light
-              ? Colors.white
-              : Colors.black,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              IconButton(
-                color: MediaQuery.of(context).platformBrightness ==
-                        Brightness.light
-                    ? Colors.grey.shade700
-                    : Colors.grey.shade700,
-                icon: Icon(
-                  MediaQuery.of(context).platformBrightness == Brightness.dark
-                      ? Icons.home
-                      : Icons.home_outlined,
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushReplacementNamed(InstaHome.route);
-                },
-              ),
-              IconButton(
-                color: MediaQuery.of(context).platformBrightness ==
-                        Brightness.light
-                    ? Colors.grey.shade700
-                    : Colors.grey.shade700,
-                icon: Icon(
-                  Icons.search,
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SearchPage()),
-                  );
-                },
-              ),
-              IconButton(
-                color: MediaQuery.of(context).platformBrightness ==
-                        Brightness.light
-                    ? Colors.black
-                    : Colors.white,
-                icon: Icon(
-                  Icons.add_circle_outline,
-                ),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AddPost(ImageSource.gallery),
-                  ),
-                ),
-              ),
-              IconButton(
-                color: MediaQuery.of(context).platformBrightness ==
-                        Brightness.light
-                    ? Colors.grey.shade700
-                    : Colors.grey.shade700,
-                icon: Icon(FontAwesomeIcons.heart),
-                iconSize: 20,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ActivityPage()),
-                  );
-                },
-              ),
-              IconButton(
-                color: MediaQuery.of(context).platformBrightness ==
-                        Brightness.light
-                    ? Colors.black
-                    : Colors.white,
-                icon: Icon(
-                  Icons.account_box,
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => AccountPage()),
-                  );
-                },
-              ),
-            ],
-          ),
-        ),
-      ),
+      bottomNavigationBar: BottomNavBarMain(),
     );
   }
 }

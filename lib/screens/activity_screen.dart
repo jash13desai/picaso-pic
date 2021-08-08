@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:insta_ui_only/providers/posts.dart';
-import 'package:insta_ui_only/screens/search_screen.dart';
 import 'package:insta_ui_only/widgets/activity_widget1.dart';
 import 'package:insta_ui_only/widgets/activity_widget2.dart';
+import 'package:insta_ui_only/widgets/bottomNavBar_main.dart';
 import 'package:provider/provider.dart';
-import 'account_screen.dart';
-import 'add_post.dart';
-import 'homeBar_screen.dart';
 
 class ActivityPage extends StatelessWidget {
   static const route = '/activity_screen';
@@ -46,89 +41,7 @@ class ActivityPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        color: MediaQuery.of(context).platformBrightness == Brightness.light
-            ? Colors.white
-            : Colors.black,
-        height: 50.0,
-        alignment: Alignment.center,
-        child: BottomAppBar(
-          color: MediaQuery.of(context).platformBrightness == Brightness.light
-              ? Colors.white
-              : Colors.black,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              IconButton(
-                color: MediaQuery.of(context).platformBrightness ==
-                        Brightness.light
-                    ? Colors.grey.shade700
-                    : Colors.grey.shade700,
-                icon: Icon(
-                  MediaQuery.of(context).platformBrightness == Brightness.dark
-                      ? Icons.home
-                      : Icons.home_outlined,
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      InstaHome.route, (route) => true);
-                },
-              ),
-              IconButton(
-                color: MediaQuery.of(context).platformBrightness ==
-                        Brightness.light
-                    ? Colors.grey.shade700
-                    : Colors.grey.shade700,
-                icon: Icon(
-                  Icons.search,
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      SearchPage.route, (route) => true);
-                },
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.add_box,
-                ),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AddPost(ImageSource.gallery),
-                  ),
-                ),
-              ),
-              IconButton(
-                color: MediaQuery.of(context).platformBrightness ==
-                        Brightness.light
-                    ? Colors.grey.shade700
-                    : Colors.white,
-                icon: Icon(FontAwesomeIcons.solidHeart),
-                iconSize: 20,
-                onPressed: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      ActivityPage.route, (route) => true);
-                },
-              ),
-              IconButton(
-                color: MediaQuery.of(context).platformBrightness ==
-                        Brightness.light
-                    ? Colors.grey.shade700
-                    : Colors.grey.shade700,
-                icon: Icon(
-                  MediaQuery.of(context).platformBrightness == Brightness.dark
-                      ? Icons.account_box
-                      : Icons.account_box_outlined,
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      AccountPage.route, (route) => true);
-                },
-              ),
-            ],
-          ),
-        ),
-      ),
+      bottomNavigationBar: BottomNavBarMain(),
     );
   }
 }

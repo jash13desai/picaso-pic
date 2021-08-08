@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart' as db;
+import 'package:image_picker/image_picker.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/providers/misc_data.dart';
+import 'package:insta_ui_only/screens/add_post.dart';
 
 import 'package:insta_ui_only/widgets/profilePhoto_widget.dart';
 import 'package:insta_ui_only/widgets/stories_widget.dart';
@@ -371,10 +373,7 @@ class AccountPage extends StatelessWidget {
                       : Icons.home_outlined,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => InstaHome()),
-                  );
+                  Navigator.of(context).pushReplacementNamed(InstaHome.route);
                 },
               ),
               IconButton(
@@ -393,10 +392,19 @@ class AccountPage extends StatelessWidget {
                 },
               ),
               IconButton(
+                color: MediaQuery.of(context).platformBrightness ==
+                        Brightness.light
+                    ? Colors.black
+                    : Colors.white,
                 icon: Icon(
-                  Icons.add_box,
+                  Icons.add_circle_outline,
                 ),
-                onPressed: null,
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddPost(ImageSource.gallery),
+                  ),
+                ),
               ),
               IconButton(
                 color: MediaQuery.of(context).platformBrightness ==

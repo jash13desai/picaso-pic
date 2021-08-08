@@ -1,5 +1,6 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
@@ -7,6 +8,7 @@ import 'package:insta_ui_only/globals/myColors.dart';
 import 'package:insta_ui_only/functions/upload_image.dart' as imageUpload;
 import 'package:insta_ui_only/globals/sizeConfig.dart';
 import 'package:insta_ui_only/providers/posts.dart';
+import 'package:insta_ui_only/widgets/bottomNavBar.dart';
 import 'package:provider/provider.dart';
 
 import 'add_post.dart';
@@ -73,12 +75,13 @@ class _InstaHomeState extends State<InstaHome> {
         ],
       ),
       body: InstaList(),
-      // body: Column(
-      //   mainAxisAlignment: MainAxisAlignment.start,
-      //   children: <Widget>[
-      //     InstaList(),
-      //   ],
-      // ),
+      //  // body: Column(
+      //  //   mainAxisAlignment: MainAxisAlignment.start,
+      //  //   children: <Widget>[
+      //  //     InstaList(),
+      //  //   ],
+      //  // ),
+      // bottomNavigationBar: BottomNavBar(),
       bottomNavigationBar: Container(
         color: MediaQuery.of(context).platformBrightness == Brightness.light
             ? Colors.white
@@ -149,10 +152,15 @@ class _InstaHomeState extends State<InstaHome> {
                         Brightness.light
                     ? Colors.grey.shade700
                     : Colors.grey.shade700,
-                icon: Icon(
-                  MediaQuery.of(context).platformBrightness == Brightness.dark
-                      ? Icons.account_box
-                      : Icons.account_box_outlined,
+                // icon: Icon(
+                //   MediaQuery.of(context).platformBrightness == Brightness.dark
+                //       ? Icons.account_box
+                //       : Icons.account_box_outlined,
+                // ),
+                icon: CircleAvatar(
+                  backgroundImage: NetworkImage(FirebaseAuth
+                          .instance.currentUser.photoURL ??
+                      "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
                 ),
                 onPressed: () {
                   Navigator.of(context).pushReplacementNamed(AccountPage.route);

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:insta_ui_only/widgets/stories_widget.dart';
 
 class InstaStories extends StatelessWidget {
-  // static const route = '/stories_screen';
   @override
   Widget build(BuildContext context) {
     return new Container(

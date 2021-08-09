@@ -11,6 +11,8 @@ class ProfilePhoto extends StatefulWidget {
   _ProfilePhotoState createState() => _ProfilePhotoState();
 }
 
+// for changing the profile photo -- image picker + fetching login
+
 class _ProfilePhotoState extends State<ProfilePhoto> {
   File _imageFile;
   final _auth = FirebaseAuth.instance;

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/providers/posts.dart';
 import 'package:insta_ui_only/widgets/post_widget.dart';
 import 'package:provider/provider.dart';
@@ -20,10 +19,8 @@ class InstaList extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              child: new SizedBox(
-                child: InstaStories(),
-                height: deviceSize.height * 0.15,
-              ),
+              child: InstaStories(),
+              height: deviceSize.height * 0.15,
             ),
             Consumer<Posts>(
               builder: (ctx, posts, _) {
@@ -32,7 +29,7 @@ class InstaList extends StatelessWidget {
                     if (posts.posts.isEmpty)
                       Column(
                         children: [
-                          MySpaces.vMediumGapInBetween,
+                          SizedBox(height: 40),
                           CircularProgressIndicator(
                             color: Colors.pink,
                           ),

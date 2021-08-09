@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/models/post.dart';
 
+// post fetching provider
+
 class Posts with ChangeNotifier {
   final _auth = FirebaseAuth.instance;
   final List<Post> _posts = [];

@@ -6,9 +6,7 @@ import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/widgets/profilePhoto_widget.dart';
 import 'account_screen.dart';
 
-// import 'homeBar_screen.dart';
-// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-// import 'package:insta_ui_only/globals/myColors.dart';
+// edit profile page  ----
 
 class EditProfile extends StatefulWidget {
   static const route = '/edit_screen';

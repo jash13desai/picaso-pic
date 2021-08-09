@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/globals/globals.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String title;
@@ -16,11 +15,11 @@ class ButtonWidget extends StatelessWidget {
       onPressed: () {},
       child: Ink(
         decoration: BoxDecoration(
-          color: hasBorder ? Global.white : Colors.blue[500],
+          color: hasBorder ? Colors.white : Colors.blue[500],
           borderRadius: BorderRadius.circular(10),
           border: hasBorder
               ? Border.all(
-                  color: Global.mediumBlue,
+                  color: Colors.blue.shade700,
                   width: 1.0,
                 )
               : Border.fromBorderSide(BorderSide.none),
@@ -35,7 +34,7 @@ class ButtonWidget extends StatelessWidget {
               child: Text(
                 title,
                 style: TextStyle(
-                  color: hasBorder ? Colors.blue[400] : Global.white,
+                  color: hasBorder ? Colors.blue[400] : Colors.white,
                   fontWeight: FontWeight.w600,
                   fontSize: 16.0,
                 ),

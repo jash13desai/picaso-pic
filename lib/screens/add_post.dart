@@ -8,6 +8,8 @@ import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/functions/upload_image.dart';
 import 'homeBar_screen.dart';
 
+// uploading the posts screen
+
 class AddPost extends StatefulWidget {
   final ImageSource source;
   static const route = '/add_post';

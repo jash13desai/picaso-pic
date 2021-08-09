@@ -1,9 +1,8 @@
-import 'package:insta_ui_only/globals/constants.dart';
 import 'package:flutter/material.dart';
 
 ThemeData lightThemeData(BuildContext context) {
   return ThemeData.light().copyWith(
-    primaryColor: kPrimaryColor,
+    primaryColor: Colors.pinkAccent,
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: appBarThemeLight,
     // iconTheme: IconThemeData(color: kContentColorLightTheme),
@@ -26,14 +25,14 @@ ThemeData lightThemeData(BuildContext context) {
 
 ThemeData darkThemeData(BuildContext context) {
   return ThemeData.dark().copyWith(
-    primaryColor: kPrimaryColor,
+    primaryColor: Colors.pinkAccent,
     scaffoldBackgroundColor: Colors.black,
     appBarTheme: appBarThemeDark,
     // iconTheme: IconThemeData(color: kContentColorDarkTheme),
     // textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme)
     //     .apply(bodyColor: kContentColorDarkTheme),
     colorScheme: ColorScheme.dark().copyWith(
-      primary: kPrimaryColor,
+      primary: Colors.pinkAccent,
       //   secondary: kSecondaryColor,
       //   error: kErrorColor,
       //   onBackground:

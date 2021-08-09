@@ -1,6 +1,7 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
+
+// the gradient ring for the story image container
 
 class WGradientRing extends StatelessWidget {
   const WGradientRing({

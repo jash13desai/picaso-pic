@@ -1,11 +1,10 @@
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:image_picker/image_picker.dart';
 import 'package:insta_ui_only/providers/misc_data.dart';
 import 'package:insta_ui_only/screens/account_screen.dart';
 import 'dm_list_screen.dart';
 import 'homeBar_screen.dart';
-// import 'package:insta_ui_only/functions/upload_image.dart' as imageUpload;
+
+// manually made up dm screen with the use of widgets
 
 class DMPage extends StatelessWidget {
   static const route = '/dm_screen';

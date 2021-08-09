@@ -4,6 +4,8 @@ import 'package:insta_ui_only/screens/login_screen.dart';
 import 'package:insta_ui_only/screens/signup_screen.dart';
 import 'homeBar_screen.dart';
 
+// the very first screen intro page
+
 class IntroPage extends StatefulWidget {
   static const route = '/intro_screen';
 

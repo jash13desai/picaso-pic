@@ -11,10 +11,6 @@ import 'edit_screen.dart';
 import 'homeBar_screen.dart';
 import 'signup_screen.dart';
 
-// import 'package:insta_ui_only/globals/sizeConfig.dart';
-// import 'package:insta_ui_only/globals/myColors.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
-
 class AccountPage extends StatelessWidget {
   static const route = '/account_screen';
   final User data = MyUserData().currentUser;
@@ -49,7 +45,7 @@ class AccountPage extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              MySpaces.hLargeGapInBetween,
+              SizedBox(width: 40),
               IconButton(
                 onPressed: () {},
                 icon: Icon(

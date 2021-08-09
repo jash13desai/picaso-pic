@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+// search provider for search bar in search page
+
 class SearchService {
   searchByName(String searchField) {
     return FirebaseFirestore.instance

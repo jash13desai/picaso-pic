@@ -10,19 +10,23 @@ class SearchIndex0 extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.fromLTRB(
-                0,
-                20,
-                0,
-                10,
-              ),
+              padding: EdgeInsets.fromLTRB(0, 20, 0, 10),
               child: SearchBar(),
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  ...["IGTV", "Shop", "Style", "Sports", "Auto", "Clothes"].map(
+                  ...[
+                    "IGTV",
+                    "Sports",
+                    "Style",
+                    "Shop",
+                    "Auto",
+                    "Clothes",
+                    "Nature",
+                    "Food"
+                  ].map(
                     (text) {
                       return Container(
                         margin:

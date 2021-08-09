@@ -5,6 +5,8 @@ import 'package:insta_ui_only/widgets/activity_widget2.dart';
 import 'package:insta_ui_only/widgets/bottomNavBar_main.dart';
 import 'package:provider/provider.dart';
 
+// the activity page screen --
+
 class ActivityPage extends StatelessWidget {
   static const route = '/activity_screen';
   @override

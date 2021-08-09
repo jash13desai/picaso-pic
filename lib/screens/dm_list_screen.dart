@@ -4,6 +4,8 @@ import 'package:insta_ui_only/widgets/searchbar_widget.dart';
 import 'package:insta_ui_only/widgets/dm_widget.dart';
 import 'package:provider/provider.dart';
 
+// manually made up DM screen with the use of widgets
+
 class DMScrollList extends StatefulWidget {
   static const route = '/dm_list_screen';
 

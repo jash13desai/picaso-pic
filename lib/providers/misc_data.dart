@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
+// manually made up dummy data to use at various place
 class User {
   final String userName;
   final String imageUrl;

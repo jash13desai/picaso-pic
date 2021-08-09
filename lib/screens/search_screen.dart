@@ -241,11 +241,13 @@ class _SearchPageState extends State<SearchPage> {
                                     children: [
                                       ...[
                                         "IGTV",
-                                        "Shop",
-                                        "Style",
                                         "Sports",
+                                        "Style",
+                                        "Shop",
                                         "Auto",
-                                        "Random"
+                                        "Clothes",
+                                        "Nature",
+                                        "Food"
                                       ].map(
                                         (text) {
                                           return Container(

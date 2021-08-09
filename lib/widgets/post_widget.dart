@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
-import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/globals/sizeConfig.dart';
+import 'package:insta_ui_only/screens/account_screen.dart';
 import 'package:intl/intl.dart';
 import '../models/post.dart';
+import 'postComment_Widget.dart';
 
 class PostWidget extends StatefulWidget {
   final Post post;
@@ -63,26 +64,33 @@ class _PostWidgetState extends State<PostWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(16.0, 4.0, 8.0, 16.0),
+                padding: EdgeInsets.fromLTRB(10, 0, 0, 13.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Row(
                       children: <Widget>[
-                        Container(
-                          height: 40.0,
-                          width: 40.0,
-                          decoration: new BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: new DecorationImage(
-                              fit: BoxFit.cover,
-                              // image: widget.accountImage,
-                              image: NetworkImage(profileUrl ??
-                                  "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
-                            ),
+                        // Container(
+                        //   height: 40.0,
+                        //   width: 40.0,
+                        //   decoration: new BoxDecoration(
+                        //     shape: BoxShape.circle,
+                        //     image: DecorationImage(
+                        //       fit: BoxFit.cover,
+                        //       image: NetworkImage(profileUrl ??
+                        //           "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
+                        //     ),
+                        //   ),
+                        // ),
+                        CircleAvatar(
+                          radius: 20,
+                          backgroundImage: NetworkImage(
+                            profileUrl ??
+                                "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png",
                           ),
                         ),
-                        SizedBox(width: 10),
+
+                        SizedBox(width: 8),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -90,7 +98,6 @@ class _PostWidgetState extends State<PostWidget> {
                               name,
                               style: MyFonts.medium.size(16),
                             ),
-                            MySpaces.vSmallestGapInBetween,
                             Text(widget.post.location),
                           ],
                         ),
@@ -103,119 +110,96 @@ class _PostWidgetState extends State<PostWidget> {
                   ],
                 ),
               ),
-              // Padding(
-              //   padding: const EdgeInsets.only(left: 0),
-              //   child: Flexible(
-              //     fit: FlexFit.loose,
-              //     child: Image.network(
-              //       widget.post.postUrl,
-              //       fit: BoxFit.contain,
-              //     ),
-              //   ),
-              // ),
-              // Flexible(
-              //   fit: FlexFit.loose,
-              //   child: Image.network(
-              //     widget.post.postUrl,
-              //     fit: BoxFit.cover,
-              //   ),
-              // ),
               Container(
-                child: Flexible(
-                  fit: FlexFit.loose,
-                  child: Image.network(
-                    widget.post.postUrl,
-                    fit: BoxFit.cover,
-                  ),
+                child: Image.network(
+                  widget.post.postUrl,
+                  fit: BoxFit.cover,
                 ),
-                constraints: BoxConstraints(maxWidth: double.infinity),
                 alignment: Alignment.center,
                 color: MediaQuery.of(context).platformBrightness ==
                         Brightness.light
                     ? Colors.white
                     : Colors.black,
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    new Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        new IconButton(
-                          icon: Icon(
-                            isLikePressed
-                                ? FontAwesomeIcons.solidHeart
-                                : FontAwesomeIcons.heart,
-                          ),
-                          color: isLikePressed
-                              ? Colors.red
-                              : Theme.of(context).colorScheme.onBackground,
-                          onPressed: () {
-                            setState(
-                              () {
-                                isLikePressed = !isLikePressed;
-                              },
-                            );
-                            isLikePressed == true
-                                ? ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      duration: const Duration(seconds: 2),
-                                      content: Text('You liked the post! :) '),
-                                    ),
-                                  )
-                                : ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      duration: const Duration(seconds: 2),
-                                      content:
-                                          Text('You unliked the post! :( '),
-                                    ),
-                                  );
-                          },
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      IconButton(
+                        iconSize: 25,
+                        icon: Icon(
+                          isLikePressed
+                              ? FontAwesomeIcons.solidHeart
+                              : FontAwesomeIcons.heart,
                         ),
-                        new IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            FontAwesomeIcons.comment,
-                          ),
-                        ),
-                        new IconButton(
-                          onPressed: () {},
-                          icon: Icon(FontAwesomeIcons.paperPlane),
-                        ),
-                      ],
-                    ),
-                    IconButton(
-                      icon: Icon(
-                        !isBookPressed
-                            ? FontAwesomeIcons.bookmark
-                            : FontAwesomeIcons.solidBookmark,
+                        color: isLikePressed
+                            ? Colors.red
+                            : Theme.of(context).colorScheme.onBackground,
+                        onPressed: () {
+                          setState(
+                            () {
+                              isLikePressed = !isLikePressed;
+                            },
+                          );
+                          isLikePressed == true
+                              ? ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    duration: const Duration(seconds: 1),
+                                    content: Text('You liked the post! :) '),
+                                  ),
+                                )
+                              : ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    duration: const Duration(seconds: 1),
+                                    content: Text('You unliked the post! :( '),
+                                  ),
+                                );
+                        },
                       ),
-                      onPressed: () {
-                        setState(
-                          () {
-                            isBookPressed = !isBookPressed;
-                          },
-                        );
-                        isBookPressed == true
-                            ? ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  duration: const Duration(seconds: 2),
-                                  content: Text('You Bookmarked the post! :) '),
-                                ),
-                              )
-                            : ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  duration: const Duration(seconds: 2),
-                                  content:
-                                      Text('You removed the bookmark! :( '),
-                                ),
-                              );
-                      },
-                    )
-                  ],
-                ),
+                      new IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          FontAwesomeIcons.commentAlt,
+                        ),
+                        iconSize: 24,
+                      ),
+                      new IconButton(
+                        iconSize: 24,
+                        onPressed: () {},
+                        icon: Icon(FontAwesomeIcons.paperPlane),
+                      ),
+                    ],
+                  ),
+                  IconButton(
+                    iconSize: 22,
+                    icon: Icon(
+                      !isBookPressed
+                          ? FontAwesomeIcons.bookmark
+                          : FontAwesomeIcons.solidBookmark,
+                    ),
+                    onPressed: () {
+                      setState(
+                        () {
+                          isBookPressed = !isBookPressed;
+                        },
+                      );
+                      isBookPressed == true
+                          ? ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                duration: const Duration(seconds: 1),
+                                content: Text('You Bookmarked the post! :) '),
+                              ),
+                            )
+                          : ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                duration: const Duration(seconds: 1),
+                                content: Text('You removed the bookmark! :( '),
+                              ),
+                            );
+                    },
+                  )
+                ],
               ),
               // Row(
               //   children: [
@@ -261,11 +245,11 @@ class _PostWidgetState extends State<PostWidget> {
               //   ],
               // ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                 child: RichText(
                   text: TextSpan(
                     text: name + " ",
-                    style: MyFonts.medium.size(SizeConfig.textScaleFactor * 17),
+                    style: MyFonts.bold.size(SizeConfig.textScaleFactor * 17),
                     children: [
                       TextSpan(
                           text: widget.post.caption,
@@ -275,53 +259,46 @@ class _PostWidgetState extends State<PostWidget> {
                   ),
                 ),
               ),
+              PostCommentWidget(),
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(5, 10, 0, 5),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.start,
+              //     children: <Widget>[
+              //       new Container(
+              //         height: 40.0,
+              //         width: 40.0,
+              //         decoration: new BoxDecoration(
+              //           shape: BoxShape.circle,
+              //           image: new DecorationImage(
+              //             fit: BoxFit.cover,
+              //             image: NetworkImage(
+              //                 // profileUrl ??
+              //                 "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
+              //           ),
+              //         ),
+              //       ),
+              //       new SizedBox(
+              //         width: 10.0,
+              //       ),
+              //       Expanded(
+              //         child: new TextField(
+              //           decoration: new InputDecoration(
+              //             border: InputBorder.none,
+              //             hintText: "Add a comment...",
+              //           ),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(16.0, 16.0, 0.0, 8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    new Container(
-                      height: 40.0,
-                      width: 40.0,
-                      decoration: new BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: new DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                              // profileUrl ??
-                              "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
-                        ),
-                      ),
-                    ),
-                    new SizedBox(
-                      width: 10.0,
-                    ),
-                    Expanded(
-                      child: new TextField(
-                        decoration: new InputDecoration(
-                          border: InputBorder.none,
-                          hintText: "Add a comment...",
-                        ),
-                      ),
-                    ),
-                  ],
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 22),
+                child: Text(
+                  DateFormat('MMMM dd , yy').format(widget.post.date),
+                  style: MyFonts.thin.setColor(Colors.grey[700]),
                 ),
               ),
-              MySpaces.vGapInBetween,
-              Text(
-                DateFormat('MMMM dd , yy').format(widget.post.date),
-                style: MyFonts.thin.setColor(Colors.grey[700]),
-              ),
-              MySpaces.vGapInBetween,
-              // Padding(
-              //   padding: const EdgeInsets.fromLTRB(8, 0, 0, 20),
-              //   // child: Text(
-              //   //   widget.time,
-              //   //   style: TextStyle(
-              //   //     color: Colors.grey,
-              //   //   ),
-              //   // ),
-              // ),
             ],
           );
   }

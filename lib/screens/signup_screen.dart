@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/providers/authentication.dart';
 import 'package:insta_ui_only/widgets/textfield_widget.dart';
-import 'package:insta_ui_only/globals/globals.dart';
 import 'package:provider/provider.dart';
 import 'homeBar_screen.dart';
 // import 'intro_screen.dart';
@@ -223,7 +222,7 @@ class _SignUpState extends State<SignUp> {
                                 child: Text(
                                   'Sign Up',
                                   style: TextStyle(
-                                    color: Global.white,
+                                    color: Colors.white,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 16.0,
                                   ),

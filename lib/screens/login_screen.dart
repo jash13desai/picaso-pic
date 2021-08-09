@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:insta_ui_only/providers/authentication.dart';
 import 'package:insta_ui_only/screens/signup_screen.dart';
 import 'package:insta_ui_only/widgets/textfield_widget.dart';
-import 'package:insta_ui_only/globals/globals.dart';
 import 'package:provider/provider.dart';
 import 'homeBar_screen.dart';
 
@@ -228,7 +227,7 @@ class _LogInState extends State<LogIn> {
                                 child: Text(
                                   'Log In',
                                   style: TextStyle(
-                                    color: Global.white,
+                                    color: Colors.white,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 16.0,
                                   ),

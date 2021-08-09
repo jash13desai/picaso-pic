@@ -8,6 +8,8 @@ import 'package:insta_ui_only/widgets/bottomNavBar_main.dart';
 import 'package:provider/provider.dart';
 import 'dm_screen.dart';
 
+// upper navigation bar for the main screen
+
 class InstaHome extends StatefulWidget {
   static const route = '/homeBar_screen';
 
@@ -40,29 +42,26 @@ class _InstaHomeState extends State<InstaHome> {
             ),
           ),
           title: SizedBox(
-            height: 35.0,
+            height: 40.0,
             child: MediaQuery.of(context).platformBrightness == Brightness.light
                 ? Image.asset("assets/images/insta_logo_light.jpg")
                 : Image.asset("assets/images/insta_logo_dark.jpg"),
           ),
           actions: <Widget>[
+            // IconButton(
+            //   onPressed: () => {},
+            //   icon:
+            //       MediaQuery.of(context).platformBrightness == Brightness.light
+            //           ? Image.asset('assets/icons/igtv_icon_light.jpg')
+            //           : Image.asset('assets/icons/igtv_icon_dark.jpg'),
+            //   iconSize: 5,
+            // ),
             IconButton(
-              onPressed: () => {},
-              icon:
-                  MediaQuery.of(context).platformBrightness == Brightness.light
-                      ? Image.asset('assets/icons/igtv_icon_light.jpg')
-                      : Image.asset('assets/icons/igtv_icon_dark.jpg'),
-              iconSize: 5,
-            ),
-            Padding(
-              padding: EdgeInsets.only(right: 12.0),
-              child: IconButton(
-                icon: Icon(FontAwesomeIcons.paperPlane),
-                iconSize: 25,
-                onPressed: () {
-                  Navigator.of(context).pushReplacementNamed(DMPage.route);
-                },
-              ),
+              icon: Icon(FontAwesomeIcons.facebookMessenger),
+              iconSize: 25,
+              onPressed: () {
+                Navigator.of(context).pushReplacementNamed(DMPage.route);
+              },
             ),
           ],
         ),

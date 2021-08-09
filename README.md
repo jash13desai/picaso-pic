@@ -5,7 +5,7 @@
 
 **A Basic and Simple Instagram Clone App which is still under construction.**
 
-## 🎊 Features
+## ✨ Features
 The app theme changes according to the theme of the device.!
 * Try changing the theme of your phone and restart the app. The app theme will change automatically.
 

@@ -13,7 +13,6 @@ class InstaStories extends StatelessWidget {
         children: <Widget>[
           Container(
             height: 100,
-            width: 1000,
             child: new ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 1,

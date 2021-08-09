@@ -15,7 +15,7 @@ class _PostCommentWidgetState extends State<PostCommentWidget> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(5, 10, 0, 5),
+          padding: const EdgeInsets.fromLTRB(5, 5, 0, 5),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -34,7 +34,7 @@ class _PostCommentWidgetState extends State<PostCommentWidget> {
               //   ),
               // ),
               IconButton(
-                iconSize: 40,
+                iconSize: 35,
                 color: MediaQuery.of(context).platformBrightness ==
                         Brightness.light
                     ? Colors.black
@@ -49,7 +49,7 @@ class _PostCommentWidgetState extends State<PostCommentWidget> {
                 },
               ),
               new SizedBox(
-                width: 10.0,
+                width: 5.0,
               ),
               Expanded(
                 child: new TextField(

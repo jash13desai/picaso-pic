@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/sizeConfig.dart';
-import 'package:insta_ui_only/screens/account_screen.dart';
 import 'package:intl/intl.dart';
 import '../models/post.dart';
 import 'postComment_Widget.dart';
@@ -44,14 +43,18 @@ class _PostWidgetState extends State<PostWidget> {
 
   @override
   void initState() {
-    widget.post.addedBy.get().then((response) {
-      final data = response.data() as Map<String, dynamic>;
-      profileUrl = data['imageUrl'];
-      name = data['user_name'];
-      setState(() {
-        isLoading = false;
-      });
-    });
+    widget.post.addedBy.get().then(
+      (response) {
+        final data = response.data() as Map<String, dynamic>;
+        profileUrl = data['imageUrl'];
+        name = data['user_name'];
+        setState(
+          () {
+            isLoading = false;
+          },
+        );
+      },
+    );
 
     super.initState();
   }
@@ -295,10 +298,11 @@ class _PostWidgetState extends State<PostWidget> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 22),
                 child: Text(
-                  DateFormat('MMMM dd , yy').format(widget.post.date),
+                  DateFormat("MMMM dd, yy").format(widget.post.date),
                   style: MyFonts.thin.setColor(Colors.grey[700]),
                 ),
               ),
+              SizedBox(height: 20)
             ],
           );
   }

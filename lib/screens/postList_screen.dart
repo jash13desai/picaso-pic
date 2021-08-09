@@ -8,8 +8,6 @@ class InstaList extends StatelessWidget {
   static const route = '/postList_screen';
   @override
   Widget build(BuildContext context) {
-    var deviceSize = MediaQuery.of(context).size;
-
     return RefreshIndicator(
       color: Colors.pink,
       onRefresh: () async {
@@ -18,18 +16,17 @@ class InstaList extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              child: InstaStories(),
-              height: deviceSize.height * 0.15,
-            ),
+            Container(child: InstaStories(), height: 125),
             Consumer<Posts>(
               builder: (ctx, posts, _) {
                 return Column(
                   children: [
                     if (posts.posts.isEmpty)
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(height: 40),
+                          Text("No Posts Yet!"),
                           CircularProgressIndicator(
                             color: Colors.pink,
                           ),

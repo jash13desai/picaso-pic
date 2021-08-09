@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
-import 'package:insta_ui_only/screens/login_screen.dart';
 
 class ActivityTileWidget extends StatefulWidget {
-  final double widgetHeight;
-  final bool isLikeOrComment;
-  final double whichOne;
-  final AssetImage accountImage;
-  final String accountName;
-  final AssetImage sideImage;
-  final String time;
+  bool isLikeOrComment;
+  double widgetHeight;
+  double whichOne;
+  AssetImage accountImage;
+  String accountName;
+  AssetImage sideImage;
+  String time;
 
   ActivityTileWidget({
     this.widgetHeight,
@@ -112,17 +111,9 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                     child: widget.whichOne == 1.1
                         ? GestureDetector(
                             onTap: () {
-                              createAlertDialog(context).then(
-                                (onValue) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        'Sorry for the feature-less UI :(',
-                                      ),
-                                    ),
-                                  );
-                                },
-                              );
+                              setState(() {
+                                widget.whichOne = 1.2;
+                              });
                             },
                             child: Ink(
                               decoration: BoxDecoration(
@@ -142,7 +133,7 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                                 borderRadius: BorderRadius.circular(10),
                                 child: Container(
                                   height: 30,
-                                  width: 80,
+                                  width: 70,
                                   child: Center(
                                     child: Text(
                                       'Following',
@@ -163,17 +154,9 @@ class _ActivityTileWidgetState extends State<ActivityTileWidget> {
                           )
                         : GestureDetector(
                             onTap: () {
-                              createAlertDialog(context).then(
-                                (onValue) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        'Sorry for the feature-less UI :(',
-                                      ),
-                                    ),
-                                  );
-                                },
-                              );
+                              setState(() {
+                                widget.whichOne = 1.1;
+                              });
                             },
                             child: Ink(
                               decoration: BoxDecoration(

@@ -1,22 +1,22 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/providers/posts.dart';
-import 'package:insta_ui_only/screens/intro_screen.dart';
+import 'package:insta_ui_only/screens/IntroScreen/intro_screen.dart';
 import 'package:insta_ui_only/globals/theme.dart';
 import 'package:provider/provider.dart';
 import 'package:insta_ui_only/providers/authentication.dart';
 
-import 'screens/account_screen.dart';
-import 'screens/activity_screen.dart';
+import 'screens/accountScreen/account_screen.dart';
+import 'screens/ActivityScreen/activity_screen.dart';
 
-import 'screens/dm_list_screen.dart';
-import 'screens/dm_screen.dart';
-import 'screens/edit_screen.dart';
-import 'screens/homeBar_screen.dart';
-import 'screens/login_screen.dart';
-import 'screens/postList_screen.dart';
-import 'screens/search_screen.dart';
-import 'screens/signup_screen.dart';
+import 'screens/DMScreen/dm_list_screen.dart';
+import 'screens/DMScreen/dm_screen.dart';
+import 'screens/AccountScreen/editProfile_screen.dart';
+import 'screens/MainPageScreen_Feeds/homeBar_screen.dart';
+import 'screens/IntroScreen/login_screen.dart';
+import 'screens/MainPageScreen_Feeds/postList_screen.dart';
+import 'screens/SearchScreen/search_screen.dart';
+import 'screens/IntroScreen/signup_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

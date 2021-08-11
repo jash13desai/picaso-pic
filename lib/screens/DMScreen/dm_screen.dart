@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/providers/misc_data.dart';
-import 'package:insta_ui_only/screens/account_screen.dart';
+import 'package:insta_ui_only/screens/accountScreen/account_screen.dart';
 import 'dm_list_screen.dart';
-import 'homeBar_screen.dart';
+import '../MainPageScreen_Feeds/homeBar_screen.dart';
 
 // manually made up dm screen with the use of widgets
 

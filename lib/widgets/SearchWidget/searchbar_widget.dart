@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/widgets/textfield_widget.dart';
+import 'package:insta_ui_only/widgets/SearchWidget/textfield_widget.dart';
 
 class SearchBar extends StatelessWidget {
   @override

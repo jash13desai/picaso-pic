@@ -2,11 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:insta_ui_only/screens/account_screen.dart';
-import 'package:insta_ui_only/screens/activity_screen.dart';
-import 'package:insta_ui_only/screens/add_post.dart';
-import 'package:insta_ui_only/screens/homeBar_screen.dart';
-import 'package:insta_ui_only/screens/search_screen.dart';
+import 'package:insta_ui_only/screens/accountScreen/account_screen.dart';
+import 'package:insta_ui_only/screens/ActivityScreen/activity_screen.dart';
+import 'package:insta_ui_only/screens/AddPostScreen/add_post.dart';
+import 'package:insta_ui_only/screens/MainPageScreen_Feeds/homeBar_screen.dart';
+import 'package:insta_ui_only/screens/SearchScreen/search_screen.dart';
 
 class BottomNavBarMain extends StatelessWidget {
   @override

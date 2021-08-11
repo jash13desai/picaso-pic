@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/providers/authentication.dart';
-import 'package:insta_ui_only/widgets/textfield_widget.dart';
+import 'package:insta_ui_only/widgets/SearchWidget/textfield_widget.dart';
 import 'package:provider/provider.dart';
-import 'homeBar_screen.dart';
+import '../MainPageScreen_Feeds/homeBar_screen.dart';
 // import 'intro_screen.dart';
 import 'login_screen.dart';
 

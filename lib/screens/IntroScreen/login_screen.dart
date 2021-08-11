@@ -2,10 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/providers/authentication.dart';
-import 'package:insta_ui_only/screens/signup_screen.dart';
-import 'package:insta_ui_only/widgets/textfield_widget.dart';
+import 'package:insta_ui_only/screens/IntroScreen/signup_screen.dart';
+import 'package:insta_ui_only/widgets/SearchWidget/textfield_widget.dart';
 import 'package:provider/provider.dart';
-import 'homeBar_screen.dart';
+import '../MainPageScreen_Feeds/homeBar_screen.dart';
 
 Future createAlertDialog(BuildContext context) {
   return showDialog(

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/screens/account_screen.dart';
+import 'package:insta_ui_only/screens/accountScreen/account_screen.dart';
 
 class PostCommentWidget extends StatefulWidget {
   @override

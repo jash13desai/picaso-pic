@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/functions/upload_image.dart';
-import 'homeBar_screen.dart';
+import '../MainPageScreen_Feeds/homeBar_screen.dart';
 
 // uploading the posts screen
 

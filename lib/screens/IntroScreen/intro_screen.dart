@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/screens/login_screen.dart';
-import 'package:insta_ui_only/screens/signup_screen.dart';
-import 'homeBar_screen.dart';
+import 'package:insta_ui_only/screens/IntroScreen/login_screen.dart';
+import 'package:insta_ui_only/screens/IntroScreen/signup_screen.dart';
+import '../MainPageScreen_Feeds/homeBar_screen.dart';
 
 // the very first screen intro page
 

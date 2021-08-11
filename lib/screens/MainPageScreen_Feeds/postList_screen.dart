@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/providers/posts.dart';
-import 'package:insta_ui_only/widgets/post_widget.dart';
+import 'package:insta_ui_only/widgets/PostWidget/post_widget.dart';
 import 'package:provider/provider.dart';
 import 'stories_screen.dart';
 

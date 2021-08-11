@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:insta_ui_only/screens/add_post.dart';
+import 'package:insta_ui_only/screens/AddPostScreen/add_post.dart';
 
 BuildContext context;
 void init(BuildContext cntx) {

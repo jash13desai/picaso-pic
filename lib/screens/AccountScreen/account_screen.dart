@@ -3,13 +3,12 @@ import 'package:firebase_auth/firebase_auth.dart' as db;
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/providers/misc_data.dart';
-import 'package:insta_ui_only/widgets/bottomNavBar_main.dart';
-
-import 'package:insta_ui_only/widgets/profilePhoto_widget.dart';
-import 'package:insta_ui_only/widgets/stories_widget.dart';
-import 'edit_screen.dart';
-import 'homeBar_screen.dart';
-import 'signup_screen.dart';
+import 'package:insta_ui_only/screens/IntroScreen/signup_screen.dart';
+import 'package:insta_ui_only/screens/MainPageScreen_Feeds/homeBar_screen.dart';
+import 'package:insta_ui_only/widgets/BottomNavBar/bottomNavBar_main.dart';
+import 'package:insta_ui_only/widgets/PostWidget/profilePhoto_widget.dart';
+import 'package:insta_ui_only/widgets/StoriesWidget/stories_widget.dart';
+import 'editProfile_screen.dart';
 
 class AccountPage extends StatelessWidget {
   static const route = '/account_screen';

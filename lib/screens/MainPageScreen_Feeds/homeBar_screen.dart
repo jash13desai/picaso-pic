@@ -3,10 +3,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_ui_only/functions/upload_image.dart' as imageUpload;
 import 'package:insta_ui_only/globals/sizeConfig.dart';
 import 'package:insta_ui_only/providers/posts.dart';
-import 'package:insta_ui_only/screens/postList_screen.dart';
-import 'package:insta_ui_only/widgets/bottomNavBar_main.dart';
+import 'package:insta_ui_only/screens/MainPageScreen_Feeds/postList_screen.dart';
+import 'package:insta_ui_only/widgets/BottomNavBar/bottomNavBar_main.dart';
 import 'package:provider/provider.dart';
-import 'dm_screen.dart';
+import '../DMScreen/dm_screen.dart';
 
 // upper navigation bar for the main screen
 

@@ -5,8 +5,8 @@ import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:insta_ui_only/providers/posts.dart';
 import 'package:insta_ui_only/providers/search_provider.dart';
-import 'homeBar_screen.dart';
-import 'package:insta_ui_only/widgets/bottomNavBar_main.dart';
+import '../MainPageScreen_Feeds/homeBar_screen.dart';
+import 'package:insta_ui_only/widgets/BottomNavBar/bottomNavBar_main.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class SearchPage extends StatefulWidget {

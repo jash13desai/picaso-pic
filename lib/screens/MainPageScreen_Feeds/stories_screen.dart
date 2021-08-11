@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/widgets/stories_widget.dart';
+import 'package:insta_ui_only/widgets/StoriesWidget/stories_widget.dart';
 
 class InstaStories extends StatelessWidget {
   @override

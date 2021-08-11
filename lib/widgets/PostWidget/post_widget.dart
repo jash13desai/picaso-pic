@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/sizeConfig.dart';
 import 'package:intl/intl.dart';
-import '../models/post.dart';
+import '../../models/post.dart';
 import 'postComment_Widget.dart';
 
 class PostWidget extends StatefulWidget {

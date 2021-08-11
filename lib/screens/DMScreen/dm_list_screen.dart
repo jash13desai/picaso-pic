@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/providers/posts.dart';
-import 'package:insta_ui_only/widgets/searchbar_widget.dart';
-import 'package:insta_ui_only/widgets/dm_widget.dart';
+import 'package:insta_ui_only/widgets/SearchWidget/searchbar_widget.dart';
+import 'package:insta_ui_only/widgets/DMWidgets/dm_widget.dart';
 import 'package:provider/provider.dart';
 
 // manually made up DM screen with the use of widgets

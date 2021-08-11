@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/providers/posts.dart';
-import 'package:insta_ui_only/widgets/activity_widget1.dart';
-import 'package:insta_ui_only/widgets/activity_widget2.dart';
-import 'package:insta_ui_only/widgets/bottomNavBar_main.dart';
+import 'package:insta_ui_only/widgets/ActivityScreen/activity_widget1.dart';
+import 'package:insta_ui_only/widgets/ActivityScreen/activity_widget2.dart';
+import 'package:insta_ui_only/widgets/BottomNavBar/bottomNavBar_main.dart';
 import 'package:provider/provider.dart';
 
 // the activity page screen --

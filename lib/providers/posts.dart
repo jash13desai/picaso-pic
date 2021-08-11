@@ -6,15 +6,17 @@ import 'package:insta_ui_only/models/post.dart';
 // post fetching provider
 
 class Posts with ChangeNotifier {
-  final _auth = FirebaseAuth.instance;
+  // final _auth = FirebaseAuth.instance;
   final List<Post> _posts = [];
   bool isLoading = false;
 
   List<Post> get posts {
     if (_posts.isEmpty) {
-      fetchAndSetPosts().then((_) {
-        return _posts..sort((a, b) => b.date.compareTo(a.date));
-      });
+      fetchAndSetPosts().then(
+        (_) {
+          return _posts..sort((a, b) => b.date.compareTo(a.date));
+        },
+      );
     }
     return _posts..sort((a, b) => b.date.compareTo(a.date));
   }
@@ -23,22 +25,29 @@ class Posts with ChangeNotifier {
     try {
       final response = await FirebaseFirestore.instance
           .collection('posts')
-          .where('addedBy', isNotEqualTo: _auth.currentUser.displayName)
+          .where(
+            'addedBy',
+            isNotEqualTo: FirebaseFirestore.instance.doc(
+              '/users/${FirebaseAuth.instance.currentUser.uid}',
+            ),
+          )
           .get();
       _posts.clear();
-      response.docs.forEach((doc) {
-        _posts.add(
-          Post(
-            postUrl: doc['imageUrl'],
-            location: doc['location'],
-            caption: doc['caption'],
-            date: DateTime.parse(doc['timeStamp'].toDate().toString()),
-            // name: doc['addedBy'],
-            // profileUrl: doc['profileUrl'],
-            addedBy: doc['addedBy'],
-          ),
-        );
-      });
+      response.docs.forEach(
+        (doc) {
+          _posts.add(
+            Post(
+              postUrl: doc['imageUrl'],
+              location: doc['location'],
+              caption: doc['caption'],
+              date: DateTime.parse(doc['timeStamp'].toDate().toString()),
+              // name: doc['addedBy'],
+              // profileUrl: doc['profileUrl'],
+              addedBy: doc['addedBy'],
+            ),
+          );
+        },
+      );
     } catch (e) {
       throw e;
     }

@@ -92,7 +92,7 @@ class _EditProfileState extends State<EditProfile> {
                           keyboardType: TextInputType.text,
                           textInputAction: TextInputAction.next,
                           onSaved: (value) {
-                            // _caption = value;
+                            // changeName();
                           },
                         ),
                       ),

@@ -7,6 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ProfilePhoto extends StatefulWidget {
+  final String imageUrl;
+
+  const ProfilePhoto({this.imageUrl});
+
   @override
   _ProfilePhotoState createState() => _ProfilePhotoState();
 }
@@ -68,7 +72,10 @@ class _ProfilePhotoState extends State<ProfilePhoto> {
           : CircleAvatar(
               radius: SizeConfig.horizontalBlockSize * 12,
               backgroundImage: NetworkImage(
-                FirebaseAuth.instance.currentUser.photoURL ??
+                // FirebaseAuth.instance.currentUser.photoURL
+                ((widget.imageUrl == null)
+                        ? FirebaseAuth.instance.currentUser.photoURL
+                        : widget.imageUrl) ??
                     "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png",
               ),
             ),

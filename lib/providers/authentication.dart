@@ -76,10 +76,11 @@ class Authentication with ChangeNotifier {
           content: Text(errormessage),
           actions: <Widget>[
             TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text('OK'))
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            )
           ],
         );
       },

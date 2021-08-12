@@ -27,7 +27,7 @@ class Authentication with ChangeNotifier {
         await _db.set(
           {
             'user_name': name,
-            'searchKey': name.substring(0).toUpperCase(),
+            'searchKey': name.substring(0, 1).toUpperCase(),
             'followers': [],
             'following': [],
           },

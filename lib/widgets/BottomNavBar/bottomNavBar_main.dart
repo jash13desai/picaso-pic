@@ -94,7 +94,10 @@ class BottomNavBarMain extends StatelessWidget {
                     "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
               ),
               onPressed: () {
-                Navigator.of(context).pushReplacementNamed(AccountPage.route);
+                Navigator.of(context).pushReplacementNamed(
+                  AccountPage.route,
+                  arguments: FirebaseAuth.instance.currentUser.uid,
+                );
               },
             ),
           ],

@@ -3,12 +3,13 @@ import 'package:insta_ui_only/providers/misc_data.dart';
 import 'package:insta_ui_only/screens/accountScreen/account_screen.dart';
 import 'dm_list_screen.dart';
 import '../MainPageScreen_Feeds/homeBar_screen.dart';
+import 'package:insta_ui_only/models/user.dart' as user;
 
 // manually made up dm screen with the use of widgets
 
 class DMPage extends StatelessWidget {
   static const route = '/dm_screen';
-  final User data = MyUserData().currentUser;
+  final user.User data = MyUserData().currentUser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -44,6 +44,8 @@ class Posts with ChangeNotifier {
               // name: doc['addedBy'],
               // profileUrl: doc['profileUrl'],
               addedBy: doc['addedBy'],
+              likedBy: doc['likedBy'],
+              docId: doc.id,
             ),
           );
         },

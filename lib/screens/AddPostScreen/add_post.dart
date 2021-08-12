@@ -37,25 +37,33 @@ class _AddPostState extends State<AddPost> {
       Navigator.of(context).pop();
     }
 
-    setState(() {
-      isLoading = true;
-    });
+    setState(
+      () {
+        isLoading = true;
+      },
+    );
 
     final firebaseStorageRef = FirebaseStorage.instance.ref().child(
         'images/${FirebaseAuth.instance.currentUser.uid}/${DateTime.now().toString()}');
-    firebaseStorageRef.putFile(_imageFile).then((taskSnapshot) {
-      taskSnapshot.ref.getDownloadURL().then((value) {
-        try {
-          imageUrl = value;
-        } catch (error) {
-          print(error);
-        }
-        // Stop the loading once fetching and setting it done
-        setState(() {
-          isLoading = false;
-        });
-      });
-    });
+    firebaseStorageRef.putFile(_imageFile).then(
+      (taskSnapshot) {
+        taskSnapshot.ref.getDownloadURL().then(
+          (value) {
+            try {
+              imageUrl = value;
+            } catch (error) {
+              print(error);
+            }
+            // Stop the loading once fetching and setting it done
+            setState(
+              () {
+                isLoading = false;
+              },
+            );
+          },
+        );
+      },
+    );
   }
 
   @override
@@ -72,9 +80,11 @@ class _AddPostState extends State<AddPost> {
     _formKey.currentState.save();
     final CollectionReference _db =
         FirebaseFirestore.instance.collection('posts');
-    setState(() {
-      isLoading = true;
-    });
+    setState(
+      () {
+        isLoading = true;
+      },
+    );
     try {
       await _db.add(
         {
@@ -86,15 +96,18 @@ class _AddPostState extends State<AddPost> {
           'timeStamp': DateTime.now(),
           'addedBy': FirebaseFirestore.instance
               .doc('/users/${FirebaseAuth.instance.currentUser.uid}'),
+          'likedBy': [],
         },
       );
     } catch (e) {
       print(e);
     }
 
-    setState(() {
-      isLoading = true;
-    });
+    setState(
+      () {
+        isLoading = true;
+      },
+    );
     Navigator.of(context).pop();
   }
 

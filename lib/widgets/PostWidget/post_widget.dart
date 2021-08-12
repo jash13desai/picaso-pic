@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
@@ -8,7 +10,6 @@ import 'postComment_Widget.dart';
 
 class PostWidget extends StatefulWidget {
   final Post post;
-
   const PostWidget(this.post);
 
   // final AssetImage accountImage;
@@ -40,9 +41,15 @@ class _PostWidgetState extends State<PostWidget> {
   String profileUrl;
   String name;
   bool isLoading = true;
+  final _auth = FirebaseAuth.instance;
+
+  final CollectionReference _db =
+      FirebaseFirestore.instance.collection('posts');
 
   @override
   void initState() {
+    isLikePressed = widget.post.likedBy
+        .contains(FirebaseAuth.instance.currentUser.displayName);
     widget.post.addedBy.get().then(
       (response) {
         final data = response.data() as Map<String, dynamic>;
@@ -73,18 +80,6 @@ class _PostWidgetState extends State<PostWidget> {
                   children: <Widget>[
                     Row(
                       children: <Widget>[
-                        // Container(
-                        //   height: 40.0,
-                        //   width: 40.0,
-                        //   decoration: new BoxDecoration(
-                        //     shape: BoxShape.circle,
-                        //     image: DecorationImage(
-                        //       fit: BoxFit.cover,
-                        //       image: NetworkImage(profileUrl ??
-                        //           "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
-                        //     ),
-                        //   ),
-                        // ),
                         CircleAvatar(
                           radius: 20,
                           backgroundImage: NetworkImage(
@@ -92,7 +87,6 @@ class _PostWidgetState extends State<PostWidget> {
                                 "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png",
                           ),
                         ),
-
                         SizedBox(width: 8),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,25 +133,68 @@ class _PostWidgetState extends State<PostWidget> {
                         color: isLikePressed
                             ? Colors.red
                             : Theme.of(context).colorScheme.onBackground,
-                        onPressed: () {
-                          setState(
-                            () {
-                              isLikePressed = !isLikePressed;
-                            },
+                        onPressed: () async {
+                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                          try {
+                            setState(
+                              () {
+                                isLikePressed = !isLikePressed;
+                              },
+                            );
+                            isLikePressed
+                                ? await _db.doc(widget.post.docId).update(
+                                    {
+                                      'likedBy': widget.post.likedBy
+                                        ..insert(
+                                            0, _auth.currentUser.displayName)
+                                    },
+                                  )
+                                : await _db.doc(widget.post.docId).update(
+                                    {
+                                      'likedBy': widget.post.likedBy
+                                        ..remove(_auth.currentUser.displayName)
+                                    },
+                                  );
+                          } catch (error) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  "Unable to like the post :`(",
+                                ),
+                              ),
+                            );
+                            setState(
+                              () {
+                                isLikePressed = !isLikePressed;
+                              },
+                            );
+                          }
+                          // setState(
+                          //   () {
+                          //     isLikePressed = !isLikePressed;
+                          //   },
+                          // );
+                          // isLikePressed == true
+                          //     ? ScaffoldMessenger.of(context).showSnackBar(
+                          //         SnackBar(
+                          //           duration: const Duration(seconds: 1),
+                          //           content: Text('You liked the post! :) '),
+                          //         ),
+                          //       )
+                          //     : ScaffoldMessenger.of(context).showSnackBar(
+                          //         SnackBar(
+                          //           duration: const Duration(seconds: 1),
+                          //           content: Text('You unliked the post! :( '),
+                          //         ),
+                          //       );
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              duration: const Duration(seconds: 1),
+                              content: isLikePressed
+                                  ? Text("You liked the post! :) ")
+                                  : Text("You unliked the post! :( "),
+                            ),
                           );
-                          isLikePressed == true
-                              ? ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    duration: const Duration(seconds: 1),
-                                    content: Text('You liked the post! :) '),
-                                  ),
-                                )
-                              : ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    duration: const Duration(seconds: 1),
-                                    content: Text('You unliked the post! :( '),
-                                  ),
-                                );
                         },
                       ),
                       new IconButton(
@@ -248,6 +285,21 @@ class _PostWidgetState extends State<PostWidget> {
               //   ],
               // ),
               Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: Row(
+                  children: [
+                    if (widget.post.likedBy.isNotEmpty)
+                      Text(
+                        (widget.post.likedBy.length == 1)
+                            ? "Liked by ${widget.post.likedBy[0]}"
+                            : "Liked by ${widget.post.likedBy[0]} and ${widget.post.likedBy.length - 1} others",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 5),
+              Padding(
                 padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                 child: RichText(
                   text: TextSpan(
@@ -255,9 +307,10 @@ class _PostWidgetState extends State<PostWidget> {
                     style: MyFonts.bold.size(SizeConfig.textScaleFactor * 17),
                     children: [
                       TextSpan(
-                          text: widget.post.caption,
-                          style: MyFonts.light
-                              .size(SizeConfig.textScaleFactor * 15))
+                        text: widget.post.caption,
+                        style:
+                            MyFonts.light.size(SizeConfig.textScaleFactor * 15),
+                      )
                     ],
                   ),
                 ),

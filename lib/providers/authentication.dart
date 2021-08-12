@@ -28,6 +28,8 @@ class Authentication with ChangeNotifier {
           {
             'user_name': name,
             'searchKey': name.substring(0).toUpperCase(),
+            'followers': [],
+            'following': [],
           },
         );
       }

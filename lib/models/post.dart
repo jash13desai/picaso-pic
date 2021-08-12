@@ -7,6 +7,8 @@ class Post {
   final String caption;
   final DateTime date;
   final DocumentReference addedBy;
+  final List likedBy;
+  final String docId;
 
   Post({
     @required this.postUrl,
@@ -14,6 +16,8 @@ class Post {
     @required this.caption,
     @required this.date,
     @required this.addedBy,
+    @required this.docId,
+    @required this.likedBy,
   });
 }
 

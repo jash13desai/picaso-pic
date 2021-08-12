@@ -1,27 +1,28 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:insta_ui_only/models/user.dart';
 
 // manually made up dummy data to use at various place
-class User {
-  final String userName;
-  final String imageUrl;
-  final String displayname;
-  final int postNum;
-  final int followers;
-  final int following;
-  final String bio;
-  final List userPosts;
+// class User {
+//   final String userName;
+//   final String imageUrl;
+//   final String displayname;
+//   final int postNum;
+//   final int followers;
+//   final int following;
+//   final String bio;
+//   final List userPosts;
 
-  User({
-    this.userName,
-    this.imageUrl,
-    this.displayname,
-    this.followers,
-    this.following,
-    this.postNum,
-    this.bio,
-    this.userPosts,
-  });
-}
+//   User({
+//     this.userName,
+//     this.imageUrl,
+//     this.displayname,
+//     this.followers,
+//     this.following,
+//     this.postNum,
+//     this.bio,
+//     this.userPosts,
+//   });
+// }
 
 class MyUserData {
   final List photos = [
@@ -70,12 +71,16 @@ class MyUserData {
     ('assets/images/tony_stark_post1.jpg'),
     ('assets/images/pet_par_post.jpg'),
   ];
+
   User get currentUser {
     return User(
-      displayname: FirebaseAuth.instance.currentUser.displayName,
+      // displayname: FirebaseAuth.instance.currentUser.displayName,
+      displayname: "hehe",
       // imageUrl: "assets/images/user-default-grey.png",
-      imageUrl: FirebaseAuth.instance.currentUser.photoURL,
-      userName: FirebaseAuth.instance.currentUser.displayName,
+      // imageUrl: FirebaseAuth.instance.currentUser.photoURL,
+      imageUrl: "assets/images/labyrinth.jpg",
+      // userName: FirebaseAuth.instance.currentUser.displayName,
+      userName: "hehe",
       postNum: 40,
       followers: 369,
       following: 410,

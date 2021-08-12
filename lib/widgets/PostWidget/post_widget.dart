@@ -107,16 +107,62 @@ class _PostWidgetState extends State<PostWidget> {
                   ],
                 ),
               ),
-              Container(
-                child: Image.network(
-                  widget.post.postUrl,
-                  fit: BoxFit.cover,
+              GestureDetector(
+                onDoubleTap: () async {
+                  ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                  try {
+                    setState(
+                      () {
+                        isLikePressed = !isLikePressed;
+                      },
+                    );
+                    isLikePressed
+                        ? await _db.doc(widget.post.docId).update(
+                            {
+                              'likedBy': widget.post.likedBy
+                                ..insert(0, _auth.currentUser.displayName)
+                            },
+                          )
+                        : await _db.doc(widget.post.docId).update(
+                            {
+                              'likedBy': widget.post.likedBy
+                                ..remove(_auth.currentUser.displayName)
+                            },
+                          );
+                  } catch (error) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          "Unable to like the post :`(",
+                        ),
+                      ),
+                    );
+                    setState(
+                      () {
+                        isLikePressed = !isLikePressed;
+                      },
+                    );
+                  }
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      duration: const Duration(seconds: 1),
+                      content: isLikePressed
+                          ? Text("You liked the post! :) ")
+                          : Text("You unliked the post! :( "),
+                    ),
+                  );
+                },
+                child: Container(
+                  child: Image.network(
+                    widget.post.postUrl,
+                    fit: BoxFit.cover,
+                  ),
+                  alignment: Alignment.center,
+                  color: MediaQuery.of(context).platformBrightness ==
+                          Brightness.light
+                      ? Colors.white
+                      : Colors.black,
                 ),
-                alignment: Alignment.center,
-                color: MediaQuery.of(context).platformBrightness ==
-                        Brightness.light
-                    ? Colors.white
-                    : Colors.black,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

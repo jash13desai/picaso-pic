@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+// a generalised Post class mentioning the parameters required in the post!
+
 class Post {
   final String postUrl;
   final String location;

@@ -1,3 +1,6 @@
+// class of user will be removed later when all data is fetched instead of the dummy data!
+// this is specially manually feeded user data
+
 class User {
   final String userName;
   final String imageUrl;

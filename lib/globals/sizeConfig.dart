@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// SizeConfigurations of the Device
+// SizeConfigurations of the Device used at various place in the app!
 class SizeConfig {
   static MediaQueryData _mediaQueryData = SizeConfig() as MediaQueryData;
   static double screenWidth = 0;

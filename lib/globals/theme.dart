@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// light and dark theme for Insta UI -- activates when the theme of the phone is changed -- the theme of the app is synced with the device's theme
+
 ThemeData lightThemeData(BuildContext context) {
   return ThemeData.light().copyWith(
     primaryColor: Colors.pinkAccent,

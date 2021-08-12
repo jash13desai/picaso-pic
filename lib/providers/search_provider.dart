@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-// search provider for search bar in search page
+// search provider for search bar in search page uses the search key to find the user and then display it!
 
 class SearchService {
   searchByName(String searchField) {

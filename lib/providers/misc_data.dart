@@ -2,6 +2,9 @@
 import 'package:insta_ui_only/models/user.dart';
 
 // manually made up dummy data to use at various place
+
+// this user class has been made in a seperate file so as too avoid error with auth
+
 // class User {
 //   final String userName;
 //   final String imageUrl;

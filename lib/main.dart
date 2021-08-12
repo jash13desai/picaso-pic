@@ -19,6 +19,7 @@ import 'screens/SearchScreen/search_screen.dart';
 import 'screens/IntroScreen/signup_screen.dart';
 
 // the main insta app which starts the whole app XD ;
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();

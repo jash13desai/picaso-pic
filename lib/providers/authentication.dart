@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-//Model for authentication from firebase
+//Model for authentication from firebase includes every Firebase Auth Feature which is required
 
 class Authentication with ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;

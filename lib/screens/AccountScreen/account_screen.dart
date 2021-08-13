@@ -57,7 +57,7 @@ class AccountPage extends StatelessWidget {
                       ? Colors.black
                       : Colors.white,
             ),
-            centerTitle: false,
+            centerTitle: true,
             elevation: 1.0,
             leading: IconButton(
               onPressed: () {
@@ -72,10 +72,23 @@ class AccountPage extends StatelessWidget {
               ),
             ),
             title: Row(
-              // mainAxisAlignment: MainAxisAlignment.center,
-
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(width: 80),
+                // IconButton(
+                //   onPressed: () {
+                //     Navigator.of(context).popAndPushNamed(InstaHome.route);
+                //   },
+                //   icon: Icon(
+                //     Icons.arrow_back_ios_new,
+                //     color: MediaQuery.of(context).platformBrightness ==
+                //             Brightness.light
+                //         ? Colors.black
+                //         : Colors.white,
+                //   ),
+                // ),
+                // SizedBox(width: 80),
+
+                SizedBox(width: MediaQuery.of(context).size.width * 0.18),
                 Icon(
                   Icons.lock_rounded,
                   color: MediaQuery.of(context).platformBrightness ==

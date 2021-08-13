@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/screens/accountScreen/account_screen.dart';
 import 'dm_list_screen.dart';
 import '../MainPageScreen_Feeds/homeBar_screen.dart';
@@ -23,44 +24,54 @@ class DMPage extends StatelessWidget {
             Navigator.of(context).pushReplacementNamed(InstaHome.route);
           },
         ),
-        title: SizedBox(
-          height: 35.0,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacementNamed(AccountPage.route);
-                },
-                icon: Container(
-                  child: Text(
-                    // data.displayname,
-                    FirebaseAuth.instance.currentUser.displayName,
-                    style: TextStyle(
-                      color: MediaQuery.of(context).platformBrightness ==
-                              Brightness.light
-                          ? Colors.black
-                          : Colors.white,
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-                iconSize: 77,
-              ),
-              IconButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacementNamed(AccountPage.route);
-                },
-                icon: Icon(
-                  Icons.keyboard_arrow_down,
+        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            // IconButton(
+            //   onPressed: () {
+            //     Navigator.of(context).popAndPushNamed(InstaHome.route);
+            //   },
+            //   icon: Icon(
+            //     Icons.arrow_back_ios_new,
+            //     color: MediaQuery.of(context).platformBrightness ==
+            //             Brightness.light
+            //         ? Colors.black
+            //         : Colors.white,
+            //   ),
+            // ),
+            SizedBox(width: MediaQuery.of(context).size.width * 0.18),
+            Icon(
+              Icons.lock_rounded,
+              color:
+                  MediaQuery.of(context).platformBrightness == Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+            ),
+            MySpaces.hSmallGapInBetween,
+            Container(
+              child: Text(
+                // data.displayname,
+                FirebaseAuth.instance.currentUser.displayName,
+                // snapshots.item2.data['user_name'],
+                style: TextStyle(
                   color: MediaQuery.of(context).platformBrightness ==
                           Brightness.light
                       ? Colors.black
                       : Colors.white,
+                  fontSize: 18,
                 ),
               ),
-            ],
-          ),
+            ),
+            MySpaces.hSmallGapInBetween,
+            Icon(
+              Icons.keyboard_arrow_down,
+              color:
+                  MediaQuery.of(context).platformBrightness == Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+            ),
+          ],
         ),
         actions: <Widget>[
           IconButton(

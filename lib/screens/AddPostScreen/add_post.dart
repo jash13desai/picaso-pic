@@ -102,7 +102,9 @@ class _AddPostState extends State<AddPost> {
         },
       );
       print("Post Added!");
+      Navigator.of(context).pop();
     } catch (e) {
+      Navigator.of(context).pop();
       print(e);
     }
 

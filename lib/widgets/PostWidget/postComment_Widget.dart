@@ -40,8 +40,7 @@ class _PostCommentWidgetState extends State<PostCommentWidget> {
                     ? Colors.black
                     : Colors.white,
                 icon: CircleAvatar(
-                  backgroundImage: NetworkImage(FirebaseAuth
-                          .instance.currentUser.photoURL ??
+                  backgroundImage: NetworkImage(_auth.currentUser.photoURL ??
                       "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
                 ),
                 onPressed: () {

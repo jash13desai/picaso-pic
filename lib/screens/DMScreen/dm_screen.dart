@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
-import 'package:insta_ui_only/screens/accountScreen/account_screen.dart';
+// import 'package:insta_ui_only/screens/accountScreen/account_screen.dart';
 import 'dm_list_screen.dart';
 import '../MainPageScreen_Feeds/homeBar_screen.dart';
 

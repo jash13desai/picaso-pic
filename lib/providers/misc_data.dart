@@ -1,5 +1,5 @@
 // import 'package:firebase_auth/firebase_auth.dart';
-import 'package:insta_ui_only/models/user.dart';
+// import 'package:insta_ui_only/models/user.dart';
 
 // manually made up dummy data to use at various place
 

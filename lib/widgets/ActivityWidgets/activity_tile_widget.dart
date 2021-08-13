@@ -3,12 +3,12 @@ import 'package:insta_ui_only/globals/mySpaces.dart';
 
 class ActivityTileWidget extends StatefulWidget {
   bool isLikeOrComment;
-  double widgetHeight;
+  final double widgetHeight;
   double whichOne;
-  AssetImage accountImage;
-  String accountName;
-  AssetImage sideImage;
-  String time;
+  final AssetImage accountImage;
+  final String accountName;
+  final AssetImage sideImage;
+  final String time;
 
   ActivityTileWidget({
     this.widgetHeight,

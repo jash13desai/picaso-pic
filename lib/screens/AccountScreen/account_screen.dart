@@ -14,19 +14,12 @@ import 'package:insta_ui_only/widgets/StoriesWidget/stories_widget.dart';
 
 import 'package:insta_ui_only/widgets/followButton_widget.dart';
 import 'package:multiple_stream_builder/multiple_stream_builder.dart';
-import 'editProfile_screen.dart';
+// import 'editProfile_screen.dart';
 
-class AccountPage extends StatefulWidget {
+class AccountPage extends StatelessWidget {
   static const route = '/account_screen';
-
-  @override
-  _AccountPageState createState() => _AccountPageState();
-}
-
-class _AccountPageState extends State<AccountPage> {
   // final user.User data = MyUserData().currentUser;
   final _db = FirebaseFirestore.instance;
-
   final _auth = FirebaseAuth.instance;
 
   @override
@@ -73,53 +66,46 @@ class _AccountPageState extends State<AccountPage> {
                     : Colors.white,
               ),
             ),
-            title: SizedBox(
-              height: 35.0,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBox(width: 40),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.lock_rounded,
-                      color: MediaQuery.of(context).platformBrightness ==
-                              Brightness.light
-                          ? Colors.black
-                          : Colors.white,
-                    ),
-                    iconSize: 20,
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Container(
-                      child: Text(
-                        // data.displayname,
-                        // FirebaseAuth.instance.currentUser.displayName,
-                        snapshots.item2.data['user_name'],
-                        style: TextStyle(
-                          color: MediaQuery.of(context).platformBrightness ==
-                                  Brightness.light
-                              ? Colors.black
-                              : Colors.white,
-                          fontSize: 16,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.lock_rounded,
+                        color: MediaQuery.of(context).platformBrightness ==
+                                Brightness.light
+                            ? Colors.black
+                            : Colors.white,
+                      ),
+                      Container(
+                        child: Text(
+                          // data.displayname,
+                          // FirebaseAuth.instance.currentUser.displayName,
+                          snapshots.item2.data['user_name'],
+                          style: TextStyle(
+                            color: MediaQuery.of(context).platformBrightness ==
+                                    Brightness.light
+                                ? Colors.black
+                                : Colors.white,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
-                    ),
-                    iconSize: 77,
+                      Icon(
+                        Icons.keyboard_arrow_down,
+                        color: MediaQuery.of(context).platformBrightness ==
+                                Brightness.light
+                            ? Colors.black
+                            : Colors.white,
+                      ),
+                    ],
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.keyboard_arrow_down,
-                      color: MediaQuery.of(context).platformBrightness ==
-                              Brightness.light
-                          ? Colors.black
-                          : Colors.white,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           body: SingleChildScrollView(
@@ -135,7 +121,8 @@ class _AccountPageState extends State<AccountPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             ProfilePhoto(
-                              imageUrl: snapshots.item2.data['imageUrl'],
+                              imageUrl: snapshots.item2.data['imageUrl'] ??
+                                  "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png",
                             ),
                             MySpaces.hGapInBetween,
                             Expanded(
@@ -191,7 +178,7 @@ class _AccountPageState extends State<AccountPage> {
                           style: MyFonts.light.size(15),
                         ),
                         MySpaces.vGapInBetween,
-                        (currentUser == FirebaseAuth.instance.currentUser.uid)
+                        (currentUser == _auth.currentUser.uid)
                             ? Container(
                                 width: double.infinity,
                                 child: TextButton(
@@ -255,65 +242,65 @@ class _AccountPageState extends State<AccountPage> {
                                     snapshots.item2.data['followers'] as List)
                                 : FollowButton("Follow", currentUser,
                                     snapshots.item2.data['followers'] as List),
-                        MySpaces.vGapInBetween,
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 10),
-                          child: Container(
-                            width: double.infinity,
-                            child: TextButton(
-                              onPressed: () => Navigator.of(context)
-                                  .popAndPushNamed(EditProfile.route),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.edit,
-                                    color: MediaQuery.of(context)
-                                                .platformBrightness ==
-                                            Brightness.light
-                                        ? Colors.black
-                                        : Colors.white,
-                                    size: 22,
-                                  ),
-                                  MySpaces.hGapInBetween,
-                                  Text(
-                                    "Edit Profile",
-                                    style: MyFonts.light
-                                        .setColor(MediaQuery.of(context)
-                                                    .platformBrightness ==
-                                                Brightness.dark
-                                            ? Colors.white
-                                            : Colors.black)
-                                        .size(17),
-                                  ),
-                                ],
-                              ),
-                              style: TextButton.styleFrom(
-                                backgroundColor:
-                                    MediaQuery.of(context).platformBrightness ==
-                                            Brightness.light
-                                        ? Colors.white
-                                        : Colors.grey.shade900,
-                                shape: RoundedRectangleBorder(
-                                  side: BorderSide(
-                                    color: MediaQuery.of(context)
-                                                .platformBrightness ==
-                                            Brightness.dark
-                                        ? Colors.white.withOpacity(0.5)
-                                        : Colors.black.withOpacity(0.5),
-                                    width: 0.5,
-                                  ),
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(8),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        MySpaces.hSmallGapInBetween,
+                        // MySpaces.vGapInBetween,
+                        // Padding(
+                        //   padding: const EdgeInsets.only(bottom: 10),
+                        //   child: Container(
+                        //     width: double.infinity,
+                        //     child: TextButton(
+                        //       onPressed: () => Navigator.of(context)
+                        //           .popAndPushNamed(EditProfile.route),
+                        //       child: Row(
+                        //         mainAxisAlignment: MainAxisAlignment.center,
+                        //         children: [
+                        //           Icon(
+                        //             Icons.edit,
+                        //             color: MediaQuery.of(context)
+                        //                         .platformBrightness ==
+                        //                     Brightness.light
+                        //                 ? Colors.black
+                        //                 : Colors.white,
+                        //             size: 22,
+                        //           ),
+                        //           MySpaces.hGapInBetween,
+                        //           Text(
+                        //             "Edit Profile",
+                        //             style: MyFonts.light
+                        //                 .setColor(MediaQuery.of(context)
+                        //                             .platformBrightness ==
+                        //                         Brightness.dark
+                        //                     ? Colors.white
+                        //                     : Colors.black)
+                        //                 .size(17),
+                        //           ),
+                        //         ],
+                        //       ),
+                        //       style: TextButton.styleFrom(
+                        //         backgroundColor:
+                        //             MediaQuery.of(context).platformBrightness ==
+                        //                     Brightness.light
+                        //                 ? Colors.white
+                        //                 : Colors.grey.shade900,
+                        //         shape: RoundedRectangleBorder(
+                        //           side: BorderSide(
+                        //             color: MediaQuery.of(context)
+                        //                         .platformBrightness ==
+                        //                     Brightness.dark
+                        //                 ? Colors.white.withOpacity(0.5)
+                        //                 : Colors.black.withOpacity(0.5),
+                        //             width: 0.5,
+                        //           ),
+                        //           borderRadius: BorderRadius.all(
+                        //             Radius.circular(8),
+                        //           ),
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
+                        // MySpaces.hSmallGapInBetween,
                         MySpaces.vSmallestGapInBetween,
-                        new Container(
+                        Container(
                           child: new Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,

@@ -37,19 +37,15 @@ class _SearchPageState extends State<SearchPage> {
     }
 
     if (queryResultSet.length == 0 && value.length == 1) {
-      SearchService().searchByName(value).then(
-        (QuerySnapshot docs) {
-          print(docs.docs);
-          for (int i = 0; i < docs.docs.length; ++i) {
-            queryResultSet.add(docs.docs[i].data());
-            setState(
-              () {
-                tempSearchStore.add(queryResultSet[i]);
-              },
-            );
-          }
-        },
-      );
+      SearchService().searchByName(value).then((QuerySnapshot docs) {
+        print(docs.docs);
+        for (int i = 0; i < docs.docs.length; ++i) {
+          queryResultSet.add(docs.docs[i].data());
+          setState(() {
+            tempSearchStore.add(queryResultSet[i]);
+          });
+        }
+      });
     } else {
       tempSearchStore = [];
       queryResultSet.forEach((element) {
@@ -222,8 +218,10 @@ class _SearchPageState extends State<SearchPage> {
                                   },
                                   child: ListTile(
                                     leading: CircleAvatar(
-                                      backgroundImage:
-                                          NetworkImage(element['imageUrl']),
+                                      backgroundImage: NetworkImage(
+                                        element['imageUrl'] ??
+                                            "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png",
+                                      ),
                                     ),
                                     title: Text(element['user_name']),
                                   ),

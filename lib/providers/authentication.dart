@@ -30,6 +30,7 @@ class Authentication with ChangeNotifier {
             'searchKey': name.substring(0, 1).toUpperCase(),
             'followers': [],
             'following': [],
+            'imageUrl': null,
           },
         );
       }

@@ -102,9 +102,13 @@ class _AddPostState extends State<AddPost> {
         },
       );
       print("Post Added!");
+      setState(
+        () {
+          isLoading = true;
+        },
+      );
       Navigator.of(context).pop();
     } catch (e) {
-      Navigator.of(context).pop();
       print(e);
     }
 
@@ -118,7 +122,7 @@ class _AddPostState extends State<AddPost> {
 
   @override
   Widget build(BuildContext context) {
-    print(isLoading);
+    print("isLoading: $isLoading");
     return Material(
       child: Scaffold(
         appBar: AppBar(

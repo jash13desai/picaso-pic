@@ -67,43 +67,37 @@ class AccountPage extends StatelessWidget {
               ),
             ),
             title: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.center,
+
               children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.lock_rounded,
-                        color: MediaQuery.of(context).platformBrightness ==
-                                Brightness.light
-                            ? Colors.black
-                            : Colors.white,
-                      ),
-                      Container(
-                        child: Text(
-                          // data.displayname,
-                          // FirebaseAuth.instance.currentUser.displayName,
-                          snapshots.item2.data['user_name'],
-                          style: TextStyle(
-                            color: MediaQuery.of(context).platformBrightness ==
-                                    Brightness.light
-                                ? Colors.black
-                                : Colors.white,
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
-                      Icon(
-                        Icons.keyboard_arrow_down,
-                        color: MediaQuery.of(context).platformBrightness ==
-                                Brightness.light
-                            ? Colors.black
-                            : Colors.white,
-                      ),
-                    ],
+                SizedBox(width: 80),
+                Icon(
+                  Icons.lock_rounded,
+                  color: MediaQuery.of(context).platformBrightness ==
+                          Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+                ),
+                Container(
+                  child: Text(
+                    // data.displayname,
+                    // FirebaseAuth.instance.currentUser.displayName,
+                    snapshots.item2.data['user_name'],
+                    style: TextStyle(
+                      color: MediaQuery.of(context).platformBrightness ==
+                              Brightness.light
+                          ? Colors.black
+                          : Colors.white,
+                      fontSize: 18,
+                    ),
                   ),
+                ),
+                Icon(
+                  Icons.keyboard_arrow_down,
+                  color: MediaQuery.of(context).platformBrightness ==
+                          Brightness.light
+                      ? Colors.black
+                      : Colors.white,
                 ),
               ],
             ),
@@ -363,12 +357,9 @@ class AccountPage extends StatelessWidget {
                               .contains(_auth.currentUser.uid) ||
                           currentUser == _auth.currentUser.uid)
                       ? (snapshots.item1.data.docs.length == 0)
-                          ? Center(
-                              child: Text(
-                                "No Posts to show...",
-                                style: MyFonts.light
-                                    .size(SizeConfig.horizontalBlockSize * 5),
-                              ),
+                          ? Text(
+                              "No Posts to show...",
+                              style: MyFonts.light.size(15),
                             )
                           : GridView.builder(
                               physics: NeverScrollableScrollPhysics(),

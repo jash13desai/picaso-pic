@@ -56,7 +56,7 @@ class BottomNavBarMain extends StatelessWidget {
                       ? Colors.pink
                       : Colors.pink,
               icon: Icon(
-                Icons.add_circle,
+                Icons.add_box_rounded,
               ),
               // onPressed: () => imageUpload.pickImage(ImageSource.gallery),
               onPressed: () => Navigator.push(
@@ -65,7 +65,7 @@ class BottomNavBarMain extends StatelessWidget {
                   builder: (context) => AddPost(ImageSource.gallery),
                 ),
               ),
-              iconSize: 35,
+              iconSize: 38,
             ),
             IconButton(
               color:

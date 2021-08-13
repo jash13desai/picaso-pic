@@ -1,15 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/globals/sizeConfig.dart';
+import 'package:insta_ui_only/screens/AddPostScreen/add_post.dart';
 
 import 'package:insta_ui_only/screens/IntroScreen/login_screen.dart';
 import 'package:insta_ui_only/screens/MainPageScreen_Feeds/homeBar_screen.dart';
 import 'package:insta_ui_only/widgets/BottomNavBar/bottomNavBar_main.dart';
 import 'package:insta_ui_only/widgets/PostWidget/profilePhoto_widget.dart';
+import 'package:insta_ui_only/widgets/StoriesWidget/grey_ring_widget.dart';
 import 'package:insta_ui_only/widgets/StoriesWidget/stories_widget.dart';
 
 import 'package:insta_ui_only/widgets/followButton_widget.dart';
@@ -78,6 +83,7 @@ class AccountPage extends StatelessWidget {
                       ? Colors.black
                       : Colors.white,
                 ),
+                MySpaces.hSmallGapInBetween,
                 Container(
                   child: Text(
                     // data.displayname,
@@ -92,6 +98,7 @@ class AccountPage extends StatelessWidget {
                     ),
                   ),
                 ),
+                MySpaces.hSmallGapInBetween,
                 Icon(
                   Icons.keyboard_arrow_down,
                   color: MediaQuery.of(context).platformBrightness ==
@@ -301,7 +308,7 @@ class AccountPage extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
                               Container(
-                                height: 89,
+                                height: 90,
                                 width: 1000,
                                 child: new ListView.builder(
                                   scrollDirection: Axis.horizontal,
@@ -357,9 +364,79 @@ class AccountPage extends StatelessWidget {
                               .contains(_auth.currentUser.uid) ||
                           currentUser == _auth.currentUser.uid)
                       ? (snapshots.item1.data.docs.length == 0)
-                          ? Text(
-                              "No Posts to show...",
-                              style: MyFonts.light.size(15),
+                          ? Container(
+                              height: 300,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(bottom: 18),
+                                    child: GreyRing(
+                                      child: IconButton(
+                                        onPressed: () => Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                AddPost(ImageSource.gallery),
+                                          ),
+                                        ),
+                                        // Icons.camera_alt_outlined,
+                                        icon: MediaQuery.of(context)
+                                                    .platformBrightness ==
+                                                Brightness.light
+                                            ? Image.asset(
+                                                "assets/icons/camera_light.png")
+                                            : Image.asset(
+                                                "assets/icons/camera_dark.png"),
+                                        color: MediaQuery.of(context)
+                                                    .platformBrightness ==
+                                                Brightness.light
+                                            ? Colors.black
+                                            : Colors.white,
+                                        iconSize: 50,
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(bottom: 18),
+                                    child: Text(
+                                      "Share Photos",
+                                      style: MyFonts.light.size(25),
+                                    ),
+                                  ),
+                                  Padding(
+                                    // padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.only(bottom: 18),
+                                    child: Text(
+                                      "When you share photos, they will appear on your profile.",
+                                      style: MyFonts.light.size(12),
+                                    ),
+                                  ),
+                                  RichText(
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: 'Share your first photo.',
+                                          style: TextStyle(
+                                            color: Colors.blue[500],
+                                            fontSize: 16,
+                                          ),
+                                          recognizer: TapGestureRecognizer()
+                                            ..onTap = () => Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        AddPost(ImageSource
+                                                            .gallery),
+                                                  ),
+                                                ),
+                                          // .popAndPushNamed(SignUp.route),
+                                        )
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
                             )
                           : GridView.builder(
                               physics: NeverScrollableScrollPhysics(),

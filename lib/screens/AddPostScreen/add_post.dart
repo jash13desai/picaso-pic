@@ -32,6 +32,7 @@ class _AddPostState extends State<AddPost> {
 
       _imageFile = File(pickedFile.path);
     } catch (error) {
+      Navigator.of(context).pop();
       print("ERROR");
       print(error);
       Navigator.of(context).pop();

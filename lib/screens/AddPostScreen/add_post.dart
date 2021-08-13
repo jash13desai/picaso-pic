@@ -53,6 +53,7 @@ class _AddPostState extends State<AddPost> {
               imageUrl = value;
             } catch (error) {
               print(error);
+              Navigator.of(context).pop();
             }
             // Stop the loading once fetching and setting it done
             setState(
@@ -99,6 +100,7 @@ class _AddPostState extends State<AddPost> {
           'likedBy': [],
         },
       );
+      print("Post Added!");
     } catch (e) {
       print(e);
     }

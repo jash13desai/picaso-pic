@@ -24,33 +24,27 @@ class Posts with ChangeNotifier {
     try {
       final response = await FirebaseFirestore.instance
           .collection('posts')
-          .where(
-            'addedBy',
-            isNotEqualTo: FirebaseFirestore.instance.doc(
-              '/users/${FirebaseAuth.instance.currentUser.uid}',
-            ),
-          )
+          // .where('addedBy', whereIn: followingList)
+          .where('addedBy',
+              isNotEqualTo: FirebaseFirestore.instance
+                  .doc('/users/${FirebaseAuth.instance.currentUser.uid}'))
           .get();
       _posts.clear();
-      response.docs.forEach(
-        (doc) {
-          _posts.add(
-            Post(
-              postUrl: doc['imageUrl'],
-              location: doc['location'],
-              caption: doc['caption'],
-              date: DateTime.parse(doc['timeStamp'].toDate().toString()),
-              // name: doc['addedBy'],
-              // profileUrl: doc['profileUrl'],
-              addedBy: doc['addedBy'],
-              likedBy: doc['likedBy'],
-              docId: doc.id,
-            ),
-          );
-        },
-      );
-    } catch (e) {
-      throw e;
+      response.docs.forEach((doc) {
+        _posts.add(
+          Post(
+            postUrl: doc['imageUrl'],
+            location: doc['location'],
+            caption: doc['caption'],
+            date: DateTime.parse(doc['timeStamp'].toDate().toString()),
+            addedBy: doc['addedBy'],
+            likedBy: doc['likedBy'],
+            docId: doc.id,
+          ),
+        );
+      });
+    } catch (ERROR) {
+      throw ERROR;
     }
     notifyListeners();
   }

@@ -1,15 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/providers/misc_data.dart';
 import 'package:insta_ui_only/screens/accountScreen/account_screen.dart';
 import 'dm_list_screen.dart';
 import '../MainPageScreen_Feeds/homeBar_screen.dart';
-import 'package:insta_ui_only/models/user.dart' as user;
 
 // manually made up dm screen with the use of widgets
 
 class DMPage extends StatelessWidget {
   static const route = '/dm_screen';
-  final user.User data = MyUserData().currentUser;
+  // final user.User data = MyUserData().currentUser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +34,8 @@ class DMPage extends StatelessWidget {
                 },
                 icon: Container(
                   child: Text(
-                    data.displayname,
+                    // data.displayname,
+                    FirebaseAuth.instance.currentUser.displayName,
                     style: TextStyle(
                       color: MediaQuery.of(context).platformBrightness ==
                               Brightness.light

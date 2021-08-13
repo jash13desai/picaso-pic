@@ -41,6 +41,7 @@ class _PostWidgetState extends State<PostWidget> {
   String profileUrl;
   String name;
   bool isLoading = true;
+
   final _auth = FirebaseAuth.instance;
 
   final CollectionReference _db =

@@ -5,8 +5,9 @@ import 'package:insta_ui_only/screens/AddPostScreen/add_post.dart';
 // function to open the camera when required for camera option
 
 BuildContext context;
-void init(BuildContext cntx) {
-  context = cntx;
+
+void init(BuildContext ctx) {
+  context = ctx;
 }
 
 void navigate() {

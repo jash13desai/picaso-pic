@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:insta_ui_only/globals/sizeConfig.dart';
-// import 'package:insta_ui_only/globals/sizeConfig.dart';
 import 'package:insta_ui_only/screens/AccountScreen/account_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';

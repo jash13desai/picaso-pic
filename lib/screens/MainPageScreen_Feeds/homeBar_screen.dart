@@ -18,9 +18,23 @@ class InstaHome extends StatefulWidget {
 }
 
 class _InstaHomeState extends State<InstaHome> {
+  // @override
+  // void initState() {
+  //   Provider.of<Posts>(context, listen: false).fetchAndSetPosts();
+  //   super.initState();
+  // }
+  bool isLoading = true;
   @override
   void initState() {
-    Provider.of<Posts>(context, listen: false).fetchAndSetPosts();
+    Provider.of<Posts>(context, listen: false).fetchFollowingData().then(
+      (_) {
+        setState(
+          () {
+            isLoading = false;
+          },
+        );
+      },
+    );
     super.initState();
   }
 
@@ -65,7 +79,9 @@ class _InstaHomeState extends State<InstaHome> {
             ),
           ],
         ),
-        body: InstaList(),
+        body: isLoading
+            ? Center(child: CircularProgressIndicator(color: Colors.pink))
+            : InstaList(),
         bottomNavigationBar: BottomNavBarMain(),
       ),
     );

@@ -20,7 +20,7 @@ class _DMScrollListState extends State<DMScrollList> {
     return RefreshIndicator(
       color: Colors.pink,
       onRefresh: () async {
-        await Provider.of<Posts>(context, listen: false).fetchAndSetPosts();
+        Provider.of<Posts>(context, listen: false);
       },
       child: ListView.builder(
         itemCount: 2,

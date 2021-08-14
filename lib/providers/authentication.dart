@@ -31,6 +31,7 @@ class Authentication with ChangeNotifier {
             'followers': [],
             'following': [],
             'imageUrl': null,
+            // 'userId' :
           },
         );
       }

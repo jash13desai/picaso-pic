@@ -2,14 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
-
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/globals/sizeConfig.dart';
 import 'package:insta_ui_only/screens/AddPostScreen/add_post.dart';
-
 import 'package:insta_ui_only/screens/IntroScreen/login_screen.dart';
 import 'package:insta_ui_only/screens/MainPageScreen_Feeds/homeBar_screen.dart';
 import 'package:insta_ui_only/widgets/BottomNavBar/bottomNavBar_main.dart';
@@ -19,11 +16,11 @@ import 'package:insta_ui_only/widgets/StoriesWidget/stories_widget.dart';
 
 import 'package:insta_ui_only/widgets/MiscWidgets/followButton_widget.dart';
 import 'package:multiple_stream_builder/multiple_stream_builder.dart';
-// import 'editProfile_screen.dart';
+import 'editProfile_screen.dart';
 
 class AccountPage extends StatelessWidget {
   static const route = '/account_screen';
-  // final user.User data = MyUserData().currentUser;
+
   final _db = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
 
@@ -74,20 +71,6 @@ class AccountPage extends StatelessWidget {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                // IconButton(
-                //   onPressed: () {
-                //     Navigator.of(context).popAndPushNamed(InstaHome.route);
-                //   },
-                //   icon: Icon(
-                //     Icons.arrow_back_ios_new,
-                //     color: MediaQuery.of(context).platformBrightness ==
-                //             Brightness.light
-                //         ? Colors.black
-                //         : Colors.white,
-                //   ),
-                // ),
-                // SizedBox(width: 80),
-
                 SizedBox(width: MediaQuery.of(context).size.width * 0.18),
                 Icon(
                   Icons.lock_rounded,
@@ -188,67 +171,131 @@ class AccountPage extends StatelessWidget {
                           style: MyFonts.light.size(15),
                         ),
                         Text(
-                          'I had all and then most of you, some and now none of you!',
+                          // 'I had all and then most of you, some and now none of you!',
+                          snapshots.item2.data['bio'],
                           style: MyFonts.light.size(15),
                         ),
                         MySpaces.vGapInBetween,
                         (currentUser == _auth.currentUser.uid)
-                            ? Container(
-                                width: double.infinity,
-                                child: TextButton(
-                                  onPressed: () {
-                                    _auth.signOut();
-                                    Navigator.of(context)
-                                        .pushNamedAndRemoveUntil(
-                                      LogIn.route,
-                                      (route) => false,
-                                    );
-                                  },
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.logout_outlined,
-                                        color: MediaQuery.of(context)
+                            ? Column(
+                                children: [
+                                  // edit profile button
+                                  Container(
+                                    width: double.infinity,
+                                    child: TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context)
+                                            .popAndPushNamed(EditProfile.route);
+                                      },
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.edit,
+                                            color: MediaQuery.of(context)
+                                                        .platformBrightness ==
+                                                    Brightness.light
+                                                ? Colors.black
+                                                : Colors.white,
+                                          ),
+                                          MySpaces.hGapInBetween,
+                                          Text(
+                                            "Edit Profile",
+                                            style: MyFonts.light
+                                                .setColor(MediaQuery.of(context)
+                                                            .platformBrightness ==
+                                                        Brightness.dark
+                                                    ? Colors.white
+                                                    : Colors.black)
+                                                .size(17),
+                                          ),
+                                        ],
+                                      ),
+                                      style: TextButton.styleFrom(
+                                        backgroundColor: MediaQuery.of(context)
                                                     .platformBrightness ==
                                                 Brightness.light
-                                            ? Colors.black
-                                            : Colors.white,
-                                      ),
-                                      MySpaces.hGapInBetween,
-                                      Text(
-                                        "Log Out",
-                                        style: MyFonts.light
-                                            .setColor(MediaQuery.of(context)
+                                            ? Colors.white
+                                            : Colors.grey.shade900,
+                                        shape: RoundedRectangleBorder(
+                                          side: BorderSide(
+                                            color: MediaQuery.of(context)
                                                         .platformBrightness ==
                                                     Brightness.dark
-                                                ? Colors.white
-                                                : Colors.black)
-                                            .size(17),
-                                      ),
-                                    ],
-                                  ),
-                                  style: TextButton.styleFrom(
-                                    backgroundColor: MediaQuery.of(context)
-                                                .platformBrightness ==
-                                            Brightness.light
-                                        ? Colors.white
-                                        : Colors.grey.shade900,
-                                    shape: RoundedRectangleBorder(
-                                      side: BorderSide(
-                                        color: MediaQuery.of(context)
-                                                    .platformBrightness ==
-                                                Brightness.dark
-                                            ? Colors.white.withOpacity(0.5)
-                                            : Colors.black.withOpacity(0.5),
-                                        width: 0.5,
-                                      ),
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(8),
+                                                ? Colors.white.withOpacity(0.5)
+                                                : Colors.black.withOpacity(0.5),
+                                            width: 0.5,
+                                          ),
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(8),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
+                                  // space in between
+                                  MySpaces.vSmallestGapInBetween,
+                                  // log out button
+                                  Container(
+                                    width: double.infinity,
+                                    child: TextButton(
+                                      onPressed: () {
+                                        _auth.signOut();
+                                        Navigator.of(context)
+                                            .pushNamedAndRemoveUntil(
+                                          LogIn.route,
+                                          (route) => false,
+                                        );
+                                      },
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.logout_outlined,
+                                            color: MediaQuery.of(context)
+                                                        .platformBrightness ==
+                                                    Brightness.light
+                                                ? Colors.black
+                                                : Colors.white,
+                                          ),
+                                          MySpaces.hGapInBetween,
+                                          Text(
+                                            "Log Out",
+                                            style: MyFonts.light
+                                                .setColor(MediaQuery.of(context)
+                                                            .platformBrightness ==
+                                                        Brightness.dark
+                                                    ? Colors.white
+                                                    : Colors.black)
+                                                .size(17),
+                                          ),
+                                        ],
+                                      ),
+                                      style: TextButton.styleFrom(
+                                        backgroundColor: MediaQuery.of(context)
+                                                    .platformBrightness ==
+                                                Brightness.light
+                                            ? Colors.white
+                                            : Colors.grey.shade900,
+                                        shape: RoundedRectangleBorder(
+                                          side: BorderSide(
+                                            color: MediaQuery.of(context)
+                                                        .platformBrightness ==
+                                                    Brightness.dark
+                                                ? Colors.white.withOpacity(0.5)
+                                                : Colors.black.withOpacity(0.5),
+                                            width: 0.5,
+                                          ),
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(8),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               )
                             : (snapshots.item2.data['followers'] as List)
                                     .contains(_auth.currentUser.uid)
@@ -256,64 +303,7 @@ class AccountPage extends StatelessWidget {
                                     snapshots.item2.data['followers'] as List)
                                 : FollowButton("Follow", currentUser,
                                     snapshots.item2.data['followers'] as List),
-                        // MySpaces.vGapInBetween,
-                        // Padding(
-                        //   padding: const EdgeInsets.only(bottom: 10),
-                        //   child: Container(
-                        //     width: double.infinity,
-                        //     child: TextButton(
-                        //       onPressed: () => Navigator.of(context)
-                        //           .popAndPushNamed(EditProfile.route),
-                        //       child: Row(
-                        //         mainAxisAlignment: MainAxisAlignment.center,
-                        //         children: [
-                        //           Icon(
-                        //             Icons.edit,
-                        //             color: MediaQuery.of(context)
-                        //                         .platformBrightness ==
-                        //                     Brightness.light
-                        //                 ? Colors.black
-                        //                 : Colors.white,
-                        //             size: 22,
-                        //           ),
-                        //           MySpaces.hGapInBetween,
-                        //           Text(
-                        //             "Edit Profile",
-                        //             style: MyFonts.light
-                        //                 .setColor(MediaQuery.of(context)
-                        //                             .platformBrightness ==
-                        //                         Brightness.dark
-                        //                     ? Colors.white
-                        //                     : Colors.black)
-                        //                 .size(17),
-                        //           ),
-                        //         ],
-                        //       ),
-                        //       style: TextButton.styleFrom(
-                        //         backgroundColor:
-                        //             MediaQuery.of(context).platformBrightness ==
-                        //                     Brightness.light
-                        //                 ? Colors.white
-                        //                 : Colors.grey.shade900,
-                        //         shape: RoundedRectangleBorder(
-                        //           side: BorderSide(
-                        //             color: MediaQuery.of(context)
-                        //                         .platformBrightness ==
-                        //                     Brightness.dark
-                        //                 ? Colors.white.withOpacity(0.5)
-                        //                 : Colors.black.withOpacity(0.5),
-                        //             width: 0.5,
-                        //           ),
-                        //           borderRadius: BorderRadius.all(
-                        //             Radius.circular(8),
-                        //           ),
-                        //         ),
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
-                        // MySpaces.hSmallGapInBetween,
-                        MySpaces.vSmallestGapInBetween,
+                        MySpaces.vGapInBetween,
                         Container(
                           child: new Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -377,80 +367,84 @@ class AccountPage extends StatelessWidget {
                               .contains(_auth.currentUser.uid) ||
                           currentUser == _auth.currentUser.uid)
                       ? (snapshots.item1.data.docs.length == 0)
-                          ? Container(
-                              height: 300,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 15),
-                                    child: GreyRing(
-                                      padding: 15,
-                                      width: 1,
-                                      child: Center(
-                                        child: IconButton(
-                                          onPressed: () => Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  AddPost(ImageSource.gallery),
+                          ? SingleChildScrollView(
+                              child: Container(
+                                height: 300,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 15),
+                                      child: GreyRing(
+                                        padding: 15,
+                                        width: 1,
+                                        child: Center(
+                                          child: IconButton(
+                                            onPressed: () => Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) => AddPost(
+                                                    ImageSource.gallery),
+                                              ),
                                             ),
+                                            icon: MediaQuery.of(context)
+                                                        .platformBrightness ==
+                                                    Brightness.light
+                                                ? Image.asset(
+                                                    "assets/icons/camera_light.png")
+                                                : Image.asset(
+                                                    "assets/icons/camera_dark.png"),
+                                            color: MediaQuery.of(context)
+                                                        .platformBrightness ==
+                                                    Brightness.light
+                                                ? Colors.black
+                                                : Colors.white,
+                                            iconSize: 55,
                                           ),
-                                          icon: MediaQuery.of(context)
-                                                      .platformBrightness ==
-                                                  Brightness.light
-                                              ? Image.asset(
-                                                  "assets/icons/camera_light.png")
-                                              : Image.asset(
-                                                  "assets/icons/camera_dark.png"),
-                                          color: MediaQuery.of(context)
-                                                      .platformBrightness ==
-                                                  Brightness.light
-                                              ? Colors.black
-                                              : Colors.white,
-                                          iconSize: 55,
                                         ),
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 18),
-                                    child: Text(
-                                      "Share Photos",
-                                      style: MyFonts.light.size(25),
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 18),
+                                      child: Text(
+                                        "Share Photos",
+                                        style: MyFonts.light.size(25),
+                                      ),
                                     ),
-                                  ),
-                                  Padding(
-                                    // padding: const EdgeInsets.all(8.0),
-                                    padding: const EdgeInsets.only(bottom: 18),
-                                    child: Text(
-                                      "When you share photos, they will appear on your profile.",
-                                      style: MyFonts.light.size(13),
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 18),
+                                      child: Text(
+                                        "When you share photos, they will appear on your profile.",
+                                        style: MyFonts.light.size(13),
+                                      ),
                                     ),
-                                  ),
-                                  RichText(
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: 'Share your first photo.',
-                                          style: TextStyle(
-                                            color: Colors.blue[500],
-                                            fontSize: 16,
-                                          ),
-                                          recognizer: TapGestureRecognizer()
-                                            ..onTap = () => Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        AddPost(ImageSource
-                                                            .gallery),
+                                    RichText(
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: 'Share your first photo.',
+                                            style: TextStyle(
+                                              color: Colors.blue[500],
+                                              fontSize: 16,
+                                            ),
+                                            recognizer: TapGestureRecognizer()
+                                              ..onTap = () => Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          AddPost(ImageSource
+                                                              .gallery),
+                                                    ),
                                                   ),
-                                                ),
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             )
                           : GridView.builder(

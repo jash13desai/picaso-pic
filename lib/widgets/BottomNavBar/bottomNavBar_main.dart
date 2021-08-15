@@ -10,6 +10,9 @@ import 'package:insta_ui_only/screens/SearchScreen/search_screen.dart';
 import 'package:insta_ui_only/widgets/iconGradient.dart';
 
 class BottomNavBarMain extends StatelessWidget {
+  final int argument;
+  BottomNavBarMain({this.argument});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,27 +29,37 @@ class BottomNavBarMain extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             IconButton(
-              color:
-                  MediaQuery.of(context).platformBrightness == Brightness.light
-                      ? Colors.black
-                      : Colors.white,
               icon: Icon(
-                Icons.home_outlined,
+                Icons.home,
+                color: argument == 1
+                    ? MediaQuery.of(context).platformBrightness ==
+                            Brightness.light
+                        ? Colors.black
+                        : Colors.white
+                    : MediaQuery.of(context).platformBrightness ==
+                            Brightness.dark
+                        ? Colors.grey[700]
+                        : Colors.grey,
               ),
-              iconSize: 30,
+              iconSize: 32,
               onPressed: () {
                 Navigator.of(context).pushReplacementNamed(InstaHome.route);
               },
             ),
             IconButton(
-              color:
-                  MediaQuery.of(context).platformBrightness == Brightness.light
-                      ? Colors.black
-                      : Colors.white,
               icon: Icon(
                 Icons.search,
+                color: argument == 2
+                    ? MediaQuery.of(context).platformBrightness ==
+                            Brightness.light
+                        ? Colors.black
+                        : Colors.white
+                    : MediaQuery.of(context).platformBrightness ==
+                            Brightness.dark
+                        ? Colors.grey[700]
+                        : Colors.grey,
               ),
-              iconSize: 30,
+              iconSize: 33,
               onPressed: () {
                 Navigator.of(context).pushReplacementNamed(SearchPage.route);
               },
@@ -60,13 +73,12 @@ class BottomNavBarMain extends StatelessWidget {
                     colors: <Color>[
                       Colors.purple[200],
                       Colors.orange[300],
-                      Colors.purple[200],
+                      Colors.purple[100],
                     ],
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
                   ),
                 ),
-                // onPressed: () => imageUpload.pickImage(ImageSource.gallery),
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -76,26 +88,27 @@ class BottomNavBarMain extends StatelessWidget {
               ),
             ),
             IconButton(
-              color:
-                  MediaQuery.of(context).platformBrightness == Brightness.light
-                      ? Colors.black
-                      : Colors.white,
-              icon: Icon(FontAwesomeIcons.heart),
+              icon: argument == 3
+                  ? Icon(
+                      FontAwesomeIcons.solidHeart,
+                      color: MediaQuery.of(context).platformBrightness ==
+                              Brightness.light
+                          ? Colors.black
+                          : Colors.white,
+                    )
+                  : Icon(
+                      FontAwesomeIcons.heart,
+                      color: MediaQuery.of(context).platformBrightness ==
+                              Brightness.dark
+                          ? Colors.grey[700]
+                          : Colors.grey,
+                    ),
               iconSize: 25,
               onPressed: () {
                 Navigator.of(context).pushReplacementNamed(ActivityPage.route);
               },
             ),
             IconButton(
-              color:
-                  MediaQuery.of(context).platformBrightness == Brightness.light
-                      ? Colors.black
-                      : Colors.white,
-              // icon: Icon(
-              //   MediaQuery.of(context).platformBrightness == Brightness.dark
-              //       ? Icons.account_box
-              //       : Icons.account_box_outlined,
-              // ),
               icon: CircleAvatar(
                 backgroundImage: NetworkImage(FirebaseAuth
                         .instance.currentUser.photoURL ??
@@ -125,7 +138,7 @@ class RadiantGradientMask2 extends StatelessWidget {
       shaderCallback: (bounds) => RadialGradient(
         center: Alignment.topRight,
         radius: 1,
-        colors: [Colors.purple[200], Colors.pink[200], Colors.purple[400]],
+        colors: [Colors.purple[400], Colors.pink[200], Colors.purple],
         tileMode: TileMode.clamp,
       ).createShader(bounds),
       child: child,

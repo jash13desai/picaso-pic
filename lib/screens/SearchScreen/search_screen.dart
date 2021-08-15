@@ -131,7 +131,6 @@ class _SearchPageState extends State<SearchPage> {
               hintText: "Search",
               hintStyle: MyFonts.light.setColor(Colors.grey.shade500).size(18),
               filled: true,
-              contentPadding: EdgeInsets.symmetric(vertical: 2, horizontal: 15),
               focusColor: Colors.grey,
               fillColor: Colors.grey.shade100,
               enabledBorder: OutlineInputBorder(
@@ -144,6 +143,7 @@ class _SearchPageState extends State<SearchPage> {
             ),
             textInputAction: TextInputAction.done,
             keyboardType: TextInputType.text,
+            cursorHeight: 25,
             style: MyFonts.light
                 .setColor(
                   Colors.grey[700],
@@ -320,7 +320,7 @@ class _SearchPageState extends State<SearchPage> {
                 ),
               ),
             ),
-      bottomNavigationBar: BottomNavBarMain(),
+      bottomNavigationBar: BottomNavBarMain(argument: 2),
     );
   }
 }

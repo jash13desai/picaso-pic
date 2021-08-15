@@ -82,7 +82,7 @@ class _InstaHomeState extends State<InstaHome> {
         body: isLoading
             ? Center(child: CircularProgressIndicator(color: Colors.pink))
             : InstaList(),
-        bottomNavigationBar: BottomNavBarMain(),
+        bottomNavigationBar: BottomNavBarMain(argument: 1),
       ),
     );
   }

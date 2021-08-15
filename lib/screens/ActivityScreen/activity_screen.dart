@@ -42,7 +42,7 @@ class ActivityPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavBarMain(),
+      bottomNavigationBar: BottomNavBarMain(argument: 3),
     );
   }
 }

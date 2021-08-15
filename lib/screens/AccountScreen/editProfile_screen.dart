@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
+import 'package:insta_ui_only/providers/authentication.dart';
 
 import 'package:insta_ui_only/widgets/PostWidget/profilePhoto_widget.dart';
+import 'package:provider/provider.dart';
 import 'account_screen.dart';
 
 // edit profile page  ----
@@ -16,9 +19,69 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfile> {
+  final _auth = FirebaseAuth.instance;
   bool isLoading = false;
   String imageUrl;
+  String _userName;
   final _formKey = GlobalKey<FormState>();
+
+// @override
+//   void initState() {
+//     isLikePressed = widget.post.likedBy
+//         .contains(FirebaseAuth.instance.currentUser.displayName);
+//     widget.post.addedBy.get().then(
+//       (response) {
+//         final data = response.data() as Map<String, dynamic>;
+//         profileUrl = data['imageUrl'];
+//         name = data['user_name'];
+//         userId = data['userId'];
+//         setState(
+//           () {
+//             isLoading = false;
+//           },
+//         );
+//       },
+//     );
+
+//     super.initState();
+//   }
+
+  changeName() {
+    showDialog(
+      context: context,
+      builder: (ctx) {
+        return AlertDialog(
+          title: Text("Edit Name"),
+          content: TextFormField(
+            // controller: _nameController,
+            onChanged: (value) {
+              _userName = value;
+            },
+            decoration: InputDecoration(
+              labelText: "Enter your name",
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () async {
+                setState(() {
+                  isLoading = true;
+                });
+                Navigator.of(context).pop();
+                await Provider.of<Authentication>(context, listen: false)
+                    .changeName(_userName, context);
+                setState(() {
+                  isLoading = false;
+                });
+              },
+              child: Text("Submit"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(

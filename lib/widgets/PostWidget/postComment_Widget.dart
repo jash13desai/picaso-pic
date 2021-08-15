@@ -34,12 +34,13 @@ class _PostCommentWidgetState extends State<PostCommentWidget> {
               //   ),
               // ),
               IconButton(
-                iconSize: 35,
+                iconSize: 38,
                 color: MediaQuery.of(context).platformBrightness ==
                         Brightness.light
                     ? Colors.black
                     : Colors.white,
                 icon: CircleAvatar(
+                  radius: 20,
                   backgroundImage: NetworkImage(_auth.currentUser.photoURL ??
                       "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
                 ),

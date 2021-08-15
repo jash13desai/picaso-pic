@@ -85,6 +85,7 @@ class _PostWidgetState extends State<PostWidget> {
                     Row(
                       children: <Widget>[
                         IconButton(
+                          padding: EdgeInsets.all(0.01),
                           onPressed: () {
                             Navigator.of(context).pushReplacementNamed(
                               AccountPage.route,
@@ -92,7 +93,7 @@ class _PostWidgetState extends State<PostWidget> {
                             );
                           },
                           icon: CircleAvatar(
-                            radius: 20,
+                            radius: 22,
                             backgroundImage: NetworkImage(
                               profileUrl ??
                                   "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png",

@@ -40,7 +40,7 @@ class Insta extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Instagram Clone App!',
+        title: 'Instagram Clone',
         debugShowCheckedModeBanner: false,
         theme: lightThemeData(context),
         darkTheme: darkThemeData(context),
@@ -55,9 +55,7 @@ class Insta extends StatelessWidget {
               return IntroPage();
             } else {
               return Center(
-                child: CircularProgressIndicator(
-                  color: Colors.pink,
-                ),
+                child: CircularProgressIndicator(color: Colors.pink),
               );
             }
           },

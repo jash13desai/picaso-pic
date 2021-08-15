@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
+import 'package:insta_ui_only/widgets/iconGradient.dart';
 // import 'package:insta_ui_only/screens/accountScreen/account_screen.dart';
+import 'package:insta_ui_only/functions/upload_image.dart' as imageUpload;
 import 'dm_list_screen.dart';
 import '../MainPageScreen_Feeds/homeBar_screen.dart';
 
@@ -87,43 +89,41 @@ class DMPage extends StatelessWidget {
       //
       body: DMScrollList(),
       //
-      bottomNavigationBar: Container(
+      bottomNavigationBar: BottomAppBar(
         color: MediaQuery.of(context).platformBrightness == Brightness.light
             ? Colors.white
             : Colors.black,
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 0.055,
-        child: BottomAppBar(
-          color: MediaQuery.of(context).platformBrightness == Brightness.light
-              ? Colors.white
-              : Colors.black,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Row(
-                children: [
-                  RadiantGradientMask(
-                    child: IconButton(
-                        icon: Icon(
-                          Icons.camera_alt_rounded,
-                          size: 35,
-                        ),
-                        onPressed: () => {}
-                        // imageUpload.pickImage(ImageSource.camera),
-                        ),
-                  ),
-                  Text(
-                    "  Camera",
-                    style: TextStyle(
-                      color: Colors.blue.shade300,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              children: [
+                IconButton(
+                  icon: GradientIcon(
+                    Icons.camera_alt_rounded,
+                    35,
+                    LinearGradient(
+                      colors: <Color>[
+                        Colors.blue.shade800,
+                        Colors.blue.shade300,
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
                     ),
                   ),
-                ],
-              ),
-            ],
-          ),
+                  onPressed: () => imageUpload.navigate(),
+                ),
+                Text(
+                  "  Camera",
+                  style: TextStyle(
+                    color: Colors.blue.shade300,
+                    fontWeight: FontWeight.w900,
+                    fontSize: 18,
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

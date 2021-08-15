@@ -7,6 +7,7 @@ import 'package:insta_ui_only/screens/ActivityScreen/activity_screen.dart';
 import 'package:insta_ui_only/screens/AddPostScreen/add_post.dart';
 import 'package:insta_ui_only/screens/MainPageScreen_Feeds/homeBar_screen.dart';
 import 'package:insta_ui_only/screens/SearchScreen/search_screen.dart';
+import 'package:insta_ui_only/widgets/iconGradient.dart';
 
 class BottomNavBarMain extends StatelessWidget {
   @override
@@ -50,22 +51,29 @@ class BottomNavBarMain extends StatelessWidget {
                 Navigator.of(context).pushReplacementNamed(SearchPage.route);
               },
             ),
-            IconButton(
-              color:
-                  MediaQuery.of(context).platformBrightness == Brightness.light
-                      ? Colors.pink
-                      : Colors.pink,
-              icon: Icon(
-                Icons.add_box_rounded,
-              ),
-              // onPressed: () => imageUpload.pickImage(ImageSource.gallery),
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AddPost(ImageSource.gallery),
+            RadiantGradientMask2(
+              child: IconButton(
+                icon: GradientIcon(
+                  Icons.add_box_rounded,
+                  38,
+                  LinearGradient(
+                    colors: <Color>[
+                      Colors.purple[200],
+                      Colors.orange[300],
+                      Colors.purple[200],
+                    ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ),
+                ),
+                // onPressed: () => imageUpload.pickImage(ImageSource.gallery),
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddPost(ImageSource.gallery),
+                  ),
                 ),
               ),
-              iconSize: 38,
             ),
             IconButton(
               color:
@@ -103,6 +111,24 @@ class BottomNavBarMain extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class RadiantGradientMask2 extends StatelessWidget {
+  RadiantGradientMask2({this.child});
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return ShaderMask(
+      shaderCallback: (bounds) => RadialGradient(
+        center: Alignment.topRight,
+        radius: 1,
+        colors: [Colors.purple[200], Colors.pink[200], Colors.purple[400]],
+        tileMode: TileMode.clamp,
+      ).createShader(bounds),
+      child: child,
     );
   }
 }

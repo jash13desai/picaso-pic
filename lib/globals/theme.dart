@@ -10,18 +10,20 @@ ThemeData lightThemeData(BuildContext context) {
     // iconTheme: IconThemeData(color: kContentColorLightTheme),
     // textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme)
     // .apply(bodyColor: kContentColorLightTheme),
-    colorScheme: ColorScheme.light(
-        //   primary: kPrimaryColor,
-        //   secondary: kSecondaryColor,
-        //   error: kErrorColor,
-        ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: Colors.white,
-      // selectedItemColor: kContentColorLightTheme.withOpacity(0.7),
-      // unselectedItemColor: kContentColorLightTheme.withOpacity(0.32),
-      // selectedIconTheme: IconThemeData(color: kPrimaryColor),
-      // showUnselectedLabels: true,
+    colorScheme: ColorScheme.light().copyWith(
+      primary: Colors.pinkAccent,
+      //   primary: kPrimaryColor,
+      //   secondary: kSecondaryColor,
+      //   error: kErrorColor,
     ),
+    bottomNavigationBarTheme: bottomAppBarThemeLight,
+    //  BottomNavigationBarThemeData(
+    // backgroundColor: Colors.white,
+    // selectedItemColor: kContentColorLightTheme.withOpacity(0.7),
+    // unselectedItemColor: kContentColorLightTheme.withOpacity(0.32),
+    // selectedIconTheme: IconThemeData(color: kPrimaryColor),
+    // showUnselectedLabels: true,
+    // ),
   );
 }
 
@@ -39,13 +41,14 @@ ThemeData darkThemeData(BuildContext context) {
       //   error: kErrorColor,
       //   onBackground:
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: Colors.black,
-      //     selectedItemColor: Colors.white70,
-      //     unselectedItemColor: kContentColorDarkTheme.withOpacity(0.32),
-      //     selectedIconTheme: IconThemeData(color: kPrimaryColor),
-      //     showUnselectedLabels: true,
-    ),
+    bottomNavigationBarTheme: bottomAppBarThemeDark,
+    // bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    // backgroundColor: Colors.black,
+    //     selectedItemColor: Colors.white70,
+    //     unselectedItemColor: kContentColorDarkTheme.withOpacity(0.32),
+    //     selectedIconTheme: IconThemeData(color: kPrimaryColor),
+    //     showUnselectedLabels: true,
+    // ),
   );
 }
 

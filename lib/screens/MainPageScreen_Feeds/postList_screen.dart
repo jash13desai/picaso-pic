@@ -5,6 +5,8 @@ import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/sizeConfig.dart';
 import 'package:insta_ui_only/providers/posts.dart';
 import 'package:insta_ui_only/widgets/PostWidget/post_widget.dart';
+import 'package:insta_ui_only/widgets/StoriesWidget/grey_ring_widget.dart';
+import 'package:insta_ui_only/widgets/caughtUp_widget.dart';
 import 'package:provider/provider.dart';
 import 'stories_screen.dart';
 
@@ -37,42 +39,44 @@ class InstaList extends StatelessWidget {
           //   },
           // ),
           (Provider.of<Posts>(context, listen: false).queryList.isEmpty)
-              ? Container(
-                  height: 200,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 15),
-                        child: Container(
-                          padding: const EdgeInsets.all(20),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              width: 1,
-                              color: Colors.grey,
+              ? Column(
+                  children: [
+                    Container(
+                      height: 200,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 15),
+                            child: GreyRing(
+                              padding: 20,
+                              child: Center(
+                                child: Icon(
+                                  FontAwesomeIcons.userAlt,
+                                  size: SizeConfig.horizontalBlockSize * 10,
+                                  color: MediaQuery.of(context)
+                                              .platformBrightness ==
+                                          Brightness.light
+                                      ? Colors.black
+                                      : Colors.white,
+                                ),
+                              ),
                             ),
                           ),
-                          child: Center(
-                            child: Icon(
-                              FontAwesomeIcons.userAlt,
-                              size: SizeConfig.horizontalBlockSize * 10,
-                              color: Colors.white,
+                          Padding(
+                            // padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.only(bottom: 18),
+                            child: Text(
+                              "Follow someone to see their posts in feed",
+                              overflow: TextOverflow.ellipsis,
+                              style: MyFonts.light.size(15),
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                      Padding(
-                        // padding: const EdgeInsets.all(8.0),
-                        padding: const EdgeInsets.only(bottom: 18),
-                        child: Text(
-                          "Follow someone to see their posts in feed",
-                          overflow: TextOverflow.ellipsis,
-                          style: MyFonts.light.size(15),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                    // CaughtUp(),
+                  ],
                 )
               : StreamBuilder(
                   stream: FirebaseFirestore.instance

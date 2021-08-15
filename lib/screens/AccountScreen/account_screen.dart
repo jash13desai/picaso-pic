@@ -383,30 +383,33 @@ class AccountPage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(bottom: 18),
+                                    padding: const EdgeInsets.only(bottom: 15),
                                     child: GreyRing(
-                                      child: IconButton(
-                                        onPressed: () => Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) =>
-                                                AddPost(ImageSource.gallery),
+                                      padding: 15,
+                                      width: 1,
+                                      child: Center(
+                                        child: IconButton(
+                                          onPressed: () => Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  AddPost(ImageSource.gallery),
+                                            ),
                                           ),
+                                          icon: MediaQuery.of(context)
+                                                      .platformBrightness ==
+                                                  Brightness.light
+                                              ? Image.asset(
+                                                  "assets/icons/camera_light.png")
+                                              : Image.asset(
+                                                  "assets/icons/camera_dark.png"),
+                                          color: MediaQuery.of(context)
+                                                      .platformBrightness ==
+                                                  Brightness.light
+                                              ? Colors.black
+                                              : Colors.white,
+                                          iconSize: 55,
                                         ),
-                                        // Icons.camera_alt_outlined,
-                                        icon: MediaQuery.of(context)
-                                                    .platformBrightness ==
-                                                Brightness.light
-                                            ? Image.asset(
-                                                "assets/icons/camera_light.png")
-                                            : Image.asset(
-                                                "assets/icons/camera_dark.png"),
-                                        color: MediaQuery.of(context)
-                                                    .platformBrightness ==
-                                                Brightness.light
-                                            ? Colors.black
-                                            : Colors.white,
-                                        iconSize: 50,
                                       ),
                                     ),
                                   ),
@@ -443,7 +446,6 @@ class AccountPage extends StatelessWidget {
                                                             .gallery),
                                                   ),
                                                 ),
-                                          // .popAndPushNamed(SignUp.route),
                                         )
                                       ],
                                     ),

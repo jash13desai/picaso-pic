@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta_ui_only/globals/sizeConfig.dart';
 import 'package:insta_ui_only/screens/AccountScreen/account_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
@@ -252,7 +253,16 @@ class _SearchPageState extends State<SearchPage> {
                     (Provider.of<Posts>(context, listen: false)
                             .queryList
                             .isEmpty)
-                        ? Text("Follow someone")
+                        ? Column(
+                            children: [
+                              Text(
+                                "No Posts to show 😔",
+                                style: MyFonts.medium
+                                    .size(SizeConfig.horizontalBlockSize * 4),
+                              ),
+                              Text("Follow someone"),
+                            ],
+                          )
                         : StreamBuilder(
                             stream: FirebaseFirestore.instance
                                 .collection('posts')

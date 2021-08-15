@@ -212,7 +212,7 @@ class _LogInState extends State<LogIn> {
                         },
                         child: Ink(
                           decoration: BoxDecoration(
-                            color: Colors.blue[500],
+                            color: Colors.blue,
                             borderRadius: BorderRadius.circular(5),
                             border: Border.fromBorderSide(BorderSide.none),
                           ),

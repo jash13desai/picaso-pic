@@ -37,21 +37,22 @@ class _DMScrollListState extends State<DMScrollList> {
                   ChatBox(
                     chatImage: AssetImage('assets/images/pet_par.jpg'),
                     chatName: "pet_par",
-                    chatDetail: "But I’m Nothing Without This Suit!",
+                    chatDetail: "But I'm Nothing Without This Suit.",
                     time: "now",
                     ringEnabled: true,
                   ),
                   ChatBox(
                     chatImage: AssetImage('assets/images/tony_stark.jpg'),
                     chatName: "tony_stark",
-                    chatDetail: "Love you 3000!",
+                    chatDetail:
+                        "If you're nothing without this suit, then you shouldn't have it.",
                     time: "1m",
                     ringEnabled: true,
                   ),
                   ChatBox(
                     chatImage: AssetImage('assets/images/steve_rogers.jpg'),
                     chatName: "steve_rogers",
-                    chatDetail: "Big man in a suit of armor. Take th...",
+                    chatDetail: "Big man in a suit of armor. Take that off",
                     time: "3m",
                     ringEnabled: false,
                   ),

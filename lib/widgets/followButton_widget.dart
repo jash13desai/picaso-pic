@@ -27,30 +27,45 @@ class _FollowButtonState extends State<FollowButton> {
         ? Center(child: CircularProgressIndicator(color: Colors.pink))
         : Container(
             margin: EdgeInsets.symmetric(
-              vertical: SizeConfig.verticalBlockSize * 3.5,
+              vertical: SizeConfig.verticalBlockSize * 1,
             ),
             width: double.infinity,
             child: TextButton(
               child: Text(
                 widget.text,
-                style: MyFonts.light.size(18).setColor(Colors.white),
+                style: MyFonts.light
+                    .setColor(MediaQuery.of(context).platformBrightness ==
+                            Brightness.dark
+                        ? Colors.white
+                        : Colors.black)
+                    .size(18),
               ),
               style: (widget.text == "Follow")
                   ? TextButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      padding: const EdgeInsets.symmetric(vertical: 8),
                       backgroundColor: Colors.blue,
-                      shape: const RoundedRectangleBorder(
+                      shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(8),
                         ),
                       ),
                     )
                   : TextButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 7),
-                      backgroundColor: Colors.black,
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      // backgroundColor: Colors.black,
+                      backgroundColor:
+                          MediaQuery.of(context).platformBrightness ==
+                                  Brightness.light
+                              ? Colors.white
+                              : Colors.grey.shade900,
                       shape: RoundedRectangleBorder(
                         side: BorderSide(
-                            color: Colors.white.withOpacity(0.5), width: 0.5),
+                          color: MediaQuery.of(context).platformBrightness ==
+                                  Brightness.dark
+                              ? Colors.white.withOpacity(0.5)
+                              : Colors.black.withOpacity(0.5),
+                          width: 0.5,
+                        ),
                         borderRadius: BorderRadius.all(
                           Radius.circular(8),
                         ),

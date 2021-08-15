@@ -479,19 +479,13 @@ class AccountPage extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(bottom: 18),
                                   child: GreyRing(
-                                    padding: 10,
+                                    padding: 5,
                                     child: IconButton(
-                                      onPressed: () => Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) =>
-                                              AddPost(ImageSource.gallery),
-                                        ),
-                                      ),
+                                      onPressed: () {},
                                       icon: Icon(
                                         Icons.lock,
                                         size:
-                                            SizeConfig.horizontalBlockSize * 10,
+                                            SizeConfig.horizontalBlockSize * 8,
                                       ),
                                       color: Colors.white,
                                       iconSize: 50,
@@ -501,15 +495,14 @@ class AccountPage extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(bottom: 18),
                                   child: Text(
-                                    "This account is private",
-                                    style: MyFonts.light.size(25),
+                                    "This account is Private",
+                                    style: MyFonts.light.size(15),
                                   ),
                                 ),
                                 Padding(
-                                  // padding: const EdgeInsets.all(8.0),
                                   padding: const EdgeInsets.only(bottom: 18),
                                   child: Text(
-                                    "Follow this account to see their photos and videos",
+                                    "Follow to see their photos and videos.",
                                     overflow: TextOverflow.ellipsis,
                                     style: MyFonts.light.size(15),
                                   ),
@@ -518,13 +511,6 @@ class AccountPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                  // : Center(
-                  //     child: Text(
-                  //       "Follow this account to see their posts",
-                  //       style: MyFonts.light
-                  //           .size(SizeConfig.horizontalBlockSize * 5),
-                  //     ),
-                  //   ),
                 ],
               ),
             ),

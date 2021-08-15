@@ -256,11 +256,11 @@ class _SearchPageState extends State<SearchPage> {
                         ? Column(
                             children: [
                               Text(
-                                "No Posts to show 😔",
+                                "No Posts to show :( ",
                                 style: MyFonts.medium
                                     .size(SizeConfig.horizontalBlockSize * 4),
                               ),
-                              Text("Follow someone"),
+                              Text("Follow someone to see their posts here."),
                             ],
                           )
                         : StreamBuilder(

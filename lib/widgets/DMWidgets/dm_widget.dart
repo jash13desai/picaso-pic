@@ -93,30 +93,25 @@ class ChatBox extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.5,
+                              child: Text(
+                                chatDetail,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 11.5,
+                                ),
+                              ),
+                            ),
                             Text(
-                              chatDetail,
+                              // time,
+                              '• $time',
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 11.5,
                               ),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  '•',
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 11.5,
-                                  ),
-                                ),
-                                Text(
-                                  time,
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 11.5,
-                                  ),
-                                ),
-                              ],
                             ),
                           ],
                         ),

@@ -46,7 +46,7 @@ class _PostCommentWidgetState extends State<PostCommentWidget> {
                 onPressed: () {
                   Navigator.of(context).pushReplacementNamed(
                     AccountPage.route,
-                    arguments: FirebaseAuth.instance.currentUser.uid,
+                    arguments: _auth.currentUser.uid,
                   );
                 },
               ),

@@ -49,6 +49,10 @@ class _EditProfileState extends State<EditProfile> {
       isLoading = false;
     });
     Navigator.of(context).pop();
+    // Navigator.of(context).pushReplacementNamed(
+    // AccountPage.route,
+    // arguments: _auth.currentUser.uid,
+    // );
   }
 
   @override
@@ -63,7 +67,11 @@ class _EditProfileState extends State<EditProfile> {
                 ? Colors.black
                 : Colors.white,
             onPressed: () {
-              Navigator.of(context).pushReplacementNamed(AccountPage.route);
+              Navigator.of(context).pop();
+              // Navigator.of(context).pushReplacementNamed(
+              // AccountPage.route,
+              // arguments: FirebaseAuth.instance.currentUser.uid,
+              // );
             },
           ),
           backgroundColor:

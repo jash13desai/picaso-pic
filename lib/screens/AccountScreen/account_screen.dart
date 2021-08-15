@@ -117,10 +117,18 @@ class AccountPage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            ProfilePhoto(
-                              imageUrl: snapshots.item2.data['imageUrl'] ??
-                                  "https://raw.githubusercontent.com/jash-desai/insta-clone/main/assets/images/user-default-grey.png",
-                            ),
+                            (currentUser == _auth.currentUser.uid)
+                                ? ProfilePhoto(
+                                    imageUrl: snapshots
+                                            .item2.data['imageUrl'] ??
+                                        "https://raw.githubusercontent.com/jash-desai/insta-clone/main/assets/images/user-default-grey.png",
+                                  )
+                                : CircleAvatar(
+                                    radius: SizeConfig.horizontalBlockSize * 12,
+                                    backgroundImage: NetworkImage(
+                                      snapshots.item2.data['imageUrl'],
+                                    ),
+                                  ),
                             MySpaces.hGapInBetween,
                             Expanded(
                               child: DefaultTextStyle(

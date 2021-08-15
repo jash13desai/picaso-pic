@@ -17,7 +17,7 @@ import 'package:insta_ui_only/widgets/PostWidget/profilePhoto_widget.dart';
 import 'package:insta_ui_only/widgets/StoriesWidget/grey_ring_widget.dart';
 import 'package:insta_ui_only/widgets/StoriesWidget/stories_widget.dart';
 
-import 'package:insta_ui_only/widgets/followButton_widget.dart';
+import 'package:insta_ui_only/widgets/MiscWidgets/followButton_widget.dart';
 import 'package:multiple_stream_builder/multiple_stream_builder.dart';
 // import 'editProfile_screen.dart';
 

@@ -52,14 +52,15 @@ class _DMScrollListState extends State<DMScrollList> {
                   ChatBox(
                     chatImage: AssetImage('assets/images/steve_rogers.jpg'),
                     chatName: "steve_rogers",
-                    chatDetail: "Big man in a suit of armor. Take that off",
+                    chatDetail:
+                        "Big man in a suit of armor. Take that off, what are you?",
                     time: "3m",
                     ringEnabled: false,
                   ),
                   ChatBox(
                     chatImage: AssetImage('assets/images/thor.jpg'),
                     chatName: "thor_odin",
-                    chatDetail: "Noticed you've copied my beard.",
+                    chatDetail: "Please kind sir do not cut my hair!",
                     time: "3m",
                     ringEnabled: true,
                   ),
@@ -73,7 +74,8 @@ class _DMScrollListState extends State<DMScrollList> {
                   ChatBox(
                     chatImage: AssetImage('assets/images/nat_rom.jpg'),
                     chatName: "nat_rom",
-                    chatDetail: "This Is Just Like Budapest All Over...",
+                    chatDetail:
+                        "The truth is a matter of circumstance. It's not all things to all people all the time. And neither am I.",
                     time: "7m",
                     ringEnabled: true,
                   ),
@@ -101,7 +103,7 @@ class _DMScrollListState extends State<DMScrollList> {
                   ChatBox(
                     chatImage: AssetImage('assets/images/scott_lang.jpg'),
                     chatName: "scott_lang",
-                    chatDetail: "Why don't you pick on someone...",
+                    chatDetail: "Why don't you pick on someone your own size?",
                     time: "23m",
                     ringEnabled: true,
                   ),
@@ -122,7 +124,8 @@ class _DMScrollListState extends State<DMScrollList> {
                   ChatBox(
                     chatImage: AssetImage('assets/images/loki.jpg'),
                     chatName: "just_loki",
-                    chatDetail: "I am a god, you dull creature, an...",
+                    chatDetail:
+                        "You are all of you are beneath me! I am a god, you dull creature.",
                     time: "27m",
                     ringEnabled: true,
                   ),

@@ -173,7 +173,7 @@ class _AddPostState extends State<AddPost> {
                           width: 300,
                           child: Image.network(
                             imageUrl ??
-                                "https://i.pinimg.com/564x/d7/22/d9/d722d9b3f8f8ae58d2fd3b4cb9dd657c.jpg",
+                                "https://raw.githubusercontent.com/jash-desai/insta-clone/main/assets/images/upload.png",
                             fit: BoxFit.contain,
                           ),
                         ),

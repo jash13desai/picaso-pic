@@ -119,7 +119,7 @@ class AccountPage extends StatelessWidget {
                           children: [
                             ProfilePhoto(
                               imageUrl: snapshots.item2.data['imageUrl'] ??
-                                  "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png",
+                                  "https://raw.githubusercontent.com/jash-desai/insta-clone/main/assets/images/user-default-grey.png",
                             ),
                             MySpaces.hGapInBetween,
                             Expanded(

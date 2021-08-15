@@ -72,11 +72,10 @@ class _ProfilePhotoState extends State<ProfilePhoto> {
           : CircleAvatar(
               radius: SizeConfig.horizontalBlockSize * 12,
               backgroundImage: NetworkImage(
-                // FirebaseAuth.instance.currentUser.photoURL
                 ((widget.imageUrl == null)
                         ? FirebaseAuth.instance.currentUser.photoURL
                         : widget.imageUrl) ??
-                    "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png",
+                    "https://raw.githubusercontent.com/jash-desai/insta-clone/main/assets/images/user-default-grey.png",
               ),
             ),
     );

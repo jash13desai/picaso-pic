@@ -422,7 +422,7 @@ class AccountPage extends StatelessWidget {
                                     padding: const EdgeInsets.only(bottom: 18),
                                     child: Text(
                                       "When you share photos, they will appear on your profile.",
-                                      style: MyFonts.light.size(12),
+                                      style: MyFonts.light.size(13),
                                     ),
                                   ),
                                   RichText(
@@ -471,12 +471,60 @@ class AccountPage extends StatelessWidget {
                               },
                             )
                       : Center(
-                          child: Text(
-                            "Follow this account to see their posts",
-                            style: MyFonts.light
-                                .size(SizeConfig.horizontalBlockSize * 5),
+                          child: Container(
+                            height: 200,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 18),
+                                  child: GreyRing(
+                                    padding: 10,
+                                    child: IconButton(
+                                      onPressed: () => Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              AddPost(ImageSource.gallery),
+                                        ),
+                                      ),
+                                      icon: Icon(
+                                        Icons.lock,
+                                        size:
+                                            SizeConfig.horizontalBlockSize * 10,
+                                      ),
+                                      color: Colors.white,
+                                      iconSize: 50,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 18),
+                                  child: Text(
+                                    "This account is private",
+                                    style: MyFonts.light.size(25),
+                                  ),
+                                ),
+                                Padding(
+                                  // padding: const EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.only(bottom: 18),
+                                  child: Text(
+                                    "Follow this account to see their photos and videos",
+                                    overflow: TextOverflow.ellipsis,
+                                    style: MyFonts.light.size(15),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
+                  // : Center(
+                  //     child: Text(
+                  //       "Follow this account to see their posts",
+                  //       style: MyFonts.light
+                  //           .size(SizeConfig.horizontalBlockSize * 5),
+                  //     ),
+                  //   ),
                 ],
               ),
             ),

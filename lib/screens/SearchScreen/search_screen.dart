@@ -68,7 +68,6 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    // final data = Provider.of<Posts>(context).posts;
     return Scaffold(
       appBar: AppBar(
         backgroundColor:

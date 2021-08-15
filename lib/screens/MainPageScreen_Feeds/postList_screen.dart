@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:insta_ui_only/globals/myFonts.dart';
+import 'package:insta_ui_only/globals/sizeConfig.dart';
 import 'package:insta_ui_only/providers/posts.dart';
 import 'package:insta_ui_only/widgets/PostWidget/post_widget.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +37,43 @@ class InstaList extends StatelessWidget {
           //   },
           // ),
           (Provider.of<Posts>(context, listen: false).queryList.isEmpty)
-              ? Text("Follow someone")
+              ? Container(
+                  height: 200,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 15),
+                        child: Container(
+                          padding: const EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              width: 1,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          child: Center(
+                            child: Icon(
+                              FontAwesomeIcons.userAlt,
+                              size: SizeConfig.horizontalBlockSize * 10,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        // padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.only(bottom: 18),
+                        child: Text(
+                          "Follow someone to see their posts in feed",
+                          overflow: TextOverflow.ellipsis,
+                          style: MyFonts.light.size(15),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
               : StreamBuilder(
                   stream: FirebaseFirestore.instance
                       .collection('posts')

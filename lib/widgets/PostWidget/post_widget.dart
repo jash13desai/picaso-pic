@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/sizeConfig.dart';
+import 'package:insta_ui_only/screens/AccountScreen/account_screen.dart';
 import 'package:intl/intl.dart';
 import '../../models/post.dart';
 import 'postComment_Widget.dart';
@@ -40,6 +41,7 @@ class _PostWidgetState extends State<PostWidget> {
   bool isBookPressed = false;
   String profileUrl;
   String name;
+  String userId;
   bool isLoading = true;
 
   final _auth = FirebaseAuth.instance;
@@ -56,6 +58,7 @@ class _PostWidgetState extends State<PostWidget> {
         final data = response.data() as Map<String, dynamic>;
         profileUrl = data['imageUrl'];
         name = data['user_name'];
+        userId = data['userId'];
         setState(
           () {
             isLoading = false;
@@ -81,11 +84,19 @@ class _PostWidgetState extends State<PostWidget> {
                   children: <Widget>[
                     Row(
                       children: <Widget>[
-                        CircleAvatar(
-                          radius: 20,
-                          backgroundImage: NetworkImage(
-                            profileUrl ??
-                                "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png",
+                        IconButton(
+                          onPressed: () {
+                            Navigator.of(context).pushReplacementNamed(
+                              AccountPage.route,
+                              arguments: userId,
+                            );
+                          },
+                          icon: CircleAvatar(
+                            radius: 20,
+                            backgroundImage: NetworkImage(
+                              profileUrl ??
+                                  "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png",
+                            ),
                           ),
                         ),
                         SizedBox(width: 8),

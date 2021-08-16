@@ -45,7 +45,7 @@ class _PostCommentWidgetState extends State<PostCommentWidget> {
                       "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
                 ),
                 onPressed: () {
-                  Navigator.of(context).pushReplacementNamed(
+                  Navigator.of(context).pushNamed(
                     AccountPage.route,
                     arguments: _auth.currentUser.uid,
                   );

@@ -43,7 +43,7 @@ class BottomNavBarMain extends StatelessWidget {
               ),
               iconSize: 32,
               onPressed: () {
-                Navigator.of(context).pushReplacementNamed(InstaHome.route);
+                Navigator.of(context).pushNamed(InstaHome.route);
               },
             ),
             IconButton(
@@ -61,7 +61,7 @@ class BottomNavBarMain extends StatelessWidget {
               ),
               iconSize: 33,
               onPressed: () {
-                Navigator.of(context).pushReplacementNamed(SearchPage.route);
+                Navigator.of(context).pushNamed(SearchPage.route);
               },
             ),
             RadiantGradientMask2(
@@ -105,7 +105,7 @@ class BottomNavBarMain extends StatelessWidget {
                     ),
               iconSize: 25,
               onPressed: () {
-                Navigator.of(context).pushReplacementNamed(ActivityPage.route);
+                Navigator.of(context).pushNamed(ActivityPage.route);
               },
             ),
             IconButton(
@@ -115,7 +115,7 @@ class BottomNavBarMain extends StatelessWidget {
                     "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
               ),
               onPressed: () {
-                Navigator.of(context).pushReplacementNamed(
+                Navigator.of(context).pushNamed(
                   AccountPage.route,
                   arguments: FirebaseAuth.instance.currentUser.uid,
                 );

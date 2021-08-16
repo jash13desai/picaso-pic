@@ -31,7 +31,7 @@ class _EditProfileState extends State<EditProfile> {
     setState(() {
       isLoading = true;
     });
-
+    print('isLoading: $isLoading');
     final _db = FirebaseFirestore.instance;
     if (_userName.isNotEmpty) {
       await _db
@@ -48,6 +48,8 @@ class _EditProfileState extends State<EditProfile> {
     setState(() {
       isLoading = false;
     });
+    Navigator.of(context).pop();
+    print('isLoading: $isLoading');
     Navigator.of(context).pop();
     // Navigator.of(context).pushReplacementNamed(
     // AccountPage.route,

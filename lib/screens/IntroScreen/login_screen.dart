@@ -190,7 +190,7 @@ class _LogInState extends State<LogIn> {
                                             .showSnackBar(
                                           SnackBar(
                                             content: Text(
-                                              'Sorry for the feature-less UI :(',
+                                              "Sorry! This feature isn't available :(",
                                             ),
                                           ),
                                         );
@@ -296,7 +296,7 @@ class _LogInState extends State<LogIn> {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: 'Don\'t have an account? ',
+                            text: "Don\'t have an account? ",
                             style: TextStyle(
                               fontSize: 16,
                               color: Colors.grey[700].withOpacity(0.9),

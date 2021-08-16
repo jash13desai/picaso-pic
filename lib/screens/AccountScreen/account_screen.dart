@@ -193,7 +193,7 @@ class AccountPage extends StatelessWidget {
                                     child: TextButton(
                                       onPressed: () {
                                         Navigator.of(context)
-                                            .popAndPushNamed(EditProfile.route);
+                                            .pushNamed(EditProfile.route);
                                       },
                                       child: Row(
                                         mainAxisAlignment:

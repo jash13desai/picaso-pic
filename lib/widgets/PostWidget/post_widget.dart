@@ -87,7 +87,7 @@ class _PostWidgetState extends State<PostWidget> {
                         IconButton(
                           padding: EdgeInsets.all(0.01),
                           onPressed: () {
-                            Navigator.of(context).pushReplacementNamed(
+                            Navigator.of(context).pushNamed(
                               AccountPage.route,
                               arguments: userId,
                             );

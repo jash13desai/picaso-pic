@@ -6,8 +6,8 @@
 **A Basic and Simple Instagram Clone App with many similar features.**
 
 ## ✨ Features
-The app theme changes according to the theme of the device.!
-* Try changing the theme of your phone and restart the app. The app theme will change automatically.
+The app adapts theme according to device's theme.
+* Switch your phone's theme and the app theme will adapt automatically to your phone's theme!
 
 ## ⚙️ Tech-Stack
 The application is built entirely with Flutter. For the backend services, I have made use of Firebase.

@@ -3,7 +3,7 @@
   <img align="center" alt="Instagram" width="50px" src="https://raw.githubusercontent.com/jash-desai/jash-desai/main/assets/instagram.svg" />
 </h1>
 
-**A Basic and Simple Instagram Clone App with many similar features.**
+# A Simple Instagram Clone App with similar features !
 
 ## ✨ Features
 The app adapts theme according to device's theme.

@@ -99,7 +99,12 @@ class _EditProfileState extends State<EditProfile> {
           child: Form(
             key: _formKey,
             child: isLoading
-                ? Center(child: CircularProgressIndicator(color: Colors.pink))
+                ? Container(
+                    height: 300,
+                    child: Center(
+                      child: CircularProgressIndicator(color: Colors.pink),
+                    ),
+                  )
                 : Column(
                     children: [
                       Padding(

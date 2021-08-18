@@ -1,5 +1,7 @@
 <h1 align="center"> 
-  <img align="center" src="https://github.com/jash-desai/insta-clone/blob/main/AppName.svg"/>&nbsp;
+<!--   <img align="center" src="https://github.com/jash-desai/insta-clone/blob/main/AppName.svg"/>&nbsp; -->
+  <img align="center" alt="Instagram" width="50px" src="https://raw.githubusercontent.com/jash-desai/jash-desai/main/assets/instagram.svg" />
+  &nbsp; Instagram Clone &nbsp;
   <img align="center" alt="Instagram" width="50px" src="https://raw.githubusercontent.com/jash-desai/jash-desai/main/assets/instagram.svg" />
 </h1>
 

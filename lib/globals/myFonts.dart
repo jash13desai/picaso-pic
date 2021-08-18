@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// mostly used font configurations which are used in ifferent pages!
+// mostly used font configurations which are used on various instances!
 
 class MyFonts {
   static TextStyle get thin => TextStyle(fontWeight: FontWeight.w300);

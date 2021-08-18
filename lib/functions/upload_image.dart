@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:insta_ui_only/screens/AddPostScreen/add_post.dart';
 
-// function to open the camera when required for camera option
+// function to open the camera when required for camera option.
+// Includes only the Camera Source - not the gallery source!
 
 BuildContext context;
 

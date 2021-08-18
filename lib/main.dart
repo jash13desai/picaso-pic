@@ -16,7 +16,7 @@ import 'screens/MainPageScreen_Feeds/postList_screen.dart';
 import 'screens/SearchScreen/search_screen.dart';
 import 'screens/IntroScreen/signup_screen.dart';
 
-// the main insta app which starts the whole app XD ;
+// The main Insta app which starts the whole app after Initialized--> 
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -57,7 +57,7 @@ class Insta extends StatelessWidget {
               );
             }
           },
-        ),
+        ),        
         routes: {
           IntroPage.route: (context) => IntroPage(),
           LogIn.route: (ctx) => LogIn(),

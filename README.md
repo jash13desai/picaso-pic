@@ -7,7 +7,7 @@
 
 # A Simple Instagram Clone App with similar features !
 
-## ✨ Unique Features
+## ✨ Features
 The app adapts theme according to device's theme.
 * Switch your phone's theme and the app theme will adapt automatically to your phone's theme!
 

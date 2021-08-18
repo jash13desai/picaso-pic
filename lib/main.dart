@@ -58,6 +58,9 @@ class Insta extends StatelessWidget {
             }
           },
         ),        
+        
+        // Routes added for easy Navigation throughout the app
+        
         routes: {
           IntroPage.route: (context) => IntroPage(),
           LogIn.route: (ctx) => LogIn(),

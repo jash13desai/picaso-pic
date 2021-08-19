@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// the customizable button -- maybe not used anywhere much 
+
 class ButtonWidget extends StatelessWidget {
   final String title;
   final bool hasBorder;

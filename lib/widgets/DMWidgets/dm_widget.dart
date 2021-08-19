@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../StoriesWidget/grey_ring_widget.dart';
 import 'package:insta_ui_only/functions/upload_image.dart' as imageUpload;
 
+// a sample dm chat box widget which shows dummy single chat box.
+
 class ChatBox extends StatelessWidget {
   final AssetImage chatImage;
   final String chatName;

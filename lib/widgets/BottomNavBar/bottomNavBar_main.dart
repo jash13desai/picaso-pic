@@ -11,7 +11,6 @@ import 'package:insta_ui_only/widgets/iconGradient.dart';
 
 // The bottom navigation bar which takes argument for showing the highlighted screen tab button when on the respective screen
 
-
 class BottomNavBarMain extends StatelessWidget {
   final int argument;
   BottomNavBarMain({this.argument});
@@ -69,17 +68,19 @@ class BottomNavBarMain extends StatelessWidget {
             ),
             RadiantGradientMask2(
               child: IconButton(
-                icon: GradientIcon(
-                  Icons.add_box_rounded,
-                  38,
-                  LinearGradient(
-                    colors: <Color>[
-                      Colors.purple[200],
-                      Colors.orange[300],
-                      Colors.purple[100],
-                    ],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
+                icon: ClipOval(
+                  child: GradientIcon(
+                    Icons.add_box_rounded,
+                    38,
+                    LinearGradient(
+                      colors: <Color>[
+                        Colors.purple[200],
+                        Colors.orange[300],
+                        Colors.purple[100],
+                      ],
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                    ),
                   ),
                 ),
                 onPressed: () => Navigator.push(

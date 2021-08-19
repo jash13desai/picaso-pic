@@ -3,7 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/sizeConfig.dart';
-// import 'package:instagram_ui_clone/screens/signup.dart';
+
+// follow button used on the account screen 
 
 class FollowButton extends StatefulWidget {
   final String text;

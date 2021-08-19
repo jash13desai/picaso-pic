@@ -9,6 +9,9 @@ import 'package:insta_ui_only/screens/MainPageScreen_Feeds/homeBar_screen.dart';
 import 'package:insta_ui_only/screens/SearchScreen/search_screen.dart';
 import 'package:insta_ui_only/widgets/iconGradient.dart';
 
+// The bottom navigation bar which takes argument for showing the highlighted screen tab button when on the respective screen
+
+
 class BottomNavBarMain extends StatelessWidget {
   final int argument;
   BottomNavBarMain({this.argument});

@@ -68,21 +68,27 @@ class BottomNavBarMain extends StatelessWidget {
             ),
             RadiantGradientMask2(
               child: IconButton(
-                icon: ClipOval(
-                  child: GradientIcon(
-                    Icons.add_box_rounded,
-                    38,
-                    LinearGradient(
-                      colors: <Color>[
-                        Colors.purple[200],
-                        Colors.orange[300],
-                        Colors.purple[100],
-                      ],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                    ),
+                icon: GradientIcon(
+                  Icons.add_rounded,
+                  38,
+                  LinearGradient(
+                    colors: <Color>[
+                      Colors.purple[200],
+                      Colors.orange[300],
+                      Colors.purple[100],
+                    ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
                   ),
                 ),
+                // icon: Icon(
+                //   Icons.add_rounded,
+                //   color: MediaQuery.of(context).platformBrightness ==
+                //           Brightness.light
+                //       ? Colors.white
+                //       : Colors.black,
+                //   size: 38,
+                // ),
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -138,14 +144,35 @@ class RadiantGradientMask2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ShaderMask(
-      shaderCallback: (bounds) => RadialGradient(
-        center: Alignment.topRight,
-        radius: 1,
-        colors: [Colors.purple[400], Colors.pink[200], Colors.purple],
-        tileMode: TileMode.clamp,
-      ).createShader(bounds),
-      child: child,
+    return Container(
+      width: 70,
+      child: ShaderMask(
+        shaderCallback: (bounds) => RadialGradient(
+          center: Alignment.topRight,
+          radius: 1,
+          colors: [Colors.purple[400], Colors.pink[200], Colors.purple],
+          tileMode: TileMode.clamp,
+        ).createShader(bounds),
+        child: child,
+      ),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: <Color>[
+            Colors.purple,
+            Colors.orange[600],
+            Colors.purple,
+            // Colors.orange[600],
+          ],
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+        ),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(15),
+          topRight: Radius.circular(15),
+          bottomRight: Radius.circular(15),
+          bottomLeft: Radius.circular(15),
+        ),
+      ),
     );
   }
 }

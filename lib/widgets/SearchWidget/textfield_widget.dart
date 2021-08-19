@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 
+// textfield widget used in every textfield except for the search screen -- used for login/sign up text fields
+
 class TextFieldWidget extends StatelessWidget {
   final String hintText;
   final bool obscureText;

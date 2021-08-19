@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/widgets/SearchWidget/textfield_widget.dart';
 
+// textfield widget with prefixIcon as search -- search bar textfield
+
 class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

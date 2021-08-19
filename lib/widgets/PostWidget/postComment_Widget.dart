@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:insta_ui_only/screens/accountScreen/account_screen.dart';
 
+// comment box in the post section as the icon for the user who is currently using the account was not possible without making a separate widget for this purpose
+
 class PostCommentWidget extends StatefulWidget {
   @override
   _PostCommentWidgetState createState() => _PostCommentWidgetState();

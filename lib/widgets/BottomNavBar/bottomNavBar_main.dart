@@ -23,7 +23,7 @@ class BottomNavBarMain extends StatelessWidget {
       //     : Colors.black,
       color: Colors.black.withOpacity(0.2),
       height: 50.0,
-      // alignment: Alignment.center,
+      alignment: Alignment.center,
       child: BottomAppBar(
         // color: MediaQuery.of(context).platformBrightness == Brightness.light
         //     ? Colors.white

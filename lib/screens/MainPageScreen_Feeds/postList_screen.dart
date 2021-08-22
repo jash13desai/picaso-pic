@@ -6,7 +6,7 @@ import 'package:insta_ui_only/globals/sizeConfig.dart';
 import 'package:insta_ui_only/providers/posts.dart';
 import 'package:insta_ui_only/widgets/PostWidget/post_widget.dart';
 import 'package:insta_ui_only/widgets/StoriesWidget/grey_ring_widget.dart';
-import 'package:insta_ui_only/widgets/caughtUp_widget.dart';
+// import 'package:insta_ui_only/widgets/caughtUp_widget.dart';
 import 'package:provider/provider.dart';
 import 'stories_screen.dart';
 
@@ -17,7 +17,11 @@ class InstaList extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Container(child: InstaStories(), height: 125),
+          Padding(
+            padding: const EdgeInsets.only(top: 60),
+            child: Container(child: InstaStories(), height: 125),
+          ),
+
           // Consumer<Posts>(
           //   builder: (ctx, posts, _) {
           //     return Column(

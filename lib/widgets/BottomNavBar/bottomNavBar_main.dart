@@ -7,7 +7,7 @@ import 'package:insta_ui_only/screens/ActivityScreen/activity_screen.dart';
 import 'package:insta_ui_only/screens/AddPostScreen/add_post.dart';
 import 'package:insta_ui_only/screens/MainPageScreen_Feeds/homeBar_screen.dart';
 import 'package:insta_ui_only/screens/SearchScreen/search_screen.dart';
-import 'package:insta_ui_only/widgets/iconGradient.dart';
+// import 'package:insta_ui_only/widgets/iconGradient.dart';
 
 // The bottom navigation bar which takes argument for showing the highlighted screen tab button when on the respective screen
 
@@ -18,15 +18,17 @@ class BottomNavBarMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: MediaQuery.of(context).platformBrightness == Brightness.light
-          ? Colors.white
-          : Colors.black,
+      // color: MediaQuery.of(context).platformBrightness == Brightness.light
+      //     ? Colors.white
+      //     : Colors.black,
+      color: Colors.black.withOpacity(0.2),
       height: 50.0,
-      alignment: Alignment.center,
+      // alignment: Alignment.center,
       child: BottomAppBar(
-        color: MediaQuery.of(context).platformBrightness == Brightness.light
-            ? Colors.white
-            : Colors.black,
+        // color: MediaQuery.of(context).platformBrightness == Brightness.light
+        //     ? Colors.white
+        //     : Colors.black,
+        color: Colors.black.withOpacity(0.2),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
@@ -67,32 +69,36 @@ class BottomNavBarMain extends StatelessWidget {
               },
             ),
             RadiantGradientMask2(
-              child: IconButton(
-                icon: GradientIcon(
-                  Icons.add_rounded,
-                  38,
-                  LinearGradient(
-                    colors: <Color>[
-                      Colors.purple[200],
-                      Colors.orange[300],
-                      Colors.purple[100],
-                    ],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
+              child: Center(
+                child: IconButton(
+                  // icon: GradientIcon(
+                  //   Icons.add_rounded,
+                  //   38,
+                  //   LinearGradient(
+                  //     colors: <Color>[
+                  //       Colors.purple[200],
+                  //       Colors.orange[300],
+                  //       Colors.purple[100],
+                  //     ],
+                  //     // begin: Alignment.centerLeft,
+                  //     // end: Alignment.centerRight,
+                  //   ),
+                  // ),
+                  icon: Center(
+                    child: Icon(
+                      Icons.add_rounded,
+                      color: MediaQuery.of(context).platformBrightness ==
+                              Brightness.light
+                          ? Colors.white
+                          : Colors.black,
+                      size: 35,
+                    ),
                   ),
-                ),
-                // icon: Icon(
-                //   Icons.add_rounded,
-                //   color: MediaQuery.of(context).platformBrightness ==
-                //           Brightness.light
-                //       ? Colors.white
-                //       : Colors.black,
-                //   size: 38,
-                // ),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AddPost(ImageSource.gallery),
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AddPost(ImageSource.gallery),
+                    ),
                   ),
                 ),
               ),
@@ -145,7 +151,7 @@ class RadiantGradientMask2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 70,
+      width: 50,
       child: ShaderMask(
         shaderCallback: (bounds) => RadialGradient(
           center: Alignment.topRight,
@@ -166,12 +172,13 @@ class RadiantGradientMask2 extends StatelessWidget {
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
         ),
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(15),
-          topRight: Radius.circular(15),
-          bottomRight: Radius.circular(15),
-          bottomLeft: Radius.circular(15),
-        ),
+        borderRadius: BorderRadius.circular(10),
+        // borderRadius: BorderRadius.only(
+        //   topLeft: Radius.circular(15),
+        //   topRight: Radius.circular(15),
+        //   bottomRight: Radius.circular(15),
+        //   bottomLeft: Radius.circular(15),
+        // ),
       ),
     );
   }

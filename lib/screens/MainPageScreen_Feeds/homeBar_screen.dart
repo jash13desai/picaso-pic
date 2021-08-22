@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:insta_ui_only/functions/upload_image.dart' as imageUpload;
@@ -18,11 +20,6 @@ class InstaHome extends StatefulWidget {
 }
 
 class _InstaHomeState extends State<InstaHome> {
-  // @override
-  // void initState() {
-  //   Provider.of<Posts>(context, listen: false).fetchAndSetPosts();
-  //   super.initState();
-  // }
   bool isLoading = true;
   @override
   void initState() {
@@ -44,7 +41,15 @@ class _InstaHomeState extends State<InstaHome> {
     imageUpload.init(context);
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
+        extendBodyBehindAppBar: true,
+        // appBar: PreferredSize(
+        appBar:
+            //   child: ClipRRect(
+            //     child: BackdropFilter(
+            //       filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+            // child: AppBar(
+            AppBar(
+          // backgroundColor: Colors.black.withOpacity(0.2),
           leading: IconButton(
             onPressed: () => imageUpload.navigate(),
             icon: Icon(
@@ -78,11 +83,32 @@ class _InstaHomeState extends State<InstaHome> {
               },
             ),
           ],
+          // ),
+          // ),
+          // ),
+          //   preferredSize: Size(
+          //     double.infinity,
+          //     50.0,
+          //   ),
         ),
         body: isLoading
             ? Center(child: CircularProgressIndicator(color: Colors.pink))
             : InstaList(),
-        bottomNavigationBar: BottomNavBarMain(argument: 1),
+        bottomNavigationBar: PreferredSize(
+          child: ClipRRect(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+              child: BottomAppBar(
+                color: Colors.black.withOpacity(0.2),
+                child: BottomNavBarMain(argument: 1),
+              ),
+            ),
+          ),
+          preferredSize: Size(
+            double.infinity,
+            50,
+          ),
+        ),
       ),
     );
   }

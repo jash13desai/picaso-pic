@@ -26,5 +26,7 @@ The application is built entirely with Flutter. For the backend services, I have
     cd insta-clone
     flutter run
     ```
+<!--      -->
+    
 </br>
 <img align="center" src="https://github.com/jash-desai/insta-clone/blob/main/insta-clone.png"/>

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/mySpaces.dart';
 import 'package:insta_ui_only/widgets/PostWidget/profilePhoto_widget.dart';
-import 'account_screen.dart';
 
 // edit profile page  -- update your username, bio, and profile photo on this page
 

@@ -109,11 +109,9 @@ class _SearchPageState extends State<SearchPage> {
                       icon: Icon(Icons.arrow_back),
                       iconSize: 20.0,
                       onPressed: () {
-                        setState(
-                          () {
-                            isSearching = false;
-                          },
-                        );
+                        setState(() {
+                          isSearching = false;
+                        });
                       },
                     )
                   : IconButton(
@@ -121,11 +119,9 @@ class _SearchPageState extends State<SearchPage> {
                       icon: Icon(Icons.search),
                       iconSize: 20.0,
                       onPressed: () {
-                        setState(
-                          () {
-                            isSearching = false;
-                          },
-                        );
+                        setState(() {
+                          isSearching = false;
+                        });
                       },
                     ),
               hintText: "Search",
@@ -302,20 +298,6 @@ class _SearchPageState extends State<SearchPage> {
                               );
                             },
                           )
-                    // StaggeredGridView.countBuilder(
-                    //   shrinkWrap: true,
-                    //   physics: NeverScrollableScrollPhysics(),
-                    //   crossAxisCount: 3,
-                    //   itemCount: data.length,
-                    //   itemBuilder: (ctx, index) => Image.network(
-                    //     data[index].postUrl,
-                    //     fit: BoxFit.cover,
-                    //   ),
-                    //   staggeredTileBuilder: (index) => StaggeredTile.count(
-                    //       (index % 10 == 0) ? 2 : 1, (index % 10 == 0) ? 2 : 1),
-                    //   mainAxisSpacing: 4,
-                    //   crossAxisSpacing: 4,
-                    // )
                   ],
                 ),
               ),

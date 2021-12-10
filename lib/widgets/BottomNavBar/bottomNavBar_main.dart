@@ -13,7 +13,9 @@ import 'package:insta_ui_only/screens/SearchScreen/search_screen.dart';
 
 class BottomNavBarMain extends StatelessWidget {
   final int argument;
-  BottomNavBarMain({this.argument});
+  BottomNavBarMain({
+    this.argument,
+  });
 
   @override
   Widget build(BuildContext context) {

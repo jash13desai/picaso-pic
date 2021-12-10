@@ -24,88 +24,18 @@ class Posts with ChangeNotifier {
     List<Post> availablePosts = [];
 
     documents.forEach((doc) {
-      availablePosts.add(Post(
-        postUrl: doc['imageUrl'],
-        location: doc['location'],
-        caption: doc['caption'],
-        date: DateTime.parse(doc['timeStamp'].toDate().toString()),
-        addedBy: doc['addedBy'],
-        docId: doc.id,
-        likedBy: doc['likedBy'],
-      ));
+      availablePosts.add(
+        Post(
+          postUrl: doc['imageUrl'],
+          location: doc['location'],
+          caption: doc['caption'],
+          date: DateTime.parse(doc['timeStamp'].toDate().toString()),
+          addedBy: doc['addedBy'],
+          docId: doc.id,
+          likedBy: doc['likedBy'],
+        ),
+      );
     });
     return availablePosts..sort((a, b) => b.date.compareTo(a.date));
   }
-
-  // final List<Post> _posts = [];
-  // bool isLoading = false;
-
-  // List<Post> get posts {
-  //   if (_posts.isEmpty) {
-  //     fetchAndSetPosts().then(
-  //       (_) {
-  //         return _posts..sort((a, b) => b.date.compareTo(a.date));
-  //       },
-  //     );
-  //   }
-  //   return _posts..sort((a, b) => b.date.compareTo(a.date));
-  // }
-
-  // Future<void> fetchAndSetPosts() async {
-  //   try {
-  //     final response = await FirebaseFirestore.instance
-  //         .collection('posts')
-  //         // .where('addedBy', whereIn: followingList)
-  //         .where('addedBy',
-  //             isNotEqualTo: FirebaseFirestore.instance
-  //                 .doc('/users/${FirebaseAuth.instance.currentUser.uid}'))
-  //         .get();
-  //     _posts.clear();
-  //     response.docs.forEach((doc) {
-  //       _posts.add(
-  //         Post(
-  //           postUrl: doc['imageUrl'],
-  //           location: doc['location'],
-  //           caption: doc['caption'],
-  //           date: DateTime.parse(doc['timeStamp'].toDate().toString()),
-  //           addedBy: doc['addedBy'],
-  //           likedBy: doc['likedBy'],
-  //           docId: doc.id,
-  //         ),
-  //       );
-  //     });
-  //   } catch (ERROR) {
-  //     throw ERROR;
-  //   }
-  //   notifyListeners();
-  // }
-
 }
-//   void fetchAndSetPosts() try {
-//     final allPosts = FirebaseFirestore.instance
-//         .collection('posts')
-//         .where('addedBy', isNotEqualTo: _auth.currentUser.uid);
-//     try {
-//       allPosts.get().then((QuerySnapshot querySnapshot) {
-//         querySnapshot.docs.forEach((doc) {
-//           _posts.add(Post(
-//             postUrl: doc['imageUrl'],
-//             location: doc['location'],
-//             caption: doc['caption'],
-//             date: DateTime.parse(doc['timeStamp'].toDate().toString()),
-//             name: doc['addedBy'],
-//             profileUrl: doc['profileUrl'],
-//           ));
-//         });
-//       });
-//     } catch (error) {
-//       print(error);
-//     }
-
-//     if (isInit) {
-//       isInit = false;
-//     } else {
-//       notifyListeners();
-//     }
-//   }
-// }

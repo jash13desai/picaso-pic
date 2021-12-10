@@ -6,31 +6,13 @@ import 'package:insta_ui_only/globals/myFonts.dart';
 import 'package:insta_ui_only/globals/sizeConfig.dart';
 import 'package:insta_ui_only/screens/AccountScreen/account_screen.dart';
 import 'package:intl/intl.dart';
+import 'package:share/share.dart';
 import '../../models/post.dart';
 import 'postComment_Widget.dart';
 
 class PostWidget extends StatefulWidget {
   final Post post;
   const PostWidget(this.post);
-
-  // final AssetImage accountImage;
-  // final String accountName;
-  // final Image mainPostImage;
-  // final AssetImage likedImage;
-  // final String twoNames;
-  // final String likes;
-  // final String caption;
-  // final String time;
-  // PostWidget({
-  //   this.accountImage,
-  //   this.accountName,
-  //   this.mainPostImage,
-  //   this.likedImage,
-  //   this.twoNames,
-  //   this.likes,
-  //   this.caption,
-  //   this.time,
-  // });
 
   @override
   _PostWidgetState createState() => _PostWidgetState();
@@ -59,11 +41,9 @@ class _PostWidgetState extends State<PostWidget> {
         profileUrl = data['imageUrl'];
         name = data['user_name'];
         userId = data['userId'];
-        setState(
-          () {
-            isLoading = false;
-          },
-        );
+        setState(() {
+          isLoading = false;
+        });
       },
     );
 
@@ -195,11 +175,9 @@ class _PostWidgetState extends State<PostWidget> {
                         onPressed: () async {
                           ScaffoldMessenger.of(context).hideCurrentSnackBar();
                           try {
-                            setState(
-                              () {
-                                isLikePressed = !isLikePressed;
-                              },
-                            );
+                            setState(() {
+                              isLikePressed = !isLikePressed;
+                            });
                             isLikePressed
                                 ? await _db.doc(widget.post.docId).update(
                                     {
@@ -222,30 +200,11 @@ class _PostWidgetState extends State<PostWidget> {
                                 ),
                               ),
                             );
-                            setState(
-                              () {
-                                isLikePressed = !isLikePressed;
-                              },
-                            );
+                            setState(() {
+                              isLikePressed = !isLikePressed;
+                            });
                           }
-                          // setState(
-                          //   () {
-                          //     isLikePressed = !isLikePressed;
-                          //   },
-                          // );
-                          // isLikePressed == true
-                          //     ? ScaffoldMessenger.of(context).showSnackBar(
-                          //         SnackBar(
-                          //           duration: const Duration(seconds: 1),
-                          //           content: Text('You liked the post! :) '),
-                          //         ),
-                          //       )
-                          //     : ScaffoldMessenger.of(context).showSnackBar(
-                          //         SnackBar(
-                          //           duration: const Duration(seconds: 1),
-                          //           content: Text('You unliked the post! :( '),
-                          //         ),
-                          //       );
+
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               duration: const Duration(seconds: 1),
@@ -263,9 +222,59 @@ class _PostWidgetState extends State<PostWidget> {
                         ),
                         iconSize: 24,
                       ),
+                      // Share Icon!
                       new IconButton(
                         iconSize: 24,
-                        onPressed: () {},
+                        onPressed: () {
+                          // Share.share(
+                          // 'Check out this post on the My InstaClone App: hello!',
+                          // subject:
+                          // 'Check out this post on the My InstaClone App',
+                          // );
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (context) {
+                              return Container(
+                                padding:
+                                    const EdgeInsets.only(bottom: 20, top: 20),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    ListTile(
+                                      leading: new Icon(Icons.link),
+                                      title: Text('Share Link'),
+                                      onTap: () {
+                                        Navigator.pop(context);
+                                      },
+                                    ),
+                                    ListTile(
+                                      leading: new Icon(
+                                        FontAwesomeIcons.whatsapp,
+                                        color: Colors.tealAccent,
+                                      ),
+                                      title: Text('Whatsapp'),
+                                      onTap: () {
+                                        Share.share(
+                                          'Check out this post on the My InstaClone App: ${widget.post.postUrl}',
+                                        );
+                                      },
+                                    ),
+                                    ListTile(
+                                      leading: new Icon(
+                                        Icons.delete,
+                                        color: Colors.red,
+                                      ),
+                                      title: Text('Exit'),
+                                      onTap: () {
+                                        Navigator.pop(context);
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          );
+                        },
                         icon: Icon(FontAwesomeIcons.paperPlane),
                       ),
                     ],
@@ -300,49 +309,6 @@ class _PostWidgetState extends State<PostWidget> {
                   )
                 ],
               ),
-              // Row(
-              //   children: [
-              //     Padding(
-              //       padding: const EdgeInsets.only(left: 8.0),
-              //       child: Container(
-              //         height: 25.0,
-              //         width: 25.0,
-              //         decoration: new BoxDecoration(
-              //           shape: BoxShape.circle,
-              //           image: new DecorationImage(
-              //             fit: BoxFit.cover,
-              //             image: widget.likedImage,
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-              //     Padding(
-              //       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              //       child: Row(
-              //         children: [
-              //           Text(
-              //             "Liked by ",
-              //           ),
-              //           Text(
-              //             widget.twoNames,
-              //             style: TextStyle(fontWeight: FontWeight.bold),
-              //           ),
-              //           Text(
-              //             " and ",
-              //           ),
-              //           Text(
-              //             widget.likes,
-              //             style: TextStyle(fontWeight: FontWeight.bold),
-              //           ),
-              //           Text(
-              //             " others",
-              //             style: TextStyle(fontWeight: FontWeight.bold),
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //   ],
-              // ),
               Padding(
                 padding: const EdgeInsets.only(left: 8),
                 child: Row(
@@ -375,38 +341,6 @@ class _PostWidgetState extends State<PostWidget> {
                 ),
               ),
               PostCommentWidget(),
-              // Padding(
-              //   padding: const EdgeInsets.fromLTRB(5, 10, 0, 5),
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.start,
-              //     children: <Widget>[
-              //       new Container(
-              //         height: 40.0,
-              //         width: 40.0,
-              //         decoration: new BoxDecoration(
-              //           shape: BoxShape.circle,
-              //           image: new DecorationImage(
-              //             fit: BoxFit.cover,
-              //             image: NetworkImage(
-              //                 // profileUrl ??
-              //                 "https://i2.wp.com/wilkinsonschool.org/wp-content/uploads/2018/10/user-default-grey.png"),
-              //           ),
-              //         ),
-              //       ),
-              //       new SizedBox(
-              //         width: 10.0,
-              //       ),
-              //       Expanded(
-              //         child: new TextField(
-              //           decoration: new InputDecoration(
-              //             border: InputBorder.none,
-              //             hintText: "Add a comment...",
-              //           ),
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 22),
                 child: Text(

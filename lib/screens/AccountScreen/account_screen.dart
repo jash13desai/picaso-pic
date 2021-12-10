@@ -333,31 +333,37 @@ class AccountPage extends StatelessWidget {
                                             storyImage: AssetImage(
                                                 "assets/images/user-default-grey.png"),
                                             storyName: 'Foods',
+                                            onTapFunction: null,
                                           ),
                                           StoryWidget(
                                             storyImage: AssetImage(
                                                 "assets/images/user-default-grey.png"),
                                             storyName: 'Homies',
+                                            onTapFunction: null,
                                           ),
                                           StoryWidget(
                                             storyImage: AssetImage(
                                                 "assets/images/user-default-grey.png"),
                                             storyName: 'Travels',
+                                            onTapFunction: null,
                                           ),
                                           StoryWidget(
                                             storyImage: AssetImage(
                                                 "assets/images/user-default-grey.png"),
                                             storyName: 'Parties',
+                                            onTapFunction: null,
                                           ),
                                           StoryWidget(
                                             storyImage: AssetImage(
                                                 "assets/images/user-default-grey.png"),
                                             storyName: 'Clubs',
+                                            onTapFunction: null,
                                           ),
                                           StoryWidget(
                                             storyImage: AssetImage(
                                                 "assets/images/user-default-grey.png"),
                                             storyName: 'Sports',
+                                            onTapFunction: null,
                                           ),
                                         ],
                                       ),

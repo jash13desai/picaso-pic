@@ -70,36 +70,53 @@ class BottomNavBarMain extends StatelessWidget {
                 Navigator.of(context).pushNamed(SearchPage.route);
               },
             ),
-            RadiantGradientMask2(
-              child: Center(
-                child: IconButton(
-                  // icon: GradientIcon(
-                  //   Icons.add_rounded,
-                  //   38,
-                  //   LinearGradient(
-                  //     colors: <Color>[
-                  //       Colors.purple[200],
-                  //       Colors.orange[300],
-                  //       Colors.purple[100],
-                  //     ],
-                  //     // begin: Alignment.centerLeft,
-                  //     // end: Alignment.centerRight,
-                  //   ),
-                  // ),
-                  icon: Center(
-                    child: Icon(
-                      Icons.add_rounded,
-                      color: MediaQuery.of(context).platformBrightness ==
-                              Brightness.light
-                          ? Colors.white
-                          : Colors.black,
-                      size: 35,
-                    ),
+            Material(
+              borderRadius: BorderRadius.circular(30),
+              child: InkWell(
+                splashColor: Colors.redAccent.shade400,
+                borderRadius: BorderRadius.circular(30),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddPost(ImageSource.gallery),
                   ),
-                  onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AddPost(ImageSource.gallery),
+                ),
+                child: ShaderMask(
+                  shaderCallback: (bounds) => RadialGradient(
+                    center: Alignment.topRight,
+                    radius: 10,
+                    colors: [
+                      Colors.purple[400],
+                      Colors.pink[400],
+                      Colors.purpleAccent[400],
+                    ],
+                    tileMode: TileMode.clamp,
+                  ).createShader(bounds),
+                  child: Ink(
+                    padding: EdgeInsets.all(3),
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(30),
+                      border: Border.all(
+                        color: Colors.pink[400],
+                        width: 1.5,
+                      ),
+                    ),
+                    child: RadiantGradientMask2(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(30),
+                          border: Border.all(
+                            width: 1.5,
+                            color: Colors.red.shade100,
+                          ),
+                        ),
+                        child: Icon(
+                          Icons.add_rounded,
+                          size: 32,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -153,34 +170,23 @@ class RadiantGradientMask2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 50,
+      width: 48,
       child: ShaderMask(
         shaderCallback: (bounds) => RadialGradient(
           center: Alignment.topRight,
           radius: 1,
-          colors: [Colors.purple[400], Colors.pink[200], Colors.purple],
+          colors: [
+            Colors.purple[400],
+            Colors.pink[400],
+            Colors.purpleAccent[400],
+          ],
           tileMode: TileMode.clamp,
         ).createShader(bounds),
         child: child,
       ),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: <Color>[
-            Colors.purple,
-            Colors.orange[600],
-            Colors.purple,
-            // Colors.orange[600],
-          ],
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
-        ),
-        borderRadius: BorderRadius.circular(10),
-        // borderRadius: BorderRadius.only(
-        //   topLeft: Radius.circular(15),
-        //   topRight: Radius.circular(15),
-        //   bottomRight: Radius.circular(15),
-        //   bottomLeft: Radius.circular(15),
-        // ),
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(100),
       ),
     );
   }

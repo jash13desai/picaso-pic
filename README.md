@@ -7,7 +7,7 @@
 
 ## ✨ Features
 * Sign Up and Sign In for every user. User needs to login only once. </br>
-* Posting high-definition images with captions.
+* Posting high-definition images with captions and viewing of other user's posts in real-time.
 * Only users who follow you can view your posts.
 * User can like/dislike posts according to their wish.
 * Edit profile feature to upload / change profile picture or update bio. 
@@ -30,5 +30,22 @@ The application is built entirely with Flutter. For the backend services, I have
     cd picaso-pic
     flutter run
     ```
-    
+
+### Screenshots:
+* All Screens 
+
+Screen 1  |  Screen 2  | Screen 3 
+:-------------------------:|:-------------------------:|:-------------------------:
+![](assets/screenshots/launch%20sscreen.png)|![](assets/screenshots/sign%20in%20screen.png)|![](assets/screenshots/sign%20up%20screen.png)
+
+Screen 4 |Screen 5 |Screen 6 |Screen 7
+:-------------------------:|-------------------------:|-------------------------:|-------------------------:
+![](assets/screenshots/Homescreen%20-%20dark.png)|![](assets/screenshots/Homescreen%20-%20light.png) |![](assets/screenshots/Search%20Screen%20-%20dark.png)|![](assets/screenshots/Search%20screen%20-%20light.png)
+
+Screen 8 |Screen 9 |Screen 10 |Screen 11  | Screen 12
+:-------------------------:|-------------------------:|-------------------------:|-------------------------:|-------------------------:
+![](assets/screenshots/Activity%20Feed%20-%20dark.png)|![](assets/screenshots/Profile%20Page%20-%20dark.png) |![](assets/screenshots/Profile%20-%20light.png)|![](assets/screenshots/profile%20-%20unfollowed%20-%20dark.png)|![](assets/screenshots/profile%20-%20followed%20-%20dark.png)
+
+### Feedback:
+* If you have any feedback, please reach out to us at jashkdesai@gmail.com
 </br>
